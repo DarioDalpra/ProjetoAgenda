@@ -4,21 +4,23 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
+    <StartupObject>Agenda_WPF.App</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="unnamed.png" />
+    <None Remove="View\unnamed.png" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Correios.CEP.Net" Version="1.1.6" />
-    <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="MaterialDesignThemes" Version="3.1.3" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.8" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="unnamed.png" />
+    <Resource Include="View\unnamed.png" />
   </ItemGroup>
 
   <ItemGroup>

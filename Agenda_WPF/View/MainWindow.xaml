@@ -5,28 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Agenda_WPF"
         mc:Ignorable="d"
-           Title="Consultório Médico - AGENDA" Height="720" Width="1020" WindowState="Minimized" WindowStyle="ThreeDBorderWindow">
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+           Title="Consultório Médico - AGENDA" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Grid>
-        <DockPanel x:Name="mn_Principal" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="160" Height="704" Background="#FF5AABFA">
-            <Image Height="152" Width="160" Source="/unnamed.png" DockPanel.Dock="Top"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-            <Button x:Name="btn_CadastrarPaciente" Content="Cadastrar Paciente" Height="30" VerticalAlignment="Top" Width="159.9" DockPanel.Dock="Top" Click="btn_CadastrarPaciente_Click"/>
-            <Button x:Name="btn_AgendarConsulta" Content="Agendar Consulta" Height="30" VerticalAlignment="Top" Width="159.9" DockPanel.Dock="Top"/>
-            <Button x:Name="btn_ListarPaciente" Content="Listar Paciente" Height="30" VerticalAlignment="Top" Width="159.9" DockPanel.Dock="Top" Click="btn_ListarPaciente_Click"/>
-            <Button x:Name="btn_ListarConsulta" Content="Listar Consulta" Height="30" VerticalAlignment="Top" Width="159.9" DockPanel.Dock="Top"/>
-
-            <Button x:Name="btn_AlterarPaciente" Content="Atualizar Dados Paciente" Height="30" VerticalAlignment="Top" Width="159.9" DockPanel.Dock="Top"/>
-            <Button x:Name="btn_AlterarAgendamento" Content="Alterar Agendamento" Height="30" VerticalAlignment="Top" Width="159.9" DockPanel.Dock="Top"/>
-            <Button x:Name="btn_ImpressaoDeclaracao" Content="Imprimir Declaração" Height="30" VerticalAlignment="Top" Width="159.9" DockPanel.Dock="Top"/>
-
-        </DockPanel>
-
-       
-        
-
-
-
-
-
+        <materialDesign:ColorZone Mode="PrimaryMid" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
+            <Grid>
+                <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" HorizontalAlignment="Right" Margin="10"/>
+            </Grid>
+        </materialDesign:ColorZone>
+        <Grid HorizontalAlignment="Stretch" Grid.Row="1" Background="{StaticResource PrimaryHueMidBrush}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="326*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Background="GhostWhite">
+                <Image Source= "/View/unnamed.png"/>
+            </Grid>
+            <ScrollViewer HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="1">
+                <StackPanel x:Name="Menu" Margin="10"/>
+            </ScrollViewer>
+        </Grid>
+        <StackPanel x:Name="StackPanelMain" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch"/>
     </Grid>
 </Window>

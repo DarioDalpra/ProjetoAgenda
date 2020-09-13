@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
+
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +12,7 @@ namespace Agenda_WPF.Model
 
     class Context : DbContext
     {
-        public Context() : base("DbAgenda_WPF") { }
+       
         
         public DbSet<Paciente> Pacientes { get; set; }
         public DbSet<Agenda> Agendas { get; set; }

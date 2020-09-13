@@ -8,11 +8,12 @@ namespace Agenda_WPF.DAL
 {
     class Usuario
     {
-        private static Context ctx = new Context();
+        private static Context ctx = SingletonContext.GetInstance();
+        private static List<Usuario> usuarios = new List<Usuario>();
 
         public static bool CadastrarUsuario(Usuario u)
         {
-            if (BuscarUsuario(u) == null)
+            if (BuscarUsuarioPorTipo(u.TipoUsuario) == null)
             {
                 ctx.Usuarios.Add(u);
                 ctx.SaveChanges();
@@ -23,22 +24,18 @@ namespace Agenda_WPF.DAL
 
         }
 
-        public static Usuario BuscarUsuario(Usuario u)
+        public static Usuario BuscarUsuarioPorTipo(string u)
         {
-            return ctx.Usuarios.FirstOrDefault(x => x.TipoUsuario.Equals(u.TipoUsuario));
+            return ctx.Usuarios.FirstOrDefault(x => x.TipoUsuario.Equals(u));
         }
-
 
         public static Usuario BuscarUsuarioPorId(int id)
         {
             return ctx.Usuarios.Find(id);
         }
 
-     
-
         public static List<Paciente> ListarPacientes()
         {
-            //return ctx.Produtos.FirstOrDefault( x => x.ProdutoId == id);    
             return ctx.Pacientes.ToList();
         }
 
