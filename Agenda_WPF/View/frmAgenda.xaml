@@ -3,41 +3,39 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        WindowStartupLocation="CenterScreen"
         xmlns:local="clr-namespace:Agenda_WPF.View"
         xmlns:System="clr-namespace:System;assembly=System.Runtime" x:Class="Agenda_WPF.View.frmListarAgenda"
         mc:Ignorable="d"
         Title="frmListarAgenda" Height="720" Width="1020" WindowState="Minimized" WindowStyle="ThreeDBorderWindow" Loaded="Window_Loaded">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="11*"/>
-            <ColumnDefinition Width="6*"/>
-        </Grid.ColumnDefinitions>
         <DockPanel x:Name="mn_Principal" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="160" Height="704" Background="#FF5AABFA">
-            <Image Height="152" Width="160" Source="/unnamed.png" DockPanel.Dock="Top"/>
+            <Image Source="/unnamed.png" DockPanel.Dock="Top"/>
 
-            <Button x:Name="btn_CadastrarPaciente" Content="Cadastrar Paciente" Height="30" VerticalAlignment="Top" Width="159.9" DockPanel.Dock="Top"/>
-            <Button x:Name="btn_AgendarConsulta" Content="Agendar Consulta" Height="30" VerticalAlignment="Top" Width="159.9" DockPanel.Dock="Top"/>
-            <Button x:Name="btn_ListarPaciente" Content="Listar Paciente" Height="30" VerticalAlignment="Top" Width="159.9" DockPanel.Dock="Top"/>
+            <Button x:Name="btn_CadastrarPaciente" Content="Cadastrar Paciente" Height="30" DockPanel.Dock="Top"/>
+            <Button x:Name="btn_AgendarConsulta" Content="Agendar Consulta" Height="30" DockPanel.Dock="Top"/>
+            <Button x:Name="btn_ListarPaciente" Content="Listar Paciente" Height="30" DockPanel.Dock="Top"/>
             <Button x:Name="btn_ListarConsulta" Content="Listar Consulta" Height="30" VerticalAlignment="Top" Width="159.9" DockPanel.Dock="Top"/>
 
-            <Button x:Name="btn_AlterarPaciente" Content="Atualizar Dados Paciente" Height="30" VerticalAlignment="Top" Width="159.9" DockPanel.Dock="Top"/>
-            <Button x:Name="btn_AlterarAgendamento" Content="Alterar Agendamento" Height="30" VerticalAlignment="Top" Width="159.9" DockPanel.Dock="Top"/>
-            <Button x:Name="btn_ImpressaoDeclaracao" Content="Imprimir Declaração" Height="30" VerticalAlignment="Top" Width="159.9" DockPanel.Dock="Top"/>
+            <Button Name="btn_AlterarPaciente" Content="Atualizar Dados Paciente" Height="30" DockPanel.Dock="Top"/>
+            <Button Name="btn_AlterarAgendamento" Content="Alterar Agendamento" Height="30" DockPanel.Dock="Top"/>
+            <Button Name="btn_ImpressaoDeclaracao" Content="Imprimir Declaração" Height="30" VerticalAlignment="Top" Width="159.9" DockPanel.Dock="Top"/>
+            <Button Name="btn_FecharAgenda" Content="Fechar" Height="30" DockPanel.Dock="Top" Click="btn_Fechar_Click"/>
 
         </DockPanel>
 
 
 
 
-        <Button x:Name="btnInserir" Content="Inserir" HorizontalAlignment="Left" Margin="280,649,0,0" VerticalAlignment="Top" Width="80" Click="btnInserir_Click"/>
-        <Button x:Name="btnAlterar" Content="Alterar" HorizontalAlignment="Left" Margin="380,649,0,0" VerticalAlignment="Top" Width="80"/>
-        <Button x:Name="btnLocalizar" Content="Localizar" HorizontalAlignment="Left" Margin="480,649,0,0" VerticalAlignment="Top" Width="80"/>
-        <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="580,649,0,0" VerticalAlignment="Top" Width="80"/>
-        <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="20,649,0,0" VerticalAlignment="Top" Width="80" Grid.Column="1"/>
-        <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="120,649,0,0" VerticalAlignment="Top" Width="80" Click="btnCancelar_Click" Grid.Column="1"/>
-        <ListView Margin="165,139,10,204"  Height="361" Grid.ColumnSpan="2">
+        <Button x:Name="btnInserir" Content="Inserir" HorizontalAlignment="Left" Margin="376,649,0,0" VerticalAlignment="Top" Width="80" Click="btnInserir_Click"/>
+        <Button x:Name="btnAlterar" Content="Alterar" HorizontalAlignment="Left" Margin="476,649,0,0" VerticalAlignment="Top" Width="80"/>
+        <Button x:Name="btnLocalizar" Content="Localizar" HorizontalAlignment="Left" Margin="576,649,0,0" VerticalAlignment="Top" Width="80"/>
+        <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="676,649,0,0" VerticalAlignment="Top" Width="80"/>
+        <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="180,649,0,0" VerticalAlignment="Top" Width="80"/>
+        <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="276,649,0,0" VerticalAlignment="Top" Width="80" Click="btnCancelar_Click"/>
+        <ListView Margin="165,139,264,206">
 
-            <Calendar DisplayMode="Month"/>
+            <Calendar DisplayMode="Month" Width="568"/>
 
             <DatePicker Height = "25"  HorizontalAlignment = "Left"  Margin = "42,26,0,0"  x:Name = "datePicker1"  VerticalAlignment = "Top"  Width = "140" IsDropDownOpen="True"  />
         </ListView>

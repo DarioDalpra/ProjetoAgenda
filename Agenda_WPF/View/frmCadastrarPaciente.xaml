@@ -3,53 +3,62 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        WindowStartupLocation="CenterScreen"
         xmlns:local="clr-namespace:Agenda_WPF.View"
         mc:Ignorable="d"
-       Title="CadastrarPaciente" Height="704" Width="855" WindowState="Minimized" WindowStyle="ThreeDBorderWindow" HorizontalAlignment="Stretch">
-    <Grid Margin="10,0,0,0">
+        Title="Cadastro de Paciente - AGENDA" Height="720" Width="1020">
+    <Grid>
+        <DockPanel Name="mn_Principal" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="190" Height="704" Background="#FF5AABFA">
+            <Image Source="/unnamed.png" DockPanel.Dock="Top"/>
+
+            <Button Name="btnCadastrarPaciente" Content="Cadastrar Paciente" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top" Click="btnCadastrarPaciente_Click"/>
+            <Button Name="btnListarPaciente" Content="Listar Paciente" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top" Click="btnListarPaciente_Click"/>
+            <Button Name="btnAgendarConsulta" Content="Agendar Consulta" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top"/>
+            <Button Name="btnListarConsulta" Content="Listar Consulta" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top"/>
+            <Button Name="btnAlterarPaciente" Content="Atualizar Dados Paciente" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top"/>
+            <Button Name="btnAlterarAgendamento" Content="Alterar Agendamento" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top"/>
+            <Button Name="btnImpressaoDeclaracao" Content="Imprimir Declaração" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top"/>
+            <Button Name="btnFechar" Content="Fechar" HorizontalContentAlignment="Center" Height="30" DockPanel.Dock="Top" Click="btnFechar_Click"/>
+
+        </DockPanel>
+
+        <Label Name="lblNome" Content="Nome Completo:" HorizontalAlignment="Left" Margin="240,61,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtNome" HorizontalAlignment="Left" Margin="346,60,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="608"/>
+        <Label Name="lblCpf" Content="CPF:" HorizontalAlignment="Left" Margin="240,104,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtCpf" HorizontalAlignment="Left" Margin="304,104,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="144"/>
+        <Label Name="lblRg" Content="RG:" HorizontalAlignment="Left" Margin="464,104,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtRg" HorizontalAlignment="Left" Margin="506,104,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="156"/>
+        <Label Name="lblDtaNascimento" Content="DATA NASCIMENTO:" HorizontalAlignment="Left" Margin="680,104,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtDtaNascimento" HorizontalAlignment="Left" Margin="798,104,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="156"/>
+        <Label Name="lblTelefone" Content="TELEFONE:" HorizontalAlignment="Left" Margin="240,149,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtTelefone" HorizontalAlignment="Left" Margin="304,149,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="144"/>
+        <Label Name="lblEmail" Content="E-MAIL:" HorizontalAlignment="Left" Margin="458,149,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtEmail" HorizontalAlignment="Left" Margin="510,149,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="306"/>
+        <Label Name="lblPlano" Content="PLANO:" HorizontalAlignment="Left" Margin="240,195,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="cboPlano" HorizontalAlignment="Left" Margin="304,188,0,0" VerticalAlignment="Top" Width="144"/>
+        <Label Name="lblNPlano" Content="Nº PLANO:" HorizontalAlignment="Left" Margin="460,191,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtNPlano" HorizontalAlignment="Left" Margin="520,191,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="118"/>
+        <Label Name="lblRua" Content="ENDEREÇO:" HorizontalAlignment="Left" Margin="546,233,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtRua" HorizontalAlignment="Left" Margin="620,230,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="334"/>
+        <Label Name="lblNumero" Content="Nº:" HorizontalAlignment="Left" Margin="240,270,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtNumero" HorizontalAlignment="Left" Margin="268,267,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="64"/>
+        <Label Name="lblBairro" Content="BAIRRO:" HorizontalAlignment="Left" Margin="351,271,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtBairro" HorizontalAlignment="Left" Margin="415,268,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="156"/>
+        <Label Name="lblCidade" Content="CIDADE:" HorizontalAlignment="Left" Margin="587,270,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtCidade" HorizontalAlignment="Left" Margin="643,267,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="156"/>
+        <Label Name="lblEstado" Content="UF:" HorizontalAlignment="Left" Margin="813,269,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtEstado" HorizontalAlignment="Left" Margin="841,266,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="52"/>
+        <Label Name="lblCep_Leave" Content="CEP:" HorizontalAlignment="Left" Margin="241,233,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtCep_Leave" HorizontalAlignment="Left" Margin="304,230,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="124"/>
+        <Button Name="btnBuscarCep" Content="Buscar CEP" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="437,233,0,0" VerticalAlignment="Top" Height="25" Width="105" Click="btnBuscaCep_Click" Grid.ColumnSpan="1" />
+
+        <Button Name="btnCadastrar" Content="Cadastrar" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="270,629,0,0" VerticalAlignment="Top" Width="95" Click="btnCadastrar_Click"/>
+        <Button Name="btnAlterar" Content="Alterar" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="375,629,0,0" VerticalAlignment="Top" Width="95"/>
+        <Button Name="btnLocalizar" Content="Localizar" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="480,629,0,0" VerticalAlignment="Top" Width="95"/>
+        <Button Name="btnExcluir" Content="Excluir" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="586,629,0,0" VerticalAlignment="Top" Width="95"/>
+        <Button Name="btnCancelar" Content="Cancelar" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="692,629,0,0" VerticalAlignment="Top" Width="95" Click="btnCancelar_Click"/>
 
 
-        <Label x:Name="lb_nome" Content="Nome Completo: " RenderTransformOrigin="1.199,0.476" Width="105" HorizontalAlignment="Left" Margin="10,10,0,660" Height="30"/>
-        <TextBox x:Name="txtNome"  VerticalContentAlignment="Top" Height="30" HorizontalContentAlignment="Left" FlowDirection="LeftToRight" AllowDrop="False" IsTabStop="False" Margin="130,10,10,648"/>
 
-        <Label x:Name="lb_cpf" Content="CPF: " Margin="10,46,795,612" Height="30"/>
-        <TextBox x:Name="txtCpf" TextWrapping="Wrap" Margin="55,44,615,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="30"/>
-        <Label x:Name="lb_rg" Content="RG: " HorizontalAlignment="Left" Width="31" Margin="263,46,0,612" Height="30"/>
-        <TextBox x:Name="txtRg" TextWrapping="Wrap" Margin="294,45,325,613" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Height="30"/>
-
-        <Label x:Name="lb_nascimento" Content="Data de Nascimento: " Margin="555,45,170,613" Height="30"/>
-        <TextBox x:Name="dtNascimento" TextWrapping="Wrap" Margin="681,45,10,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="31"/>
-
-        <Label x:Name="lb_telefone" Content="Telefone: " Margin="10,83,779,575" Height="30"/>
-        <TextBox x:Name="txtTelefone" TextWrapping="Wrap" Margin="75,79,630,579" VerticalContentAlignment="Center" Height="30"/>
-        <Label x:Name="lb_email" Content="E-mail: " Margin="222,80,575,578" Height="30"/>
-        <TextBox x:Name="txtEmail" TextWrapping="Wrap" Margin="270,79,10,579" VerticalContentAlignment="Center" Height="30"/>
-
-        <Label x:Name="lb_plano" Content="Plano: " Margin="10,145,960,529" Height="30"/>
-        <ListBox x:Name="cboPlano" HorizontalAlignment="Left" Height="30" Margin="55,140,0,0" VerticalAlignment="Top" Width="140"/>
-        <Label x:Name="lb_numplano" Content="Número do Plano: " Margin="225,142,680,532" Height="30"/>
-        <TextBox x:Name="txtNumplano" TextWrapping="Wrap" Margin="339,142,150,532" VerticalContentAlignment="Center"/>
-
-        <Label x:Name="lb_rua" Content="Rua: " Margin="10,206,965,468" Height="30"/>
-        <TextBox x:Name="txtRua" TextWrapping="Wrap" Margin="50,206,150,469" VerticalContentAlignment="Center"/>
-        <Label x:Name="lb_numero" Content="Número: " Margin="6,241,948,433" Height="30"/>
-        <TextBox x:Name="txtNumero" TextWrapping="Wrap" Margin="66,240,826,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="29"/>
-        <Label x:Name="lb_bairro" Content="Bairro: " Margin="203,241,760,434"/>
-        <TextBox x:Name="txtBairro" TextWrapping="Wrap" Margin="261,240,150,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="29"/>
-        <Label x:Name="lb_cidade" Content="Cidade: " Margin="10,276,949,402" Height="26"/>
-        <TextBox x:Name="txtCidade" TextWrapping="Wrap" Margin="66,275,621,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="30"/>
-        <Label x:Name="lb_estado" Content="Estado: " Margin="408,276,552,398" Height="30"/>
-        <TextBox x:Name="txtEstado" TextWrapping="Wrap" Margin="465,274,435,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="30"/>
-        <Label x:Name="lb_cep" Content="CEP: " Margin="600,276,373,0" Height="30" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtCep_Leave" TextWrapping="Wrap" Margin="642,274,150,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="30"/>
-
-
-
-        <Button x:Name="btnInserir" Content="Inserir" HorizontalAlignment="Left" Margin="280,649,0,0" VerticalAlignment="Top" Width="80" Click="btnInserir_Click"/>
-        <Button x:Name="btnAlterar" Content="Alterar" HorizontalAlignment="Left" Margin="380,649,0,0" VerticalAlignment="Top" Width="80"/>
-        <Button x:Name="btnLocalizar" Content="Localizar" HorizontalAlignment="Left" Margin="480,649,0,0" VerticalAlignment="Top" Width="80"/>
-        <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="580,649,0,0" VerticalAlignment="Top" Width="80"/>
-        <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="680,649,0,0" VerticalAlignment="Top" Width="80"/>
-        <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="780,649,0,0" VerticalAlignment="Top" Width="80" Click="btnCancelar_Click"/>
     </Grid>
 </Window>

@@ -3,49 +3,43 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        WindowStartupLocation="CenterScreen"
         xmlns:local="clr-namespace:Agenda_WPF.View"
         mc:Ignorable="d"
-       Title="Cadastro de Médico" Height="720" Width="1020" WindowState="Minimized" WindowStyle="ThreeDBorderWindow">
-    <Grid>
-        <DockPanel x:Name="mn_Principal" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="160" Height="704" Background="#FF5AABFA">
-            <Image Height="152" Width="160" Source="/unnamed.png" DockPanel.Dock="Top"/>
+       Title="Cadastro de Médico - AGENDA" Height="720" Width="1020"><Grid>
+    <DockPanel Name="mn_Principal" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="190" Height="704" Background="#FF5AABFA">
+        <Image Source="/unnamed.png" DockPanel.Dock="Top"/>
 
-            <Button x:Name="btn_CadastrarPaciente" Content="Cadastrar Paciente" Height="30" VerticalAlignment="Top" Width="159.9" DockPanel.Dock="Top"/>
-            <Button x:Name="btn_AgendarConsulta" Content="Agendar Consulta" Height="30" VerticalAlignment="Top" Width="159.9" DockPanel.Dock="Top"/>
-            <Button x:Name="btn_ListarPaciente" Content="Listar Paciente" Height="30" VerticalAlignment="Top" Width="159.9" DockPanel.Dock="Top"/>
-            <Button x:Name="btn_ListarConsulta" Content="Listar Consulta" Height="30" VerticalAlignment="Top" Width="159.9" DockPanel.Dock="Top"/>
+        <Button Name="btnCadastrarPaciente" Content="Cadastrar Paciente" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top" Click="btnCadastrarPaciente_Click"/>
+        <Button Name="btnListarPaciente" Content="Listar Paciente" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top"/>
+        <Button Name="btnAgendarConsulta" Content="Agendar Consulta" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top"/>
+        <Button Name="btnListarConsulta" Content="Listar Consulta" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top"/>
 
-            <Button x:Name="btn_AlterarPaciente" Content="Atualizar Dados Paciente" Height="30" VerticalAlignment="Top" Width="159.9" DockPanel.Dock="Top"/>
-            <Button x:Name="btn_AlterarAgendamento" Content="Alterar Agendamento" Height="30" VerticalAlignment="Top" Width="159.9" DockPanel.Dock="Top"/>
-            <Button x:Name="btn_ImpressaoDeclaracao" Content="Imprimir Declaração" Height="30" VerticalAlignment="Top" Width="159.9" DockPanel.Dock="Top"/>
+        <Button Name="btnAlterarPaciente" Content="Atualizar Dados Paciente" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top"/>
+        <Button Name="btnAlterarAgendamento" Content="Alterar Agendamento" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top"/>
+        <Button Name="btnImpressaoDeclaracao" Content="Imprimir Declaração" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top"/>
+        <Button Name="btnFechar" Content="Fechar" Height="30" DockPanel.Dock="Top" Click="btnFechar_Click"/>
 
-        </DockPanel>
+    </DockPanel>
 
-        <Label x:Name="lb_nome" Content="Nome Completo: " RenderTransformOrigin="1.199,0.476" Width="105" HorizontalAlignment="Left" Margin="165,10,0,660"/>
-        <TextBox x:Name="txtNome"  VerticalContentAlignment="Top" Height="30" HorizontalContentAlignment="Left" FlowDirection="LeftToRight" AllowDrop="False" IsTabStop="False" Margin="270,9,10,665"/>
+    <Label Name="lblNome" Content="NOME COMPLETO:" HorizontalAlignment="Left" Margin="240,61,0,0" VerticalAlignment="Top"/>
+    <TextBox Name="txtNome" HorizontalAlignment="Left" Margin="366,60,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="588"/>
+    <Label Name="lblCpf" Content="CPF:" HorizontalAlignment="Left" Margin="240,104,0,0" VerticalAlignment="Top"/>
+    <TextBox Name="txtCpf" HorizontalAlignment="Left" Margin="304,104,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="144"/>
+    <Label Name="lblCrm" Content="CRM:" HorizontalAlignment="Left" Margin="464,104,0,0" VerticalAlignment="Top"/>
+    <TextBox Name="txtCrm" HorizontalAlignment="Left" Margin="506,104,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="156"/>
+    <Label Name="lblEspecialidade" Content="ESPECIALIDADE:" HorizontalAlignment="Left" Margin="680,104,0,0" VerticalAlignment="Top"/>
+    <TextBox Name="txtEspecialidade" HorizontalAlignment="Left" Margin="792,104,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="162"/>
+    <Label Name="lblTelefone" Content="TELEFONE:" HorizontalAlignment="Left" Margin="240,149,0,0" VerticalAlignment="Top"/>
+    <TextBox Name="txtTelefone" HorizontalAlignment="Left" Margin="304,149,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="144"/>
+    <Label Name="lblEmail" Content="E-MAIL:" HorizontalAlignment="Left" Margin="458,149,0,0" VerticalAlignment="Top"/>
+    <TextBox Name="txtEmail" HorizontalAlignment="Left" Margin="510,149,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="306"/>
 
-        <Label x:Name="lb_cpf" Content="CPF: " Margin="165,49,820,622"/>
-        <TextBox x:Name="txtCpf" TextWrapping="Wrap" Margin="204,51,639,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="30"/>
-        <Label x:Name="lb_crm" Content="RG: " HorizontalAlignment="Left" Width="30" Margin="397,49,0,622"/>
-        <TextBox x:Name="txtCrm" TextWrapping="Wrap" Margin="429,51,383,623" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5"/>
+    <Button Name="btnCadastrar" Content="Cadastrar" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="270,629,0,0" VerticalAlignment="Top" Width="95" Click="btnInserir_Click"/>
+    <Button Name="btnAlterar" Content="Alterar" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="375,629,0,0" VerticalAlignment="Top" Width="95"/>
+    <Button Name="btnLocalizar" Content="Localizar" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="480,629,0,0" VerticalAlignment="Top" Width="95"/>
+    <Button Name="btnExcluir" Content="Excluir" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="586,629,0,0" VerticalAlignment="Top" Width="95"/>
+    <Button Name="btnCancelar" Content="Cancelar" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="692,629,0,0" VerticalAlignment="Top" Width="95" Click="btnCancelar_Click"/>
 
-        <Label x:Name="lb_especialidade" Content="Data de Nascimento: " Margin="656,49,238,622"/>
-        <TextBox x:Name="txtEspecialidade" TextWrapping="Wrap" Margin="780,51,10,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="31"/>
-
-        <Label x:Name="lb_telefone" Content="Telefone: " Margin="160,92,802,579"/>
-        <TextBox x:Name="txtTelefone" TextWrapping="Wrap" Margin="220,92,639,579" VerticalContentAlignment="Center"/>
-        <Label x:Name="lb_email" Content="E-mail: " Margin="396,92,572,579"/>
-        <TextBox x:Name="txtEmail" TextWrapping="Wrap" Margin="448,92,10,582" VerticalContentAlignment="Center"/>
-
-       
-
-       
-
-        <Button x:Name="btnInserir" Content="Inserir" HorizontalAlignment="Left" Margin="280,649,0,0" VerticalAlignment="Top" Width="80" Click="btnInserir_Click"/>
-        <Button x:Name="btnAlterar" Content="Alterar" HorizontalAlignment="Left" Margin="380,649,0,0" VerticalAlignment="Top" Width="80"/>
-        <Button x:Name="btnLocalizar" Content="Localizar" HorizontalAlignment="Left" Margin="480,649,0,0" VerticalAlignment="Top" Width="80"/>
-        <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="580,649,0,0" VerticalAlignment="Top" Width="80"/>
-        <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="680,649,0,0" VerticalAlignment="Top" Width="80"/>
-        <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="780,649,0,0" VerticalAlignment="Top" Width="80" Click="btnCancelar_Click"/>
-    </Grid>
+</Grid>
 </Window>

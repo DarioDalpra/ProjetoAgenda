@@ -11,11 +11,11 @@ namespace Agenda_WPF.Model
     {
         public Agenda()
         {
-         
+
             CriadoEm = DateTime.Now; // não funciona caso não tenha sido inserido a data.
         }
         [Key]
-        public int IdAgenda{ get; set; }
+        public int IdAgenda { get; set; }
         public Paciente Nome { get; set; }
         public Paciente Cpf { get; set; }
         public Paciente Plano { get; set; }

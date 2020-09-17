@@ -1,44 +1,52 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Agenda_WPF.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace Agenda_WPF.DAL
 {
-    class Usuario
+    class UsuarioDAO
     {
         private static Context ctx = SingletonContext.GetInstance();
-        private static List<Usuario> usuarios = new List<Usuario>();
+        //private static List<Usuario> usuarios = new List<Usuario>();
 
-        public static bool CadastrarUsuario(Usuario u)
+        public static List<Usuario> ListarUsuarios()
         {
-            if (BuscarUsuarioPorTipo(u.TipoUsuario) == null)
+            return ctx.Usuarios.ToList();
+        }
+
+        public static Usuario BuscarUsuarioPorCpf(string cpf)
+        {
+            return ctx.Usuarios.FirstOrDefault(x => x.Cpf.Equals(cpf));
+        }
+
+        public static bool CadastrarUsuario(Usuario usr)
+        {
+            if (BuscarUsuarioPorCpf(usr.Cpf) == null)
             {
-                ctx.Usuarios.Add(u);
+                ctx.Usuarios.Add(usr);
                 ctx.SaveChanges();
                 return true;
             }
             return false;
-
-
         }
 
-        public static Usuario BuscarUsuarioPorTipo(string u)
+        public static void AlterarUsuario(Usuario usr)
         {
-            return ctx.Usuarios.FirstOrDefault(x => x.TipoUsuario.Equals(u));
+            ctx.Entry(usr).State = EntityState.Modified;
+            ctx.SaveChanges();
         }
 
-        public static Usuario BuscarUsuarioPorId(int id)
+        public static void RemoverUsuario(Usuario usr)
         {
-            return ctx.Usuarios.Find(id);
+            ctx.Usuarios.Remove(usr);
+            ctx.SaveChanges();
         }
 
-        public static List<Paciente> ListarPacientes()
+        public static Usuario ValidaLogin(string login)
         {
-            return ctx.Pacientes.ToList();
+            return ctx.Usuarios.FirstOrDefault(x => x.Email.Equals(login));
         }
-
 
     }
 }

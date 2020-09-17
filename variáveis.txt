@@ -14,4 +14,36 @@ txtCidade
 txtEstado
 txtCep
 
-TELA AGENDAMENTO
+
+
+    <Button Name="btnInserir" Content="Inserir" HorizontalAlignment="Left" Margin="280,649,0,0" VerticalAlignment="Top" Width="80" Click="btnInserir_Click"/>
+        <Button Name="btnAlterar" Content="Alterar" HorizontalAlignment="Left" Margin="380,649,0,0" VerticalAlignment="Top" Width="80"/>
+        <Button Name="btnLocalizar" Content="Localizar" HorizontalAlignment="Left" Margin="480,649,0,0" VerticalAlignment="Top" Width="80"/>
+        <Button Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="580,649,0,0" VerticalAlignment="Top" Width="80"/>
+        <Button Name="btnSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="680,649,0,0" VerticalAlignment="Top" Width="80"/>
+        <Button Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="780,649,0,0" VerticalAlignment="Top" Width="80" Click="btnCancelar_Click"/>
+
+
+ 	var menuPaciente = new List<SubItem>();
+            menuPaciente.Add(new SubItem("Cadastrar Paciente", new UserControlPaciente()));
+            menuPaciente.Add(new SubItem("Listar Paciente", new UserControlPaciente()));
+            menuPaciente.Add(new SubItem("Ataulizar Cadastro"));
+            var item1 = new ItemMenu("Paciente", menuPaciente, PackIconKind.Register);
+
+            var menuMedico = new List<SubItem>();
+            menuMedico.Add(new SubItem("Cadastrar Médico", new UserControlMedico()));
+            menuMedico.Add(new SubItem("Listar Médicos"));
+            menuMedico.Add(new SubItem("Ataulizar Cadastro"));
+            var item2 = new ItemMenu("Médico", menuMedico, PackIconKind.FileReport);
+
+            var menuAgenda = new List<SubItem>();
+            menuAgenda.Add(new SubItem("Registrar Agenda", new UserControlAgenda()));
+            menuAgenda.Add(new SubItem("Listar Agenda"));
+            menuAgenda.Add(new SubItem("Alterar Agenda"));
+            var item3 = new ItemMenu("Agenda", menuAgenda, PackIconKind.Schedule);
+
+            var menuPlano = new List<SubItem>();
+            menuPlano.Add(new SubItem("Registrar Plano", new UserControlPlano()));
+            menuPlano.Add(new SubItem("Listar Plano"));
+            menuPlano.Add(new SubItem("Atualizar Plano"));
+            var item4 = new ItemMenu("Plano", menuPlano, PackIconKind.Schedule);

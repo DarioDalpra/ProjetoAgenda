@@ -7,10 +7,8 @@ namespace Agenda_WPF.Model
     [Table("Pacientes")]
     class Paciente
     {
-        public Paciente()
-        {
-            CriadoEm = DateTime.Now; // não funciona caso não tenha sido inserido a data.
-        }
+        public Paciente() => CriadoEm = DateTime.Now; // não funciona caso não tenha sido inserido a data.
+
         [Key]
         public int IdPaciente { get; set; }
         public string Nome { get; set; }
@@ -19,6 +17,7 @@ namespace Agenda_WPF.Model
         public string Nascimento { get; set; }
         public string Telefone { get; set; }
         public string Email { get; set; }
+        public string NomePlano { get; set; }
         public string NumPlano { get; set; }
         public string Rua { get; set; }
         public string Numero { get; set; }
@@ -26,8 +25,6 @@ namespace Agenda_WPF.Model
         public string Cidade { get; set; }
         public string Estado { get; set; }
         public string Cep { get; set; }
-
-
         public DateTime CriadoEm { get; set; }
 
 

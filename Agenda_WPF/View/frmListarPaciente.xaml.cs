@@ -1,6 +1,20 @@
-﻿using Agenda_WPF.Model;
+﻿using Agenda_WPF.DAL;
+using Agenda_WPF.Model;
+using Agenda_WPF.Utils;
+using RestSharp;
+using RestSharp.Serialization.Json;
+using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 
 namespace Agenda_WPF.View
 {
@@ -65,23 +79,21 @@ namespace Agenda_WPF.View
         private void AlteraBotoes(int op)
         {
             btnAlterar.IsEnabled = false;
-            btnInserir.IsEnabled = false;
+            btnCadastrar.IsEnabled = false;
             btnExcluir.IsEnabled = false;
             btnCancelar.IsEnabled = false;
             btnLocalizar.IsEnabled = false;
-            btnSalvar.IsEnabled = false;
 
             if (op == 1)
             {
                 //ativar as opções iniciais
-                btnInserir.IsEnabled = true;
+                btnCadastrar.IsEnabled = true;
                 btnLocalizar.IsEnabled = true;
             }
             if (op == 2)
             {
                 //inserir um valor
                 btnCancelar.IsEnabled = true;
-                btnSalvar.IsEnabled = true;
             }
             if (op == 3)
             {
@@ -91,7 +103,7 @@ namespace Agenda_WPF.View
         }
         private void LimpaCampos()
         {
-            txtIdPaciente.IsEnabled = true;  
+            txtIdPaciente.IsEnabled = true;
             txtNome.IsEnabled = true;
             txtCpf.IsEnabled = true;
             txtTelefone.IsEnabled = true;
@@ -115,6 +127,23 @@ namespace Agenda_WPF.View
         {
             this.operacao = "inserir";
             this.AlteraBotoes(2);
+        }
+
+        private void btn_Fechar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btn_CadastrarPaciente_Click(object sender, RoutedEventArgs e)
+        {
+            frmCadastrarPaciente cadastrarPaciente = new frmCadastrarPaciente();
+            cadastrarPaciente.Show();
+        }
+
+        private void btn_ListarPaciente_Click(object sender, RoutedEventArgs e)
+        {
+            frmListarPaciente listarPaciente = new frmListarPaciente();
+            listarPaciente.Show();
         }
     }
 }

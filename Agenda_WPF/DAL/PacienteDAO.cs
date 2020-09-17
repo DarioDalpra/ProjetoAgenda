@@ -1,8 +1,6 @@
 ﻿using Agenda_WPF.Model;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Agenda_WPF.DAL
 {
@@ -19,8 +17,6 @@ namespace Agenda_WPF.DAL
                 return true;
             }
             return false;
-
-
         }
 
         public static Paciente BuscarPacientePorNome(Paciente p)

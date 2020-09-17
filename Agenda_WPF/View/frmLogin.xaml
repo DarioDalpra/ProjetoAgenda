@@ -3,10 +3,20 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        WindowStartupLocation="CenterScreen"
         xmlns:local="clr-namespace:Agenda_WPF.View"
         mc:Ignorable="d"
-        Title="frmLogin" Height="450" Width="800">
+        Title="LOGIN" Height="450" Width="800">
     <Grid>
-        
+        <DockPanel Name="mn_Principal" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="180" Height="435" Background="#FF5AABFA">
+            <Image Name="imgAngio" VerticalAlignment="Top" Source="/unnamed.png"  DockPanel.Dock="Top"/>
+        </DockPanel>
+        <Button Name="btnLogin" Content="Login" HorizontalAlignment="Left" Margin="281,200,0,0" VerticalAlignment="Top" Width="75" Click="btnLogin_Click"/>
+        <Button Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="391,200,0,0" VerticalAlignment="Top" Width="75" Click="btnCancelar_Click"/>
+        <Label Name="lblEmailLogin" Content="E-Mail:" HorizontalAlignment="Left" Margin="263,48,0,0" VerticalAlignment="Top"/>
+        <Label Name="lblSenhaLogin" Content="Senha:" HorizontalAlignment="Left" Margin="263,79,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtEmailLogin" HorizontalAlignment="Left" Height="23" Margin="346,52,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="190"/>
+        <PasswordBox Name="pwdSenhaLogin" HorizontalAlignment="Left" Margin="346,87,0,0" VerticalAlignment="Top" Width="120" Height="23"/>
+
     </Grid>
 </Window>
