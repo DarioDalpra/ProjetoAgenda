@@ -3,37 +3,38 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        
+        WindowStartupLocation="CenterScreen"
         xmlns:local="clr-namespace:Agenda_WPF"
         mc:Ignorable="d"
-         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-           Title="Consultório Médico - AGENDA" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+           Title="Consultório Médico - AGENDA" Height="720" Width="1020">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="250"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+        <Label Name="lblUsrLogado" Content="" HorizontalAlignment="Left" Margin="190,10,0,0" VerticalAlignment="Top" Height="23"/>
+        <DockPanel Name="mn_Principal" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="190" Height="704" Background="#FF5AABFA">
+            <Image Name="imgAngio" Source="/unnamed.png"  DockPanel.Dock="Top"/>
 
-        <materialDesign:ColorZone Mode="PrimaryMid" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
-            <Grid>
-                <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" HorizontalAlignment="Right" Margin="10"/>
-            </Grid>
-        </materialDesign:ColorZone>
-        <Grid HorizontalAlignment="Stretch" Grid.Row="1" Background="{StaticResource PrimaryHueMidBrush}">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="70"/>
-                <RowDefinition Height="326*"/>
-            </Grid.RowDefinitions>
-            <Grid Grid.Row="0" Background="GhostWhite">
-                <Image Source= "/View/unnamed.png"/>
-            </Grid>
-            <ScrollViewer HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="1">
-                <StackPanel x:Name="Menu" Margin="10"/>
-            </ScrollViewer>
-        </Grid>
-        <StackPanel x:Name="StackPanelMain" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch"/>
+            <Button Name="btnCadastrarUsuario" Content="Cadastrar Usuário" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top" Click="btnCadastrarUsuario_Click"/>
+            <Button Name="btnListarUsuario" Content="Listar Usuário" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top" Click="btnListarUsuario_Click"/>
+            <Button Name="btnCadastrarMedico" Content="Cadastrar Médico" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top" Click="btnCadastrarMedico_Click"/>
+            <Button Name="btnListarMedico" Content="Listar Médico" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top" Click="btnListarMedico_Click"/>
+            <Button Name="btnCadastrarPaciente" Content="Cadastrar Paciente" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top" Click="btnCadastrarPaciente_Click"/>
+            <Button Name="btnListarPaciente" Content="Listar Paciente" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top" Click="btnListarPaciente_Click"/>
+            <Button Name="btnAgendarConsulta" Content="Agendar Consulta" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top" Click="btnAgendarConsulta_Click"/>
+            <Button Name="btnListarConsulta" Content="Listar Consulta" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top"/>
+            <Button Name="btnAlterarPaciente" Content="Atualizar Dados Paciente" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top"/>
+            <Button Name="btnAlterarAgendamento" Content="Alterar Agendamento" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top"/>
+            <Button Name="btnImpressaoDeclaracao" Content="Imprimir Declaração" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top"/>
+            <Button Name="btnEncerrarSistema" Content="Encerrar Sistema" Height="30" DockPanel.Dock="Top" Click="btnEncerrarSistema_Click"/>
+
+        </DockPanel>
+
     </Grid>
 </Window>
