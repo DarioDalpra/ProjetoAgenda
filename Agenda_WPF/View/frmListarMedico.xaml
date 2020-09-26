@@ -1,12 +1,11 @@
-﻿<Window x:Class="Agenda_WPF.View.frmListarPaciente"
+<Window x:Class="Agenda_WPF.View.frmListarMedico"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        WindowStartupLocation="CenterScreen"
         xmlns:local="clr-namespace:Agenda_WPF.View"
         mc:Ignorable="d"
-        Title="Listar Paciente - AGENDA" Height="720" Width="1020" Loaded="Window_Loaded">
+        Title="AGENDA WPF - Listar Médicos" Height="720" Width="1020" Loaded="Window_Loaded">
     <Grid>
         <DockPanel Name="mn_Principal" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="190" Height="704" Background="#FF5AABFA">
             <Image Source="/unnamed.png" DockPanel.Dock="Top"/>
@@ -21,7 +20,7 @@
             <Button Name="btn_Fechar" Content="Fechar" HorizontalContentAlignment="Center" Height="30" DockPanel.Dock="Top" Click="btn_Fechar_Click"/>
 
         </DockPanel>
-        <DataGrid Name="dtgPacientes" Margin="213,99,30,102">
+        <DataGrid Name="dtgMedicos" Margin="213,99,30,102">
             <!--
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Nome}" Header="Nome do cliente"/>
@@ -35,7 +34,7 @@
         <Label Name="lblNome" Content="Nome:" HorizontalAlignment="Left" Margin="409,20,0,0" VerticalAlignment="Top"/>
         <TextBox Name="txtNome" HorizontalAlignment="Left" Margin="457,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="533" Height="26"/>
         <Label Name="lblIdPaciente" Content="Id: " HorizontalAlignment="Left" Margin="221,20,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="txtIdPaciente" HorizontalAlignment="Left" Margin="252,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Height="26"/>
+        <TextBox Name="txtIdMedico" HorizontalAlignment="Left" Margin="252,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Height="26"/>
         <Label Name="lblCpf" Content="CPF:" HorizontalAlignment="Left" Margin="219,51,0,0" VerticalAlignment="Top"/>
         <TextBox Name="txtCpf"  HorizontalAlignment="Left" Margin="267,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="127" Height="26"/>
         <Label Name="lblTelefone" Content="Telefone:" HorizontalAlignment="Left" Margin="417,51,0,0" VerticalAlignment="Top"/>
@@ -49,7 +48,6 @@
         <Button Name="btnLocalizar" Content="Localizar" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="480,629,0,0" VerticalAlignment="Top" Width="95"/>
         <Button Name="btnExcluir" Content="Excluir" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="586,629,0,0" VerticalAlignment="Top" Width="95"/>
         <Button Name="btnCancelar" Content="Cancelar" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="692,629,0,0" VerticalAlignment="Top" Width="95" Click="btnCancelar_Click"/>
-
 
     </Grid>
 </Window>

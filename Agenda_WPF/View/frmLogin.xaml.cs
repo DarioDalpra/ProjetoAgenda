@@ -1,16 +1,7 @@
 ﻿using Agenda_WPF.DAL;
 using Agenda_WPF.Model;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
 
 namespace Agenda_WPF.View
 {
@@ -24,12 +15,13 @@ namespace Agenda_WPF.View
             InitializeComponent();
             txtEmailLogin.Focus();
         }
+
+        //Context ctx = SingletonContext.GetInstance();
+        Usuario u = new Usuario();
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            Context ctx = SingletonContext.GetInstance();
-            Usuario u = new Usuario();
-
             u.Email = txtEmailLogin.Text;
+
             var usr = UsuarioDAO.ValidaLogin(u.Email);
             if (usr == null)
             {

@@ -6,23 +6,17 @@
         WindowStartupLocation="CenterScreen"
         xmlns:local="clr-namespace:Agenda_WPF.View"
         mc:Ignorable="d"
-         Title="TelaPrincipalMedico" Height="720" Width="1020">
+         Title="AGENDA WPF - MÉdico" Height="720" Width="1020">
     <Grid>
-        <DockPanel x:Name="mn_Principal" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="160" Height="704" Background="#FF5AABFA">
-            <Image Height="152" Width="160" Source="/unnamed.png" DockPanel.Dock="Top"/>
+        <Label Name="lblMedLogado" Content="" HorizontalAlignment="Left" Margin="204,13,0,0" VerticalAlignment="Top"/>
+        <DockPanel Name="mn_Principal" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="190" Height="704" Background="#FF5AABFA">
+            <Image Source="/unnamed.png" DockPanel.Dock="Top"/>
 
-            <Button x:Name="btn_CadastrarPaciente" Content="Cadastrar Paciente" Height="30" VerticalAlignment="Top" Width="159.9" DockPanel.Dock="Top"/>
-            <Button x:Name="btn_AgendarConsulta" Content="Agendar Consulta" Height="30" VerticalAlignment="Top" Width="159.9" DockPanel.Dock="Top"/>
-            <Button x:Name="btn_ListarPaciente" Content="Listar Paciente" Height="30" VerticalAlignment="Top" Width="159.9" DockPanel.Dock="Top"/>
-            <Button x:Name="btn_ListarConsulta" Content="Listar Consulta" Height="30" VerticalAlignment="Top" Width="159.9" DockPanel.Dock="Top"/>
-
-            <Button x:Name="btn_AlterarPaciente" Content="Atualizar Dados Paciente" Height="30" VerticalAlignment="Top" Width="159.9" DockPanel.Dock="Top"/>
-            <Button x:Name="btn_AlterarAgendamento" Content="Alterar Agendamento" Height="30" VerticalAlignment="Top" Width="159.9" DockPanel.Dock="Top"/>
-            <Button x:Name="btn_ImpressaoDeclaracao" Content="Imprimir Declaração" Height="30" VerticalAlignment="Top" Width="159.9" DockPanel.Dock="Top"/>
-            <Button x:Name="btn_Fechar" Content="Fechar" Height="30" VerticalAlignment="Top" Width="159.9" DockPanel.Dock="Top" Click="btnSair_Click"/>
-
+            <Button Name="btnProntuario" Content="Prontuário do Paciente" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top"/>
+            <Button Name="btnImpressaoReceita" Content="Imprimir Receita" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top"/>
+            <Button Name="btnFechar" Content="Fechar" Height="30" DockPanel.Dock="Top" Click="btnFechar_Click"/>
         </DockPanel>
-        <Label Name="lblMedLogado" Content="" HorizontalAlignment="Left" Margin="165,10,0,0" VerticalAlignment="Top"/>
+        <DataGrid Name="dtgAgendaMedico" HorizontalAlignment="Left" Height="390" Width="760" Margin="206,130,0,0" VerticalAlignment="Top" />
 
     </Grid>
 </Window>

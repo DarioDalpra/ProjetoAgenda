@@ -3,28 +3,29 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        WindowStartupLocation="CenterScreen"
         xmlns:local="clr-namespace:Agenda_WPF.View"
         mc:Ignorable="d"
-         Title="TelaPrincipalRecepcionista" Height="720" Width="1020">
+         Title="TelaPrincipalRecepcionista" Height="720" Width="1020" WindowState="Maximized">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <DockPanel x:Name="mn_Principal" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="160" Height="704" Background="#FF5AABFA">
-            <Image Height="152" Width="160" Source="/unnamed.png" DockPanel.Dock="Top"/>
+        <Label Name="lblAteLogado" Content="" HorizontalAlignment="Left" Margin="165,10,0,0" VerticalAlignment="Top"/>
+        <DockPanel Name="mn_Principal" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="190" Height="704" Background="#FF5AABFA">
+            <Image Source="/unnamed.png" DockPanel.Dock="Top"/>
 
-            <Button x:Name="btn_CadastrarPaciente" Content="Cadastrar Paciente" Height="30" VerticalAlignment="Top" Width="159.9" DockPanel.Dock="Top"/>
-            <Button x:Name="btn_AgendarConsulta" Content="Agendar Consulta" Height="30" VerticalAlignment="Top" Width="159.9" DockPanel.Dock="Top"/>
-            <Button x:Name="btn_ListarPaciente" Content="Listar Paciente" Height="30" VerticalAlignment="Top" Width="159.9" DockPanel.Dock="Top"/>
-            <Button x:Name="btn_ListarConsulta" Content="Listar Consulta" Height="30" VerticalAlignment="Top" Width="159.9" DockPanel.Dock="Top"/>
-
-            <Button x:Name="btn_AlterarPaciente" Content="Atualizar Dados Paciente" Height="30" VerticalAlignment="Top" Width="159.9" DockPanel.Dock="Top"/>
-            <Button x:Name="btn_AlterarAgendamento" Content="Alterar Agendamento" Height="30" VerticalAlignment="Top" Width="159.9" DockPanel.Dock="Top"/>
-            <Button x:Name="btn_ImpressaoDeclaracao" Content="Imprimir Declaração" Height="30" VerticalAlignment="Top" Width="159.9" DockPanel.Dock="Top" Click="btn_ImpressaoDeclaracao_Click"/>
-            <Button x:Name="btn_Fechar" Content="Fechar" Height="30" VerticalAlignment="Top" Width="159.9" DockPanel.Dock="Top" Click="btnSair_Click"/>
+            <Button Name="btnCadastrarPaciente" Content="Cadastrar Paciente" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top" Click="btnCadastrarPaciente_Click"/>
+            <Button Name="btnListarPaciente" Content="Listar Paciente" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top" Click="btnListarPaciente_Click"/>
+            <Button Name="btnListarConsulta" Content="Listar Consulta" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top"/>
+            <Button Name="btnInformarAgend" Content="Informar Agenda " HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top"/>
+            <Button Name="btnImpressaoDeclaracao" Content="Imprimir Declaração" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top"/>
+            <Button Name="btnFechar" Content="Fechar" Height="30" DockPanel.Dock="Top" Click="btnFechar_Click"/>
 
         </DockPanel>
-        <Label Name="lblAteLogado" Content="" HorizontalAlignment="Left" Margin="165,10,0,0" VerticalAlignment="Top"/>
+        <StackPanel Name="AgCal" Orientation="Horizontal" Margin="416,163,325,163">
+            <Calendar Name="CalSet" DisplayMode="Month" SelectionMode="SingleDate" DisplayDate="09/01/2020" Height="357" Width="280" />
+        </StackPanel>
+
+        <TextBox x:Name="txtDta" Text="{Binding ElementName=CalSet, Path=SelectedDate, StringFormat=dd/MM/yyyy}" 
+                       HorizontalAlignment="Left" Margin="830,649,0,0" VerticalAlignment="Top" Visibility="Hidden" TextChanged="txtDta_TextChanged"/>
 
 
     </Grid>

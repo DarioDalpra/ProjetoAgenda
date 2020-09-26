@@ -1,28 +1,28 @@
-﻿using Agenda_WPF.DAL;
+using Agenda_WPF.DAL;
 using Agenda_WPF.Model;
 using System.Linq;
 using System.Windows;
 
+
 namespace Agenda_WPF.View
 {
     /// <summary>
-    /// Interaction logic for frmListarPaciente.xaml
+    /// Interaction logic for frmListarMedico.xaml
     /// </summary>
-    public partial class frmListarPaciente : Window
+    public partial class frmListarMedico : Window
     {
         private string operacao;
-        public frmListarPaciente()
+        public frmListarMedico()
         {
             InitializeComponent();
         }
-
         private void btnSalvar_Click(object sender, RoutedEventArgs e)
         {
-            Paciente p = new Paciente();
-            p.Nome = txtNome.Text;
-            p.Cpf = txtCpf.Text;
-            p.Telefone = txtTelefone.Text;
-            p.Email = txtEmail.Text;
+            Medico m = new Medico();
+            m.Nome = txtNome.Text;
+            m.Cpf = txtCpf.Text;
+            m.Telefone = txtTelefone.Text;
+            m.Email = txtEmail.Text;
             using (Context ctx = new Context())
             {
 
@@ -30,7 +30,7 @@ namespace Agenda_WPF.View
                 {
 
                     {
-                        ctx.Pacientes.Add(p);
+                        ctx.Medicos.Add(m);
                         ctx.SaveChanges();
                     }
                 }
@@ -38,7 +38,7 @@ namespace Agenda_WPF.View
                 {
 
                     {
-                        ctx.Pacientes.Add(p);
+                        ctx.Medicos.Add(m);
                         ctx.SaveChanges();
                     }
                 }
@@ -59,8 +59,8 @@ namespace Agenda_WPF.View
         {
             Context ctx = SingletonContext.GetInstance();
             {
-                var consulta = ctx.Pacientes;
-                dtgPacientes.ItemsSource = consulta.ToList();
+                var consulta = ctx.Medicos;
+                dtgMedicos.ItemsSource = consulta.ToList();
 
                 //dtgPacientes.Columns[0].Header = "id";
                 //dtgPacientes.Columns[1].Header = "Nome";
@@ -94,7 +94,7 @@ namespace Agenda_WPF.View
         }
         private void LimpaCampos()
         {
-            txtIdPaciente.IsEnabled = true;  
+            txtIdMedico.IsEnabled = true;
             txtNome.IsEnabled = true;
             txtCpf.IsEnabled = true;
             txtTelefone.IsEnabled = true;

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Agenda_WPF.DAL
 {
-    class SingletonContext
+ class SingletonContext
     {
         private static Context ctx;
         private SingletonContext() { }

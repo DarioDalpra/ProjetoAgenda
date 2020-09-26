@@ -28,45 +28,52 @@ namespace Agenda_WPF
             }
         }
 
-        private void btn_CadastrarUsuario_Click(object sender, RoutedEventArgs e)
+        private void btnCadastrarUsuario_Click(object sender, RoutedEventArgs e)
         {
             frmCadastrarUsuario CadUsuario = new frmCadastrarUsuario();
-            CadUsuario.Show();
+            CadUsuario.ShowDialog();
         }
 
-        private void btn_CadastrarMedico_Click(object sender, RoutedEventArgs e)
+        private void btnCadastrarMedico_Click(object sender, RoutedEventArgs e)
         {
             frmCadastrarMedico CadMedico = new frmCadastrarMedico();
-            CadMedico.Show();
+            CadMedico.ShowDialog();
         }
 
-        private void btn_CadastrarPaciente_Click(object sender, RoutedEventArgs e)
+        private void btnCadastrarPaciente_Click(object sender, RoutedEventArgs e)
         {
             frmCadastrarPaciente frm = new frmCadastrarPaciente();
             frm.ShowDialog();
         }
 
-        private void btn_ListarPaciente_Click(object sender, RoutedEventArgs e)
+        private void btnListarPaciente_Click(object sender, RoutedEventArgs e)
         {
             frmListarPaciente frm = new frmListarPaciente();
             frm.ShowDialog();
         }
 
-        private void btn_EncerrarSistema_Click(object sender, RoutedEventArgs e)
+        private void btnEncerrarSistema_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
-        private void btn_ListarUsuario_Click(object sender, RoutedEventArgs e)
+        private void btnListarUsuario_Click(object sender, RoutedEventArgs e)
         {
             frmListarUsuario listarUsuario = new frmListarUsuario();
-            listarUsuario.Show();
+            listarUsuario.ShowDialog();
         }
 
-        private void btn_ListarMedico_Click(object sender, RoutedEventArgs e)
+        private void btnListarMedico_Click(object sender, RoutedEventArgs e)
         {
-            //frmListarMedico listarMedico = new frmListarMedico();
-            //listarMedico.Show();
+            frmListarMedico listarMedico = new frmListarMedico();
+            listarMedico.Show();
         }
+
+        private void btnAgendarConsulta_Click(object sender, RoutedEventArgs e)
+        {
+            frmAgenda agenda = new frmAgenda();
+            agenda.ShowDialog();
+        }
+
     }
 }

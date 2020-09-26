@@ -5,55 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         WindowStartupLocation="CenterScreen"
         xmlns:local="clr-namespace:Agenda_WPF.View"
-        xmlns:System="clr-namespace:System;assembly=System.Runtime" x:Class="Agenda_WPF.View.frmListarAgenda"
+        xmlns:System="clr-namespace:System;assembly=System.Runtime" x:Class="Agenda_WPF.View.frmAgenda"
         mc:Ignorable="d"
-        Title="frmListarAgenda" Height="720" Width="1020" WindowState="Minimized" WindowStyle="ThreeDBorderWindow" Loaded="Window_Loaded">
+        Title="AGENDA WPF - Agenda" Height="720" Width="1020" Loaded="Window_Loaded">
     <Grid>
-        <DockPanel x:Name="mn_Principal" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="160" Height="704" Background="#FF5AABFA">
+        <Label Name="lblAteLogado" Content="" HorizontalAlignment="Left" Margin="165,10,0,0" VerticalAlignment="Top"/>
+        <DockPanel Name="mn_Principal" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="190" Height="704" Background="#FF5AABFA">
             <Image Source="/unnamed.png" DockPanel.Dock="Top"/>
 
-            <Button x:Name="btn_CadastrarPaciente" Content="Cadastrar Paciente" Height="30" DockPanel.Dock="Top"/>
-            <Button x:Name="btn_AgendarConsulta" Content="Agendar Consulta" Height="30" DockPanel.Dock="Top"/>
-            <Button x:Name="btn_ListarPaciente" Content="Listar Paciente" Height="30" DockPanel.Dock="Top"/>
-            <Button x:Name="btn_ListarConsulta" Content="Listar Consulta" Height="30" VerticalAlignment="Top" Width="159.9" DockPanel.Dock="Top"/>
-
-            <Button Name="btn_AlterarPaciente" Content="Atualizar Dados Paciente" Height="30" DockPanel.Dock="Top"/>
-            <Button Name="btn_AlterarAgendamento" Content="Alterar Agendamento" Height="30" DockPanel.Dock="Top"/>
-            <Button Name="btn_ImpressaoDeclaracao" Content="Imprimir Declaração" Height="30" VerticalAlignment="Top" Width="159.9" DockPanel.Dock="Top"/>
-            <Button Name="btn_FecharAgenda" Content="Fechar" Height="30" DockPanel.Dock="Top" Click="btn_Fechar_Click"/>
+            <Button Name="btnListarConsulta" Content="Listar Consulta" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top" Click="btnListarConsulta_Click"/>
+            <Button Name="btnListarPaciente" Content="Listar Paciente" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top"/>
+            <Button Name="btnInformarAgend" Content="Informar Agenda " HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top"/>
+            <Button Name="btnImpressaoDeclaracao" Content="Imprimir Declaração" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top"/>
+            <Button Name="btnFechar" Content="Fechar" Height="30" DockPanel.Dock="Top" Click="btnFechar_Click"/>
 
         </DockPanel>
 
+        <Button Name="btnInserir" Content="Inserir" HorizontalAlignment="Left" Margin="442,637,0,0" VerticalAlignment="Top" Width="80" Click="btnInserir_Click"/>
+        <Button Name="btnAlterar" Content="Alterar" HorizontalAlignment="Left" Margin="542,637,0,0" VerticalAlignment="Top" Width="80"/>
+        <Button Name="btnLocalizar" Content="Localizar" HorizontalAlignment="Left" Margin="642,637,0,0" VerticalAlignment="Top" Width="80"/>
+        <Button Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="742,637,0,0" VerticalAlignment="Top" Width="80"/>
+        <Button Name="btnSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="246,637,0,0" VerticalAlignment="Top" Width="80"/>
+        <Button Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="342,637,0,0" VerticalAlignment="Top" Width="80" Click="btnCancelar_Click"/>
 
 
-
-        <Button x:Name="btnInserir" Content="Inserir" HorizontalAlignment="Left" Margin="376,649,0,0" VerticalAlignment="Top" Width="80" Click="btnInserir_Click"/>
-        <Button x:Name="btnAlterar" Content="Alterar" HorizontalAlignment="Left" Margin="476,649,0,0" VerticalAlignment="Top" Width="80"/>
-        <Button x:Name="btnLocalizar" Content="Localizar" HorizontalAlignment="Left" Margin="576,649,0,0" VerticalAlignment="Top" Width="80"/>
-        <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="676,649,0,0" VerticalAlignment="Top" Width="80"/>
-        <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="180,649,0,0" VerticalAlignment="Top" Width="80"/>
-        <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="276,649,0,0" VerticalAlignment="Top" Width="80" Click="btnCancelar_Click"/>
-        <ListView Margin="165,139,264,206">
-
-            <Calendar DisplayMode="Month" Width="568"/>
-
-            <DatePicker Height = "25"  HorizontalAlignment = "Left"  Margin = "42,26,0,0"  x:Name = "datePicker1"  VerticalAlignment = "Top"  Width = "140" IsDropDownOpen="True"  />
-        </ListView>
-        <Label x:Name="lblNome" Content="Nome:" HorizontalAlignment="Left" Margin="355,24,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtNome" HorizontalAlignment="Left" Margin="403,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="607" Height="26" Grid.ColumnSpan="2"/>
-        <Label x:Name="lblIdPaciente" Content="Id: " HorizontalAlignment="Left" Margin="167,24,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtIdPaciente" HorizontalAlignment="Left" Margin="198,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Height="26"/>
-        <Label x:Name="lblCpf" Content="CPF:" HorizontalAlignment="Left" Margin="165,62,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtCpf"  HorizontalAlignment="Left" Margin="213,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="127" Height="26"/>
-        <Label x:Name="lblTelefone" Content="Telefone:" HorizontalAlignment="Left" Margin="363,62,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtTelefone"  HorizontalAlignment="Left" Margin="418,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" Height="26"/>
-        <Label x:Name="lblEmail" Content="E-mail:" HorizontalAlignment="Left" Margin="585,62,0,0" VerticalAlignment="Top" Width="50"/>
-        <TextBox x:Name="txtEmail"  HorizontalAlignment="Left" Margin="640,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="370" Height="26" Grid.ColumnSpan="2"/>
-
-        <Label x:Name="lb_medico" Content="Médico: " Margin="167,98,388,576" Height="30"/>
-        <ListBox x:Name="cboMedico" HorizontalAlignment="Left" Height="30" Margin="225,98,0,0" VerticalAlignment="Top" Width="331" RenderTransformOrigin="0.571,0.301"/>
-
+        <Label Name="lblMedico" Content="Médico: " Margin="212,36,734,638" Height="30"/>
+        <ComboBox Name="cboMedico" HorizontalAlignment="Left" Margin="291,32,0,0" VerticalAlignment="Top" Width="231"/>
 
     </Grid>
-   
 </Window>

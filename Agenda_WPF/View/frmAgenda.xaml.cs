@@ -1,29 +1,24 @@
 ﻿using Agenda_WPF.DAL;
 using Agenda_WPF.Model;
-using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Agenda_WPF.View
 {
     /// <summary>
-    /// Interaction logic for frmAgenda.xaml
+    /// Interaction logic for frmListarAgenda.xaml
     /// </summary>
-    public partial class frmListarAgenda : Window
+    public partial class frmAgenda : Window
     {
         private string operacao;
         List<Paciente> pacientes = new List<Paciente>();
-        List<Medico> medicos = new List<Medico>();
+       
 
-        public frmListarAgenda()
+        Context ctx = SingletonContext.GetInstance();
+       
+        public frmAgenda()
         {
             InitializeComponent();
         }
@@ -102,13 +97,27 @@ namespace Agenda_WPF.View
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
+            //var consulta = ctx.Medicos;
+            //cboMedico.ItemsSource = consulta.ToList();
             cboMedico.ItemsSource = MedicoDAO.ListarMedicos();
-            cboMedico.DisplayMemberPath = "Medico";
+            cboMedico.DisplayMemberPath = "Nome";
             cboMedico.SelectedValuePath = "IdMedico";
         }
 
         private void btn_Fechar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        
+
+        private void btnListarConsulta_Click(object sender, RoutedEventArgs e)
+        {
+            frmListarAgenda listarAgenda = new frmListarAgenda();
+            listarAgenda.Show();
+        }
+
+        private void btnFechar_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }

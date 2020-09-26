@@ -35,6 +35,6 @@
             <Button Name="btnEncerrarSistema" Content="Encerrar Sistema" Height="30" DockPanel.Dock="Top" Click="btnEncerrarSistema_Click"/>
 
         </DockPanel>
-
+        
     </Grid>
 </Window>
