@@ -12,23 +12,23 @@ namespace Agenda_WPF.View
     public partial class frmListarMedico : Window
     {
         private string operacao;
+        Medico m = new Medico();
         public frmListarMedico()
         {
             InitializeComponent();
+
         }
         private void btnSalvar_Click(object sender, RoutedEventArgs e)
         {
-            Medico m = new Medico();
+            //Medico m = new Medico();
             m.Nome = txtNome.Text;
             m.Cpf = txtCpf.Text;
             m.Telefone = txtTelefone.Text;
             m.Email = txtEmail.Text;
             using (Context ctx = new Context())
             {
-
                 if (operacao == "inserir")
                 {
-
                     {
                         ctx.Medicos.Add(m);
                         ctx.SaveChanges();
@@ -36,17 +36,14 @@ namespace Agenda_WPF.View
                 }
                 if (operacao == "alterar")
                 {
-
                     {
                         ctx.Medicos.Add(m);
                         ctx.SaveChanges();
                     }
                 }
-
                 this.ListarDados();
                 this.AlteraBotoes(1);
                 this.LimpaCampos();
-
             }
         }
 

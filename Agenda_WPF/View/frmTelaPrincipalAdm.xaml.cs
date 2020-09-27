@@ -22,7 +22,7 @@ namespace Agenda_WPF.View
             InitializeComponent();
         }
 
-        
+
 
         private void btnPopUpLogout_Click(object sender, RoutedEventArgs e)
         {
@@ -34,7 +34,7 @@ namespace Agenda_WPF.View
             ButtonOpenMenu.Visibility = Visibility.Visible;
             ButtonCloseMenu.Visibility = Visibility.Collapsed;
 
-    
+
         }
 
         private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)

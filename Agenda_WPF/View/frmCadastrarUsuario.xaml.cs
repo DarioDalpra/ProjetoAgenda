@@ -42,7 +42,6 @@ namespace Agenda_WPF.View
             chkAdministrador.IsChecked = false;
             chkMedico.IsChecked = false;
             chkAtendente.IsChecked = false;
-
         }
 
         private void btnCadastrar_Click(object sender, RoutedEventArgs e)

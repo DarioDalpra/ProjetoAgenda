@@ -53,8 +53,13 @@ namespace Agenda_WPF.View
         {
             if (txtDta.Text != null)
             {
-                frmAgenda Agenda = new frmAgenda();
-                Agenda.ShowDialog();
+                //frmAgenda Agenda = new frmAgenda();
+                //Agenda.dtaAgendamento = txtDta.Text;
+                //Agenda.ShowDialog();
+                frmCadastrarPaciente cadastrarPaciente = new frmCadastrarPaciente();
+                cadastrarPaciente.dtaConsulta = txtDta.Text;
+                cadastrarPaciente.ShowDialog();
+
             }
         }
 

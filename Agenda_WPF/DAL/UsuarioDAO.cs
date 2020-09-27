@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Agenda_WPF.DAL
 {
-   class UsuarioDAO
+    class UsuarioDAO
     {
         private static Context ctx = SingletonContext.GetInstance();
         public static List<Usuario> ListarUsuarios() => ctx.Usuarios.ToList();

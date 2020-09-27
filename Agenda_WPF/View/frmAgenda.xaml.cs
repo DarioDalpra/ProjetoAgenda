@@ -1,9 +1,8 @@
 ﻿using Agenda_WPF.DAL;
 using Agenda_WPF.Model;
-using System.Collections.Generic;
-using System.Linq;
+using System;
 using System.Windows;
-using System.Windows.Documents;
+using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 
 namespace Agenda_WPF.View
 {
@@ -13,41 +12,100 @@ namespace Agenda_WPF.View
     public partial class frmAgenda : Window
     {
         private string operacao;
-        List<Paciente> pacientes = new List<Paciente>();
-       
+        //List<Paciente> pacientes = new List<Paciente>();
 
-        Context ctx = SingletonContext.GetInstance();
-       
+        public string dtaAgendamento
+        {
+            set { dtpDtaAgendamento.Text = value; }
+        }
+        public string nomePaciente
+        {
+            set { txtNomePaciente.Text = value; }
+        }
+        public string cpfPaciente
+        {
+            set { txtCpfPaciente.Text = value; }
+        }
+        public string planoPaciente
+        {
+            set { txtPlanoPaciente.Text = value; }
+        }
+
         public frmAgenda()
         {
             InitializeComponent();
+            LoadCombos();
         }
+
         private void AlteraBotoes(int op)
         {
+            btnAgendar.IsEnabled = false;
             btnAlterar.IsEnabled = false;
-            btnInserir.IsEnabled = false;
+            btnLocalizar.IsEnabled = false;
             btnExcluir.IsEnabled = false;
             btnCancelar.IsEnabled = false;
-            btnLocalizar.IsEnabled = false;
-            btnSalvar.IsEnabled = false;
 
             if (op == 1)
             {
                 //ativar as opções iniciais
-                btnInserir.IsEnabled = true;
                 btnLocalizar.IsEnabled = true;
             }
             if (op == 2)
             {
                 //inserir um valor
                 btnCancelar.IsEnabled = true;
-                btnSalvar.IsEnabled = true;
+                btnAgendar.IsEnabled = true;
             }
             if (op == 3)
             {
                 btnAlterar.IsEnabled = true;
                 btnExcluir.IsEnabled = true;
             }
+        }
+
+        private void listaMedico()
+        {
+            cboMedico.ItemsSource = MedicoDAO.ListarMedicos();
+            cboMedico.SelectedValuePath = "IdMedico";
+            cboMedico.DisplayMemberPath = "Nome";
+        }
+        //private void listaMedico()
+        //{
+        //    cboMedico.ItemsSource = MedicoDAO.ListarMedicos();
+        //    cboMedico.SelectedValuePath = "IdMedico";
+        //    cboMedico.DisplayMemberPath = "Nome";
+        //}
+
+        private void cboMedico_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            string especialidade;
+            especialidade = cboMedico.SelectedValue.ToString();
+            //if(Convert.ToInt32(especialidade) == cboMedico.SelectedIndex)
+            //{
+            txtEspecialidadeMedico.Text = especialidade;  //cboMedico.DisplayMemberPath = "Especialidade";
+                                                          //}
+
+
+
+        }
+
+        private void LoadCombos()
+        {
+            listaMedico();
+
+            cboHorario.Items.Add("09:00");
+            cboHorario.Items.Add("09:15");
+            cboHorario.Items.Add("09:30");
+            cboHorario.Items.Add("09:45");
+            cboHorario.Items.Add("10:00");
+            cboHorario.Items.Add("10:15");
+            cboHorario.Items.Add("10:30");
+            cboHorario.Items.Add("10:45");
+            cboHorario.Items.Add("11:00");
+            cboHorario.Items.Add("11:15");
+            cboHorario.Items.Add("11:30");
+            cboHorario.Items.Add("11:45");
+            cboHorario.Items.Add("14:00");
         }
         //private void LimpaCampos()
         //{
@@ -95,21 +153,10 @@ namespace Agenda_WPF.View
             this.AlteraBotoes(2);
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            //var consulta = ctx.Medicos;
-            //cboMedico.ItemsSource = consulta.ToList();
-            cboMedico.ItemsSource = MedicoDAO.ListarMedicos();
-            cboMedico.DisplayMemberPath = "Nome";
-            cboMedico.SelectedValuePath = "IdMedico";
-        }
-
         private void btn_Fechar_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
-
-        
 
         private void btnListarConsulta_Click(object sender, RoutedEventArgs e)
         {
@@ -121,6 +168,9 @@ namespace Agenda_WPF.View
         {
             this.Close();
         }
+
+
+
     }
 
 }

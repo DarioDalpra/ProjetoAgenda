@@ -14,7 +14,7 @@
                 <EasingDoubleKeyFrame KeyTime="0" Value="60"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.5 " Value="200"/>
             </DoubleAnimationUsingKeyFrames>
-         </Storyboard>
+        </Storyboard>
 
         <Storyboard x:Key="MenuClose">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
@@ -36,13 +36,13 @@
 
 
     </Window.Triggers>
-    
+
     <Grid Background="LightGray">
         <Grid Height="60" VerticalAlignment="Top" Background="#FF1368BD">
             <TextBlock Text="Agenda Médica" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" />
             <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
                 <materialDesign:PopupBox HorizontalAlignment="Right" Margin="10 " PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
-                <StackPanel Width="150">
+                    <StackPanel Width="150">
                         <Button Content="Conta"/>
                         <Button Content="Configuração"/>
                         <Button Content="Ajuda"/>
@@ -65,9 +65,9 @@
                     <Button x:Name="ButtonOpenMenu" Height="60" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Click="ButtonOpenMenu_Click">
                         <materialDesign:PackIcon Foreground="#FF5AABFA" Kind="Menu" Width="25" Height="25"/>
                     </Button>
-                    
+
                 </Grid>
- 
+
                 <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Foreground="White">
                     <ListViewItem Height="60">
                         <StackPanel Orientation="Horizontal">
@@ -111,7 +111,7 @@
                             <TextBlock Text="Listar Agendamento" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
- 
+
                     <ListViewItem Height="60">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Update" Width="25" Height="25" Margin="10" VerticalAlignment="Center"/>
@@ -139,18 +139,18 @@
                             <TextBlock Text="Atualizar Dados Funcionário" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
-                    
-                    
-                   
-                   
-         
+
+
+
+
+
 
                     <Separator/>
                 </ListView>
-            </StackPanel>   
+            </StackPanel>
         </Grid>
-       
-      
+
+
 
     </Grid>
 </Window>

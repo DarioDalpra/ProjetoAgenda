@@ -12,7 +12,7 @@ namespace Agenda_WPF.Model
         public Agenda() => CriadoEm = DateTime.Now;
 
         [Key]
-        public int IdAgenda{ get; set; }
+        public int IdAgenda { get; set; }
         public Paciente Nome { get; set; }
         public Paciente Cpf { get; set; }
         public Paciente Plano { get; set; }
@@ -29,4 +29,3 @@ namespace Agenda_WPF.Model
         }
     }
 }
-© 2020 GitHub, Inc.

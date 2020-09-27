@@ -23,7 +23,7 @@
             <Button Name="btnFechar" Content="Fechar" Height="30" DockPanel.Dock="Top" Click="btnFechar_Click"/>
 
         </DockPanel>
-        
+
         <Label Name="lblFiltro" Content="Selecione um tipo de busca e insira abaixo:" HorizontalAlignment="Left" Margin="573,67,0,0" VerticalAlignment="Top"/>
         <RadioButton Name="rdoCpf" Content="CPF" HorizontalAlignment="Left" Margin="495,58,0,0" VerticalAlignment="Top"/>
         <RadioButton Name="rdoEmail" Content="E-MAIL" HorizontalAlignment="Left" Margin="495,78,0,0" VerticalAlignment="Top"/>

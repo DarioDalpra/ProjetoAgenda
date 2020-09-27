@@ -14,6 +14,9 @@ namespace Agenda_WPF.View
     public partial class frmCadastrarMedico : Window
     {
         private string operacao;
+        Context ctx = SingletonContext.GetInstance();
+
+
         public frmCadastrarMedico()
         {
             InitializeComponent();
@@ -29,6 +32,7 @@ namespace Agenda_WPF.View
             btnExcluir.IsEnabled = false;
             btnCancelar.IsEnabled = false;
 
+            txtId.Clear();
             txtNome.Clear();
             mskCpf.Clear();
             txtRg.Clear();
@@ -58,10 +62,12 @@ namespace Agenda_WPF.View
                     var m = MedicoDAO.BuscarMedicoPorCpf(med);
                     if (m == null)
                     {
-                        MessageBox.Show($"Informe um CPF Válido!");
+                        //MessageBox.Show($"Informe um CPF Válido!");
+                        MessageBox.Show($"CPF [ {med.Cpf} ] não encontrado!");
                     }
                     else
                     {
+                        txtId.Text = m.IdMedico.ToString();
                         txtCrm.Text = m.Crm;
                         txtEspecialidade.Text = m.Especialidade;
                         txtNome.Text = m.Nome;
@@ -92,9 +98,7 @@ namespace Agenda_WPF.View
 
         private void btnCadastrar_Click(object sender, RoutedEventArgs e)
         {
-            Context ctx = SingletonContext.GetInstance();
             Medico med = new Medico();
-
             med.Nome = txtNome.Text;
             med.Cpf = mskCpf.Text;
             med.Rg = txtRg.Text;
@@ -130,7 +134,6 @@ namespace Agenda_WPF.View
             }
 
         }
-
         private void AlteraBotoes(int op)
         {
             btnCadastrar.IsEnabled = false;
@@ -206,13 +209,44 @@ namespace Agenda_WPF.View
             listarPaciente.Show();
         }
 
-        
-
-        
-
         private void btnAlterar_Click(object sender, RoutedEventArgs e)
         {
+            Medico m = new Medico();
+            m.Cpf = mskCpf.Text;
+            var me = MedicoDAO.BuscarMedicoPorCpf(m);
+            if (me != null)
+            {
+                me.IdMedico = Convert.ToInt32(txtId.Text);
+                me.Nome = txtNome.Text;
+                me.Cpf = mskCpf.Text;
+                me.Rg = txtRg.Text;
+                me.Nascimento = mskdtaNascimento.Text;
+                me.Telefone = mskTelefone.Text;
+                me.Email = txtEmail.Text;
+                me.Crm = txtCrm.Text;
+                me.Especialidade = txtEspecialidade.Text;
+                me.Rua = txtRua.Text;
+                me.Numero = txtNumero.Text;
+                me.Bairro = txtBairro.Text;
+                me.Cidade = txtCidade.Text;
+                me.Estado = txtEstado.Text;
+                me.Cep = mskCep_Leave.Text;
 
+                MedicoDAO.AlterarMedico(me);
+
+                MessageBox.Show("Cadastro do Médico Atualizado!!", "Atualiza Médico", MessageBoxButton.OK,
+                                                                           MessageBoxImage.Information);
+                LimpaCampos();
+            }
+
+
+        }
+
+        private void btnExcluir_Click(object sender, RoutedEventArgs e)
+        {
+            Medico med = new Medico();
+            ctx.Medicos.Remove(med);
+            ctx.SaveChanges();
         }
     }
 

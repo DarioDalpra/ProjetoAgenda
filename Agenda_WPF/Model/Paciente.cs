@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Agenda_WPF.Model
 {
-   [Table("Pacientes")]
+    [Table("Pacientes")]
     class Paciente : Pessoa
     {
         public Paciente() => CriadoEm = DateTime.Now;

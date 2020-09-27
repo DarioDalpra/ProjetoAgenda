@@ -18,9 +18,9 @@ Professor3 - 639.911.100-59
 Administrador1 - 093.217.400-07 - admin@agenda.com.br
 Administrador2 - 113.788.690-01 - admin2@agenda.com.br
 
-Medico1 - 903.589.190-29 - medico1@agenda.com.br
-Medico2 - 115.783.300-41 - medico2@agenda.com.br
-Medico3 - 641.182.730-39 - medico3@agenda.com.br
+Medico1 - 903.589.190-29 - 50.226.641-7 - medico1@agenda.com.br
+Medico2 - 115.783.300-41 - 42.138.065-2 - medico2@agenda.com.br
+Medico3 - 641.182.730-39 - 10.846.515-9 - medico3@agenda.com.br
 
 Atendente1 - 933.696.540-91 - atendente1@agenda.com.br
 Atendente2 - 652.260.740-93 - atendente2@agenda.com.br
@@ -34,8 +34,5 @@ CNPJ
 Fornecedor1 - 81.308.299/0001-48
 Fornecedor2 - 06.239.252/0001-54
 Fornecedor3 - 96.047.643/0001-60
-
-
-
 
 <Button Name="btnSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="678,581,0,0" VerticalAlignment="Top" Width="80" Click="btnSalvar_Click_1"/>

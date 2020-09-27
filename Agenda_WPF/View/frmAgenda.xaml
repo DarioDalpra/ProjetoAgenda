@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:Agenda_WPF.View"
         xmlns:System="clr-namespace:System;assembly=System.Runtime" x:Class="Agenda_WPF.View.frmAgenda"
         mc:Ignorable="d"
-        Title="AGENDA WPF - Agenda" Height="720" Width="1020" Loaded="Window_Loaded">
+        Title="AGENDA WPF - Agenda" Height="720" Width="1020" >
     <Grid>
         <Label Name="lblAteLogado" Content="" HorizontalAlignment="Left" Margin="165,10,0,0" VerticalAlignment="Top"/>
         <DockPanel Name="mn_Principal" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="190" Height="704" Background="#FF5AABFA">
@@ -21,16 +21,34 @@
 
         </DockPanel>
 
-        <Button Name="btnInserir" Content="Inserir" HorizontalAlignment="Left" Margin="442,637,0,0" VerticalAlignment="Top" Width="80" Click="btnInserir_Click"/>
-        <Button Name="btnAlterar" Content="Alterar" HorizontalAlignment="Left" Margin="542,637,0,0" VerticalAlignment="Top" Width="80"/>
-        <Button Name="btnLocalizar" Content="Localizar" HorizontalAlignment="Left" Margin="642,637,0,0" VerticalAlignment="Top" Width="80"/>
-        <Button Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="742,637,0,0" VerticalAlignment="Top" Width="80"/>
-        <Button Name="btnSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="246,637,0,0" VerticalAlignment="Top" Width="80"/>
-        <Button Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="342,637,0,0" VerticalAlignment="Top" Width="80" Click="btnCancelar_Click"/>
+        <Label Name="lblIdConsulta" Content="ID:" HorizontalAlignment="Left" Margin="216,14,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtIdConsulta" IsTabStop="False" IsEnabled="False" HorizontalAlignment="Left" Margin="248,12,0,0" VerticalAlignment="Top" Width="58"  />
+        <Label Name="lblNomePaciente" Content="Paciente:" HorizontalAlignment="Left" Margin="210,98,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtNomePaciente" HorizontalAlignment="Left" Margin="216,120,0,0" VerticalAlignment="Top" Width="300"  />
+        <Label Name="lblCpfPaciente" Content="CPF:" HorizontalAlignment="Left" Margin="527,98,0,0" VerticalAlignment="Top" Width="79"/>
+        <TextBox Name="txtCpfPaciente" HorizontalAlignment="Left" Margin="526,120,0,0" VerticalAlignment="Top" Width="171"  />
+        <Label Name="lblPlanoPaciente" Content="Plano:" HorizontalAlignment="Left" Margin="713,98,0,0" VerticalAlignment="Top" Width="79"/>
+        <TextBox Name="txtPlanoPaciente" HorizontalAlignment="Left" Margin="712,120,0,0" VerticalAlignment="Top" Width="147"  />
+        <Label Name="lblCalendario" Content="Calendário:" HorizontalAlignment="Left" Margin="210,44,0,0" VerticalAlignment="Top"/>
+        <DatePicker Name="dtpDtaAgendamento" HorizontalAlignment="Left" Margin="216,64,0,0" VerticalAlignment="Top" Width="114" Height="24"/>
+        <Label Name="lblHora" Content="Horário:" HorizontalAlignment="Left" Margin="369,40,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="cboHorario" TabIndex="0" HorizontalAlignment="Left" Margin="369,60,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Name="lblNomeMedico" Content="Médico:" HorizontalAlignment="Left" Margin="210,160,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="cboMedico" HorizontalAlignment="Left" Margin="216,178,0,0" VerticalAlignment="Top" Width="300" SelectionChanged="cboMedico_SelectionChanged"/>
+        <Label Name="lblEspecialidadeMedico" Content="Especialidade:" HorizontalAlignment="Left" Margin="531,160,0,0" VerticalAlignment="Top" Width="79"/>
+        <TextBox Name="txtEspecialidadeMedico" HorizontalAlignment="Left" Margin="530,182,0,0" VerticalAlignment="Top" Width="167"  />
+        <DataGrid Name="dtgAgenda" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="222,220,0,0" Height="387" Width="768"/>
+
+        <Button Name="btnAgendar" Content="Agendar" HorizontalAlignment="Left" Margin="246,631,0,0" VerticalAlignment="Top" Width="90"/>
+        <Button Name="btnAlterar" Content="Alterar" HorizontalAlignment="Left" Margin="346,631,0,0" VerticalAlignment="Top" Width="90"/>
+        <Button Name="btnLocalizar" Content="Localizar" HorizontalAlignment="Left" Margin="446,631,0,0" VerticalAlignment="Top" Width="90"/>
+        <Button Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="548,631,0,0" VerticalAlignment="Top" Width="90"/>
+        <Button Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="652,631,0,0" VerticalAlignment="Top" Width="90" Click="btnCancelar_Click"/>
+        <ComboBox Name="cboEspecialidade" HorizontalAlignment="Left" Margin="752,172,0,0" VerticalAlignment="Top" Width="120"/>
 
 
-        <Label Name="lblMedico" Content="Médico: " Margin="212,36,734,638" Height="30"/>
-        <ComboBox Name="cboMedico" HorizontalAlignment="Left" Margin="291,32,0,0" VerticalAlignment="Top" Width="231"/>
+
+
 
     </Grid>
 </Window>

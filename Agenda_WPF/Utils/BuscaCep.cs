@@ -19,4 +19,5 @@ namespace Agenda_WPF.Utils
         public string ibge { get; set; }
         public string gia { get; set; }
     }
+
 }

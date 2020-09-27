@@ -66,7 +66,7 @@ namespace Agenda_WPF
         private void btnListarMedico_Click(object sender, RoutedEventArgs e)
         {
             frmListarMedico listarMedico = new frmListarMedico();
-            listarMedico.Show();
+            listarMedico.ShowDialog();
         }
 
         private void btnAgendarConsulta_Click(object sender, RoutedEventArgs e)

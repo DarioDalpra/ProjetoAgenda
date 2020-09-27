@@ -3,6 +3,7 @@ using Agenda_WPF.Model;
 using Agenda_WPF.Utils;
 using RestSharp;
 using RestSharp.Serialization.Json;
+using System;
 using System.Windows;
 
 namespace Agenda_WPF.View
@@ -13,6 +14,9 @@ namespace Agenda_WPF.View
     public partial class frmCadastrarPaciente : Window
     {
         private string operacao;
+        Context ctx = SingletonContext.GetInstance();
+        Paciente pac = new Paciente();
+
         public frmCadastrarPaciente()
         {
             InitializeComponent();
@@ -28,15 +32,16 @@ namespace Agenda_WPF.View
             cboPlano.Items.Add("SINAN");
             cboPlano.Items.Add("UNIMED");
         }
-        
+
         private void LimpaCampos()
         {
             btnCadastrar.IsEnabled = true;
             btnAlterar.IsEnabled = false;
             btnLocalizar.IsEnabled = true;
             btnExcluir.IsEnabled = false;
-            btnCancelar.IsEnabled = true;
+            btnCancelar.IsEnabled = false;
 
+            txtId.Clear();
             txtNome.Clear();
             mskCpf.Clear();
             txtRg.Clear();
@@ -65,10 +70,12 @@ namespace Agenda_WPF.View
                     var p = PacienteDAO.BuscarPacientePorCpf(pac);
                     if (p == null)
                     {
-                        MessageBox.Show($"Informe um CPF Válido!");
+                        //MessageBox.Show($"Informe um CPF Válido!");
+                        MessageBox.Show($"CPF [ {pac.Cpf} ] não encontrado!");
                     }
                     else
                     {
+                        txtId.Text = p.IdPaciente.ToString();
                         cboPlano.Text = p.NomePlano;
                         txtNPlano.Text = p.NumPlano;
                         txtNome.Text = p.Nome;
@@ -102,8 +109,6 @@ namespace Agenda_WPF.View
         {
             //this.operacao = "inserir";
             //this.AlteraBotoes(2);
-            Context ctx = SingletonContext.GetInstance();
-            Paciente pac = new Paciente();
             pac.Nome = txtNome.Text;
             pac.Cpf = mskCpf.Text;
             pac.Rg = txtRg.Text;
@@ -142,7 +147,7 @@ namespace Agenda_WPF.View
             }
 
         }
- 
+
         private void AlteraBotoes(int op)
         {
             btnCadastrar.IsEnabled = false;
@@ -169,7 +174,7 @@ namespace Agenda_WPF.View
             }
         }
 
-         private void btnBuscaCep_Click(object sender, RoutedEventArgs e)
+        private void btnBuscaCep_Click(object sender, RoutedEventArgs e)
         {
             LocalizarCEP();
         }
@@ -220,12 +225,57 @@ namespace Agenda_WPF.View
             listarPaciente.ShowDialog();
         }
 
-
-        
-
         private void btnAlterar_Click(object sender, RoutedEventArgs e)
         {
+            Paciente p = new Paciente();
+            p.Cpf = mskCpf.Text;
+            var pa = PacienteDAO.BuscarPacientePorCpf(p);
+            if (pa != null)
+            {
+                pa.IdPaciente = Convert.ToInt32(txtId.Text);
+                pa.Cpf = mskCpf.Text;
+                pa.NomePlano = cboPlano.Text;
+                pa.NumPlano = txtNPlano.Text;
+                pa.Nome = txtNome.Text;
+                pa.Rg = txtRg.Text;
+                pa.Nascimento = mskdtaNascimento.Text;
+                pa.Telefone = mskTelefone.Text;
+                pa.Email = txtEmail.Text;
+                pa.Cep = mskCep_Leave.Text;
+                pa.Rua = txtRua.Text;
+                pa.Numero = txtNumero.Text;
+                pa.Bairro = txtBairro.Text;
+                pa.Cidade = txtCidade.Text;
+                pa.Estado = txtEstado.Text;
 
+
+                PacienteDAO.AlterarPaciente(pa);
+
+                MessageBox.Show("Cadastro do Paciente Atualizado!!", "Atualiza Paciente", MessageBoxButton.OK,
+                                                                           MessageBoxImage.Information);
+                LimpaCampos();
+            }
+        }
+        private void btnExcluir_Click(object sender, RoutedEventArgs e)
+        {
+            ctx.Pacientes.Remove(pac);
+            ctx.SaveChanges();
+        }
+
+        public string dtaConsulta
+        {
+            set { txtdtaConsult.Text = value; }
+        }
+
+        private void btnAgendarConsulta_Click(object sender, RoutedEventArgs e)
+        {
+            frmAgenda agendarConsulta = new frmAgenda();
+            agendarConsulta.dtaAgendamento = txtdtaConsult.Text;
+            agendarConsulta.nomePaciente = txtNome.Text;
+            agendarConsulta.cpfPaciente = mskCpf.Text;
+            agendarConsulta.planoPaciente = cboPlano.Text;
+            agendarConsulta.ShowDialog();
+            this.Close();
         }
     }
 }
