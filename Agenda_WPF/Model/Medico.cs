@@ -6,8 +6,8 @@ using System.Text;
 
 namespace Agenda_WPF.Model
 {
-    [Table("Medicos")]
-    public class Medico : Pessoa
+    [Table ("Medicos")]
+    class Medico : Pessoa
     {
         public Medico() => CriadoEm = DateTime.Now;
 
@@ -16,6 +16,5 @@ namespace Agenda_WPF.Model
         public string Crm { get; set; }
         public string Especialidade { get; set; }
         public DateTime CriadoEm { get; set; }
-
     }
 }

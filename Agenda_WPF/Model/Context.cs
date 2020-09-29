@@ -10,12 +10,13 @@ namespace Agenda_WPF.Model
         public DbSet<Agenda> Agendas { get; set; }
         public DbSet<Medico> Medicos { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Prontuario> Prontuários { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;
-                                          Database=AgendaDb;
+                                          Database=AgendaWPFDb;
                                           Trusted_Connection=true");
         }
     }

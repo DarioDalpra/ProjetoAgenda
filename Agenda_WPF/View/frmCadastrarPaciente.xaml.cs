@@ -13,7 +13,7 @@ namespace Agenda_WPF.View
     /// </summary>
     public partial class frmCadastrarPaciente : Window
     {
-        private string operacao;
+       // private string operacao;
         Context ctx = SingletonContext.GetInstance();
         Paciente pac = new Paciente();
 

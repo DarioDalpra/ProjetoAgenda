@@ -11,7 +11,7 @@ namespace Agenda_WPF.View
     /// </summary>
     public partial class frmAgenda : Window
     {
-        private string operacao;
+         private string operacao;
         //List<Paciente> pacientes = new List<Paciente>();
 
         public string dtaAgendamento
