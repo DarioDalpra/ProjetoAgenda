@@ -69,12 +69,7 @@ namespace Agenda_WPF.View
             cboMedico.SelectedValuePath = "IdMedico";
             cboMedico.DisplayMemberPath = "Nome";
         }
-        //private void listaMedico()
-        //{
-        //    cboMedico.ItemsSource = MedicoDAO.ListarMedicos();
-        //    cboMedico.SelectedValuePath = "IdMedico";
-        //    cboMedico.DisplayMemberPath = "Nome";
-        //}
+       
 
         private void cboMedico_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {

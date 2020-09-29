@@ -26,5 +26,10 @@ namespace Agenda_WPF.Model
             return $"Paciente: {NomePaciente} | Médico: {NomeMedico} | Sintomas: {Sintomas} | Avaliação: {Avaliacao} | " +
                    $"Medicamento: {Medicamento} | Plano de Saúde: {PlanoSaude} | Data da Consulta: {DataConsulta}.";
         }
+
+        public static implicit operator Prontuario(Prontuario v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

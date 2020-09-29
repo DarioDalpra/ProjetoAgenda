@@ -16,5 +16,10 @@ namespace Agenda_WPF.Model
         public string Crm { get; set; }
         public string Especialidade { get; set; }
         public DateTime CriadoEm { get; set; }
+
+        public override string ToString()
+        {
+            return $"{IdMedico} - {Nome} - {Especialidade}";
+        }
     }
 }

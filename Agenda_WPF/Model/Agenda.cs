@@ -18,6 +18,8 @@ namespace Agenda_WPF.Model
         public Paciente Plano { get; set; }
         public Medico NomeMedico { get; set; }
         public Medico Especialidade { get; set; }
+
+        public List<Prontuario> Prontuarios { get; set; }
         public DateTime DataAgendada { get; set; }
         public DateTime CriadoEm { get; set; }
 

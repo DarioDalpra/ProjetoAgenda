@@ -22,7 +22,7 @@ namespace Agenda_WPF.DAL
             return false;
         }
 
-        public static Medico BuscarMedicoPorId(int id) => ctx.Medicos.Find(id);
+        public static Medico BuscarMedicoPorId(int IdMedico) => ctx.Medicos.Find(IdMedico);
         public static Medico BuscarMedicoPorNome(Medico m) => ctx.Medicos.FirstOrDefault(x => x.Nome.Equals(m.Nome));
         public static Medico BuscarMedicoPorCpf(Medico m) => ctx.Medicos.FirstOrDefault(x => x.Cpf.Equals(m.Cpf));
         public static Medico BuscarMedicoPorCrm(Medico m) => ctx.Medicos.FirstOrDefault(x => x.Crm.Equals(m.Crm));

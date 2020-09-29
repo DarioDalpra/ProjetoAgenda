@@ -6,7 +6,7 @@
         WindowStartupLocation="CenterScreen"
         xmlns:local="clr-namespace:Agenda_WPF.View"
         mc:Ignorable="d"
-         Title="AGENDA WPF - MÉdico" Height="720" Width="1020">
+         Title="AGENDA WPF - MÉdico" Height="720" Width="1020" Loaded="Window_Loaded">
     <Grid>
         <Label Name="lblMedLogado" Content="" HorizontalAlignment="Left" Margin="204,13,0,0" VerticalAlignment="Top"/>
         <DockPanel Name="mn_Principal" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="190" Height="704" Background="#FF5AABFA">

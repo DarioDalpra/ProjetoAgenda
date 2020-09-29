@@ -42,5 +42,7 @@ namespace Agenda_WPF.View
         {
             this.Close();
         }
+
+        
     }
 }
