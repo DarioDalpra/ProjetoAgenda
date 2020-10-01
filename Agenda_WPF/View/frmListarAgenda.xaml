@@ -31,5 +31,24 @@
         <TextBox Name="txtTelefone"  HorizontalAlignment="Left" Margin="418,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" Height="26"/>
         <Label Name="lblEmail" Content="E-mail:" HorizontalAlignment="Left" Margin="585,62,0,0" VerticalAlignment="Top" Width="50"/>
         <TextBox Name="txtEmail"  HorizontalAlignment="Left" Margin="640,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="370" Height="26" Grid.ColumnSpan="2"/>
+
+        <DataGrid x:Name="dtaAgenda" Margin="198,130,10,86" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nome" Width="2*" Binding="{Binding Nome}"/>
+                <DataGridTextColumn Header="Plano" Width="1*" Binding="{Binding Plano}"/>
+                <DataGridTextColumn Header="Médico" Width="1*" Binding="{Binding Medico}"/>
+                <DataGridTextColumn Header="Data da Consulta" Width="1*" Binding="{Binding DataConsulta}"/>
+                <DataGridTextColumn Header="Horario da Consulta" Width="1*" Binding="{Binding HorasConsulta}"/>
+                <DataGridTextColumn Header="Alterar" Width="1*" Binding="{Binding Alterar}"/>
+                <DataGridTemplateColumn Header="View">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="btnProntuario" Content="Prontuario" Click="btnProntuario_Click" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

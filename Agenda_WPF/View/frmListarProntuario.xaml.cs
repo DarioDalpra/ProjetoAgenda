@@ -48,7 +48,7 @@ namespace Agenda_WPF.View
                 prontuario = new Prontuario()
                 {
                     NomePaciente = txtNomePaciente.Text,
-                    NomeMedico = cboMedico.SelectedValue(),
+                    NomeMedico = cboMedico.SelectedValuePath(),
 
                 };
                 if (ProntuarioDAO.CadastrarProntuario(prontuario))
