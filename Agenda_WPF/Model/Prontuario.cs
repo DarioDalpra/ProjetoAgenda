@@ -6,15 +6,15 @@ using System.Text;
 
 namespace Agenda_WPF.Model
 {
-    [Table("Prontuario")]
+    [Table("Prontuarios")]
     class Prontuario
     {
         public Prontuario() => DataConsulta = DateTime.Now;
 
         [Key]
         public int IdProntuario { get; set; }
-        public Paciente NomePaciente { get; set; }
-        public Medico NomeMedico { get; set; }
+        public virtual Paciente NomePaciente { get; set; }
+        public virtual Medico NomeMedico { get; set; }
         public string Sintomas { get; set; }
         public string Avaliacao { get; set; }
         public string Medicamento { get; set; }
@@ -25,11 +25,6 @@ namespace Agenda_WPF.Model
         {
             return $"Paciente: {NomePaciente} | Médico: {NomeMedico} | Sintomas: {Sintomas} | Avaliação: {Avaliacao} | " +
                    $"Medicamento: {Medicamento} | Plano de Saúde: {PlanoSaude} | Data da Consulta: {DataConsulta}.";
-        }
-
-        public static implicit operator Prontuario(Prontuario v)
-        {
-            throw new NotImplementedException();
         }
     }
 }

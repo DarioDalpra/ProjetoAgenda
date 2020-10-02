@@ -55,7 +55,7 @@ namespace Agenda_WPF.View
                 {
                     MessageBox.Show("Prontuário cadastrado com sucesso!!!", "Agenda WPF",
                         MessageBoxButton.OK, MessageBoxImage.Information);
-                    LimparFormulario();
+                    LimpaCampos();
                 }
                 else
                 {
@@ -68,6 +68,22 @@ namespace Agenda_WPF.View
                 MessageBox.Show("Preencha o campo nome!!!", "Agenda WPF",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private static void LimpaCampos()
+        {
+            IdProntuario.IsEnabled = true;
+            NomeMedico.IsEnabled = true;
+            txtCpf.IsEnabled = true;
+            txtTelefone.IsEnabled = true;
+            txtEmail.IsEnabled = true;
+
+            txtNome.Clear();
+            txtCpf.Clear();
+            txtTelefone.Clear();
+            txtEmail.Clear();
+
+
         }
     }
 

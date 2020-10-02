@@ -11,20 +11,32 @@ namespace Agenda_WPF.View
     /// </summary>
     public partial class frmAgenda : Window
     {
-         private string operacao;
-        //List<Paciente> pacientes = new List<Paciente>();
+        private string operacao;
+        Agenda ag = new Agenda();
 
         public string dtaAgendamento
         {
             set { dtpDtaAgendamento.Text = value; }
         }
+        public string IdPaciente
+        {
+            set { txtNPac.Text = value; }
+        }
         public string nomePaciente
         {
             set { txtNomePaciente.Text = value; }
         }
+        public string IdcpfPaciente
+        {
+            set { txtCpfPac.Text = value; }
+        }
         public string cpfPaciente
         {
             set { txtCpfPaciente.Text = value; }
+        }
+        public string IdplanoPaciente
+        {
+            set { txtPlanoPac.Text = value; }
         }
         public string planoPaciente
         {
@@ -65,23 +77,20 @@ namespace Agenda_WPF.View
 
         private void listaMedico()
         {
+            //Carregar os dados dos Médicos
             cboMedico.ItemsSource = MedicoDAO.ListarMedicos();
             cboMedico.SelectedValuePath = "IdMedico";
             cboMedico.DisplayMemberPath = "Nome";
         }
-       
 
         private void cboMedico_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            string especialidade;
-            especialidade = cboMedico.SelectedValue.ToString();
-            //if(Convert.ToInt32(especialidade) == cboMedico.SelectedIndex)
-            //{
-            txtEspecialidadeMedico.Text = especialidade;  //cboMedico.DisplayMemberPath = "Especialidade";
-                                                          //}
-
-
-
+            if ((cboMedico.SelectedValuePath = "IdMedico") != null)
+            {
+                txtNMed.Text = cboMedico.SelectedValue.ToString();
+                txtEspecMed.Text = cboMedico.SelectedValue.ToString();
+            }
+            txtEspecialidadeMedico.Text = cboMedico.SelectedItem.ToString();
         }
 
         private void LoadCombos()
@@ -102,39 +111,39 @@ namespace Agenda_WPF.View
             cboHorario.Items.Add("11:45");
             cboHorario.Items.Add("14:00");
         }
-        //private void LimpaCampos()
-        //{
+        private void LimpaCampos()
+        {
+            //    txtNome.IsEnabled = true;
+            //    txtCpf.IsEnabled = true;
+            //    txtRg.IsEnabled = true;
+            //    dtNascimento.IsEnabled = true;
+            //    txtTelefone.IsEnabled = true;
+            //    txtEmail.IsEnabled = true;
+            //    cboPlano.IsEnabled = true;
+            //    txtNumplano.IsEnabled = true;
+            //    txtRua.IsEnabled = true;
+            //    txtNumero.IsEnabled = true;
+            //    txtBairro.IsEnabled = true;
+            //    txtCidade.IsEnabled = true;
+            //    txtEstado.IsEnabled = true;
+            //    txtCep_Leave.IsEnabled = true;
 
-        //    txtNome.IsEnabled = true;
-        //    txtCpf.IsEnabled = true;
-        //    txtRg.IsEnabled = true;
-        //    dtNascimento.IsEnabled = true;
-        //    txtTelefone.IsEnabled = true;
-        //    txtEmail.IsEnabled = true;
-        //    cboPlano.IsEnabled = true;
-        //    txtNumplano.IsEnabled = true;
-        //    txtRua.IsEnabled = true;
-        //    txtNumero.IsEnabled = true;
-        //    txtBairro.IsEnabled = true;
-        //    txtCidade.IsEnabled = true;
-        //    txtEstado.IsEnabled = true;
-        //    txtCep_Leave.IsEnabled = true;
+            //dtpDtaAgendamento.DisplayDate = "";
+            cboHorario.Text = "";
+            txtNomePaciente.Clear();
+            txtCpfPaciente.Clear();
+            txtPlanoPaciente.Clear();
+            cboMedico.Text = "";
+            txtEspecialidadeMedico.Clear();
 
-        //    txtNome.Clear();
-        //    txtCpf.Clear();
-        //    txtRg.Clear();
-        //    dtNascimento.Clear();
-        //    txtTelefone.Clear();
-        //    txtEmail.Clear();
-
-        //    txtNumplano.Clear();
-        //    txtRua.Clear();
-        //    txtNumero.Clear();
-        //    txtBairro.Clear();
-        //    txtCidade.Clear();
-        //    txtEstado.Clear();
-        //    txtCep_Leave.Clear();
-        //}
+            //    txtNumplano.Clear();
+            //    txtRua.Clear();
+            //    txtNumero.Clear();
+            //    txtBairro.Clear();
+            //    txtCidade.Clear();
+            //    txtEstado.Clear();
+            //    txtCep_Leave.Clear();
+        }
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
@@ -164,8 +173,11 @@ namespace Agenda_WPF.View
             this.Close();
         }
 
+        private void btnAgendar_Click(object sender, RoutedEventArgs e)
+        {
 
+
+        }
 
     }
-
 }

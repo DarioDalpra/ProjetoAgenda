@@ -5,17 +5,18 @@ using System.Text;
 
 namespace Agenda_WPF.DAL
 {
-    class SingletonContext
-    {
-        private static Context ctx;
-        private SingletonContext() { }
-        public static Context GetInstance()
+   
+        class SingletonContext
         {
-            if (ctx == null)
+            private static Context ctx;
+            private SingletonContext() { }
+            public static Context GetInstance()
             {
-                ctx = new Context();
+                if (ctx == null)
+                {
+                    ctx = new Context();
+                }
+                return ctx;
             }
-            return ctx;
         }
     }
-}

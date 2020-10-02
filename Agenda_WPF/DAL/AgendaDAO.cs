@@ -25,7 +25,7 @@ class AgendaDAO
 
     public static Agenda BuscarAgendaPorNome(Agenda a)
     {
-        return ctx.Agendas.FirstOrDefault(x => x.Nome.Equals(a.Nome));
+        return ctx.Agendas.FirstOrDefault(x => x.Paciente.Equals(a.Paciente));
     }
 
 

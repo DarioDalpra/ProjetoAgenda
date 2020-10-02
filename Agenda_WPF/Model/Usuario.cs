@@ -10,10 +10,6 @@ namespace Agenda_WPF.Model
         public Usuario() => CriadoEm = DateTime.Now;
         [Key]
         public int UsuarioID { get; set; }
-        //public string Nome { get; set; }
-        //public string Cpf { get; set; }
-        //public string Email { get; set; }
-        //public string Telefone { get; set; }
         public string Senha { get; set; }
         public bool Administrador { get; set; }
         public bool Medico { get; set; }

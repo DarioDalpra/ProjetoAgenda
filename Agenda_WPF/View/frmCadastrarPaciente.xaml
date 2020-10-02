@@ -22,68 +22,70 @@
             <Button Name="btnFechar" Content="Fechar" HorizontalContentAlignment="Center" Height="30" DockPanel.Dock="Top" Click="btnFechar_Click"/>
 
         </DockPanel>
+        <Label Name="lblUsrLogado" Content="" HorizontalAlignment="Left" Margin="200,24,0,0" VerticalAlignment="Top" Height="23"/>
+        <Label Name="lblId" Content="ID:" HorizontalAlignment="Left" Margin="198,58,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtId" AcceptsTab="False" IsEnabled="False" HorizontalAlignment="Left" Margin="244,55,0,0" VerticalAlignment="Top" Width="30"/>
 
-        <Label Name="lblId" Content="ID:" HorizontalAlignment="Left" Margin="240,18,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="txtId" AcceptsTab="False" IsEnabled="False" HorizontalAlignment="Left" Margin="286,15,0,0" VerticalAlignment="Top" Width="30"/>
+        <TextBox Name="txtdtaConsult" Visibility="Hidden" HorizontalAlignment="Left" Margin="294,57,0,0" VerticalAlignment="Top" Width="108" Height="25"/>
 
-        <Label Name="lblCpf" Content="CPF:" HorizontalAlignment="Left" Margin="239,52,0,0" VerticalAlignment="Top"/>
+        <Label Name="lblCpf" Content="CPF:" HorizontalAlignment="Left" Margin="197,92,0,0" VerticalAlignment="Top"/>
         <xctk:MaskedTextBox Name="mskCpf" TabIndex="0" Mask="999,999,999-99" CaretIndex="0" ValueDataType="{x:Type AccessText}" 
-                            HorizontalAlignment="Left" VerticalAlignment="Top" Margin="281,52,0,0" FontSize="14" Height="24" Width="122"
+                            HorizontalAlignment="Left" VerticalAlignment="Top" Margin="239,92,0,0" FontSize="14" Height="24" Width="122"
                             HorizontalContentAlignment="Center">
         </xctk:MaskedTextBox>
 
-        <Button Name="btnBuscarCpf" Content="Pesquisar" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="437,51,0,0" VerticalAlignment="Top" Height="25" Width="105" Click="btnBuscarCpf_Click" />
+        <Button Name="btnBuscarCpf" Content="Pesquisar" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="395,91,0,0" VerticalAlignment="Top" Height="25" Width="105" Click="btnBuscarCpf_Click" />
 
 
-        <Label Name="lblPlano" Content="PLANO:" HorizontalAlignment="Left" Margin="554,52,0,0" VerticalAlignment="Top"/>
-        <ComboBox Name="cboPlano" TabIndex="1" HorizontalAlignment="Left" Margin="618,49,0,0" VerticalAlignment="Top" Width="144"/>
+        <Label Name="lblPlano" Content="PLANO:" HorizontalAlignment="Left" Margin="512,92,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="cboPlano" TabIndex="1" HorizontalAlignment="Left" Margin="576,89,0,0" VerticalAlignment="Top" Width="144"/>
 
-        <Label Name="lblNPlano" Content="Nº PLANO:" HorizontalAlignment="Left" Margin="774,52,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="txtNPlano" TabIndex="2" HorizontalAlignment="Left" Margin="840,52,0,0" VerticalAlignment="Top" Width="142"/>
+        <Label Name="lblNPlano" Content="Nº PLANO:" HorizontalAlignment="Left" Margin="732,92,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtNPlano" TabIndex="2" HorizontalAlignment="Left" Margin="798,92,0,0" VerticalAlignment="Top" Width="142"/>
 
-        <Label Name="lblNome" Content="Nome Completo:" HorizontalAlignment="Left" Margin="240,91,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="txtNome" TabIndex="3" HorizontalAlignment="Left" Margin="346,90,0,0" VerticalAlignment="Top" Width="636"/>
+        <Label Name="lblNome" Content="Nome Completo:" HorizontalAlignment="Left" Margin="198,131,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtNome" TabIndex="3" HorizontalAlignment="Left" Margin="304,130,0,0" VerticalAlignment="Top" Width="636"/>
 
-        <Label Name="lblRg" Content="RG:" HorizontalAlignment="Left" Margin="241,135,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="txtRg" TabIndex="4" HorizontalAlignment="Left" Margin="283,135,0,0" VerticalAlignment="Top" Width="156"/>
+        <Label Name="lblRg" Content="RG:" HorizontalAlignment="Left" Margin="199,175,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtRg" TabIndex="4" HorizontalAlignment="Left" Margin="241,175,0,0" VerticalAlignment="Top" Width="156"/>
 
-        <Label Name="lblDtaNascimento" Content="DATA NASCIMENTO:" HorizontalAlignment="Left" Margin="460,135,0,0" VerticalAlignment="Top"/>
+        <Label Name="lblDtaNascimento" Content="DATA NASCIMENTO:" HorizontalAlignment="Left" Margin="418,175,0,0" VerticalAlignment="Top"/>
         <xctk:MaskedTextBox Name="mskdtaNascimento" TabIndex="5" Mask="99/99/9999" CaretIndex="0" ValueDataType="{x:Type AccessText}" 
-                            HorizontalAlignment="Left" VerticalAlignment="Top" Margin="585,135,0,0" FontSize="14" Height="24" Width="122"
+                            HorizontalAlignment="Left" VerticalAlignment="Top" Margin="543,175,0,0" FontSize="14" Height="24" Width="122"
                             HorizontalContentAlignment="Center">
         </xctk:MaskedTextBox>
 
-        <Label Name="lblTelefone" Content="TELEFONE:" HorizontalAlignment="Left" Margin="240,181,0,0" VerticalAlignment="Top"/>
+        <Label Name="lblTelefone" Content="TELEFONE:" HorizontalAlignment="Left" Margin="198,221,0,0" VerticalAlignment="Top"/>
         <xctk:MaskedTextBox Name="mskTelefone" TabIndex="6" Mask="(99)99999-9999" CaretIndex="0" ValueDataType="{x:Type AccessText}" 
-                            HorizontalAlignment="Left" VerticalAlignment="Top" Margin="311,185,0,0" FontSize="14" Height="24" Width="122"
+                            HorizontalAlignment="Left" VerticalAlignment="Top" Margin="269,225,0,0" FontSize="14" Height="24" Width="122"
                             HorizontalContentAlignment="Center">
         </xctk:MaskedTextBox>
 
-        <Label Name="lblEmail" Content="E-MAIL:" HorizontalAlignment="Left" Margin="458,181,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="txtEmail" TabIndex="7" HorizontalAlignment="Left" Margin="510,181,0,0" VerticalAlignment="Top" Width="306"/>
+        <Label Name="lblEmail" Content="E-MAIL:" HorizontalAlignment="Left" Margin="416,221,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtEmail" TabIndex="7" HorizontalAlignment="Left" Margin="468,221,0,0" VerticalAlignment="Top" Width="306"/>
 
-        <Label Name="lblCep_Leave" Content="CEP:" HorizontalAlignment="Left" Margin="241,253,0,0" VerticalAlignment="Top"/>
+        <Label Name="lblCep_Leave" Content="CEP:" HorizontalAlignment="Left" Margin="199,293,0,0" VerticalAlignment="Top"/>
         <xctk:MaskedTextBox Name="mskCep_Leave" TabIndex="8" Mask="99999-999" CaretIndex="0" ValueDataType="{x:Type AccessText}" 
-                            HorizontalAlignment="Left" VerticalAlignment="Top" Margin="283,253,0,0" FontSize="14" Height="24" Width="122"
+                            HorizontalAlignment="Left" VerticalAlignment="Top" Margin="241,293,0,0" FontSize="14" Height="24" Width="122"
                             HorizontalContentAlignment="Center">
         </xctk:MaskedTextBox>
 
-        <Button Name="btnBuscarCep" TabIndex="9" Content="Buscar CEP" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="437,253,0,0" VerticalAlignment="Top" Height="25" Width="105" Click="btnBuscaCep_Click" Grid.ColumnSpan="1" />
+        <Button Name="btnBuscarCep" TabIndex="9" Content="Buscar CEP" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="395,293,0,0" VerticalAlignment="Top" Height="25" Width="105" Click="btnBuscaCep_Click" Grid.ColumnSpan="1" />
 
-        <Label Name="lblRua" Content="ENDEREÇO:" HorizontalAlignment="Left" Margin="546,253,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="txtRua" TabIndex="10" HorizontalAlignment="Left" Margin="620,250,0,0" VerticalAlignment="Top" Width="334"/>
+        <Label Name="lblRua" Content="ENDEREÇO:" HorizontalAlignment="Left" Margin="504,293,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtRua" TabIndex="10" HorizontalAlignment="Left" Margin="578,290,0,0" VerticalAlignment="Top" Width="334"/>
 
-        <Label Name="lblNumero" Content="Nº:" HorizontalAlignment="Left" Margin="240,290,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="txtNumero" TabIndex="11" HorizontalAlignment="Left" Margin="268,287,0,0" VerticalAlignment="Top" Width="64"/>
+        <Label Name="lblNumero" Content="Nº:" HorizontalAlignment="Left" Margin="198,330,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtNumero" TabIndex="11" HorizontalAlignment="Left" Margin="226,327,0,0" VerticalAlignment="Top" Width="64"/>
 
-        <Label Name="lblBairro" Content="BAIRRO:" HorizontalAlignment="Left" Margin="351,291,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="txtBairro" TabIndex="12" HorizontalAlignment="Left" Margin="415,288,0,0" VerticalAlignment="Top" Width="156"/>
+        <Label Name="lblBairro" Content="BAIRRO:" HorizontalAlignment="Left" Margin="309,331,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtBairro" TabIndex="12" HorizontalAlignment="Left" Margin="373,328,0,0" VerticalAlignment="Top" Width="156"/>
 
-        <Label Name="lblCidade" Content="CIDADE:" HorizontalAlignment="Left" Margin="587,290,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="txtCidade" TabIndex="13" HorizontalAlignment="Left" Margin="643,287,0,0" VerticalAlignment="Top" Width="156"/>
+        <Label Name="lblCidade" Content="CIDADE:" HorizontalAlignment="Left" Margin="545,330,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtCidade" TabIndex="13" HorizontalAlignment="Left" Margin="601,327,0,0" VerticalAlignment="Top" Width="156"/>
 
-        <Label Name="lblEstado" Content="UF:" HorizontalAlignment="Left" Margin="813,289,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="txtEstado" TabIndex="14" HorizontalAlignment="Left" Margin="841,286,0,0" VerticalAlignment="Top" Width="52"/>
+        <Label Name="lblEstado" Content="UF:" HorizontalAlignment="Left" Margin="771,329,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtEstado" TabIndex="14" HorizontalAlignment="Left" Margin="799,326,0,0" VerticalAlignment="Top" Width="52"/>
 
 
 
@@ -92,7 +94,7 @@
         <Button Name="btnLocalizar" Content="Localizar" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="480,629,0,0" VerticalAlignment="Top" Width="95"/>
         <Button Name="btnExcluir" Content="Excluir" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="586,629,0,0" VerticalAlignment="Top" Width="95"/>
         <Button Name="btnCancelar" Content="Cancelar" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="692,629,0,0" VerticalAlignment="Top" Width="95" Click="btnCancelar_Click"/>
-        <TextBox Name="txtdtaConsult" AcceptsTab="False" IsEnabled="False" HorizontalAlignment="Left" Margin="362,17,0,0" VerticalAlignment="Top" Width="108" Height="25"/>
+
 
 
     </Grid>

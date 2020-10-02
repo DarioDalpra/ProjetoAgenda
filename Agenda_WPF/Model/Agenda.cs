@@ -6,28 +6,22 @@ using System.Text;
 
 namespace Agenda_WPF.Model
 {
-    [Table("Agendas")]
+    [Table("Agenda")]
     class Agenda
     {
         public Agenda() => CriadoEm = DateTime.Now;
 
         [Key]
         public int IdAgenda { get; set; }
-        public Paciente Nome { get; set; }
+        public Paciente Paciente { get; set; }
         public Paciente Cpf { get; set; }
-        public Paciente Plano { get; set; }
-        public Medico NomeMedico { get; set; }
+        public String Plano { get; set; }
+        public Medico Medico { get; set; }
         public Medico Especialidade { get; set; }
-
-        public List<Prontuario> Prontuarios { get; set; }
         public DateTime DataAgendada { get; set; }
+        public string HoraAgendada { get; set; }
         public DateTime CriadoEm { get; set; }
 
 
-
-        public override string ToString()
-        {
-            return "Agenda: " + Nome + "\t| CPF: " + Cpf + "\t| Plano: " + Plano + "\t| Medico: " + NomeMedico + "\t| Especialidade: " + Especialidade;
-        }
     }
 }

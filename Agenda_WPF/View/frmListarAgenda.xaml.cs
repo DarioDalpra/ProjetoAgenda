@@ -25,7 +25,7 @@ namespace Agenda_WPF.View
         public frmListarAgenda()
         {
             InitializeComponent();
-            
+
         }
 
         private void btnFechar_Click(object sender, RoutedEventArgs e)
@@ -40,13 +40,14 @@ namespace Agenda_WPF.View
                 Plano = agenda.Plano,
                 Medico = agenda.NomeMedico,
                 DataAgendada = agenda.DataAgendada,
-              
+
             });
         }
 
         private void btnProntuario_Click(object sender, RoutedEventArgs e)
         {
-           frmListarProntuario listarProntuario = frmListarProntuario();
+            frmListarProntuario cadastrarPaciente = new frmListarProntuario();
+            cadastrarPaciente.Show();
         }
     }
 }

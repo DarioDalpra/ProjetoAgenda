@@ -13,7 +13,7 @@ namespace Agenda_WPF.View
     /// </summary>
     public partial class frmCadastrarPaciente : Window
     {
-       // private string operacao;
+        private string operacao;
         Context ctx = SingletonContext.GetInstance();
         Paciente pac = new Paciente();
 
@@ -102,9 +102,7 @@ namespace Agenda_WPF.View
                     MessageBox.Show("CPF inválido.");
                 }
             }
-
         }
-
         private void btnCadastrar_Click(object sender, RoutedEventArgs e)
         {
             //this.operacao = "inserir";
@@ -128,9 +126,14 @@ namespace Agenda_WPF.View
             {
                 if (PacienteDAO.CadastrarPaciente(pac))
                 {
-                    MessageBox.Show("Paciente cadastrado!");
-                    LimpaCampos();
-                    mskCpf.Focus();
+                    if (MessageBox.Show("Paciente cadastrado, deseja limpar os campos?", "Cadastro",
+                                        MessageBoxButton.YesNo, MessageBoxImage.Information)
+                                        == MessageBoxResult.Yes)
+                    {
+                        LimpaCampos();
+                        mskCpf.Focus();
+                    }
+                    MessageBox.Show("Agende a consulta do paciente!");
                 }
                 else
                 {
@@ -145,9 +148,7 @@ namespace Agenda_WPF.View
                 LimpaCampos();
                 mskCpf.Focus();
             }
-
         }
-
         private void AlteraBotoes(int op)
         {
             btnCadastrar.IsEnabled = false;
@@ -178,7 +179,6 @@ namespace Agenda_WPF.View
         {
             LocalizarCEP();
         }
-
         private void LocalizarCEP()
         {
             RestClient restClient = new RestClient(string.Format("https://viacep.com.br/ws/{0}/json/", mskCep_Leave.Text));
@@ -199,32 +199,25 @@ namespace Agenda_WPF.View
             txtCidade.Text = cepRetorno.localidade;
             txtEstado.Text = cepRetorno.uf;
         }
-
-
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
             //this.AlteraBotoes(1);
             this.LimpaCampos();
         }
-
-
         private void btnFechar_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
-
         private void btnCadastrarPaciente_Click(object sender, RoutedEventArgs e)
         {
             frmCadastrarPaciente cadastrarPaciente = new frmCadastrarPaciente();
             cadastrarPaciente.ShowDialog();
         }
-
         private void btnListarPaciente_Click(object sender, RoutedEventArgs e)
         {
             frmListarPaciente listarPaciente = new frmListarPaciente();
             listarPaciente.ShowDialog();
         }
-
         private void btnAlterar_Click(object sender, RoutedEventArgs e)
         {
             Paciente p = new Paciente();
@@ -271,9 +264,12 @@ namespace Agenda_WPF.View
         {
             frmAgenda agendarConsulta = new frmAgenda();
             agendarConsulta.dtaAgendamento = txtdtaConsult.Text;
+            agendarConsulta.IdPaciente = txtId.Text;
             agendarConsulta.nomePaciente = txtNome.Text;
+            agendarConsulta.IdcpfPaciente = txtId.Text;
             agendarConsulta.cpfPaciente = mskCpf.Text;
-            agendarConsulta.planoPaciente = cboPlano.Text;
+            agendarConsulta.IdplanoPaciente = txtId.Text;
+            agendarConsulta.planoPaciente = txtNPlano.Text;
             agendarConsulta.ShowDialog();
             this.Close();
         }

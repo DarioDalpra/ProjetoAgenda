@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Agenda_WPF.Model
 {
-
     class Context : DbContext
     {
         public DbSet<Paciente> Pacientes { get; set; }
@@ -12,15 +11,15 @@ namespace Agenda_WPF.Model
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Prontuario> Prontuarios { get; set; }
 
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;
-                                          Database=AgendaWPFDb;
+                                          Database=AgendaDb;
                                           Trusted_Connection=true");
         }
     }
 }
+
 
 
 
