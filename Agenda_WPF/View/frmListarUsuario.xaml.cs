@@ -4,7 +4,7 @@ using System.Linq;
 using System.Windows;
 
 
-namespace Agenda_WPF.View
+namespace Agenda_WPF.Views
 {
     /// <summary>
     /// Interaction logic for frmListarUsuario.xaml

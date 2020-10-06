@@ -1,10 +1,11 @@
-﻿<Window x:Class="Agenda_WPF.View.frmTelaPrincipalRecepcionista"
+﻿<Window x:Class="Agenda_WPF.Views.frmTelaPrincipalRecepcionista"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         WindowStartupLocation="CenterScreen"
-        xmlns:local="clr-namespace:Agenda_WPF.View"
+        xmlns:local="clr-namespace:Agenda_WPF.Views"
         mc:Ignorable="d"
          Title="TelaPrincipalRecepcionista" Height="720" Width="1020" WindowState="Maximized">
     <Grid>
@@ -21,7 +22,8 @@
 
         </DockPanel>
         <StackPanel Name="AgCal" Orientation="Horizontal" Margin="416,163,325,163">
-            <Calendar Name="CalSet" DisplayMode="Month" SelectionMode="SingleDate" DisplayDate="09/01/2020" Height="357" Width="280" />
+            <Calendar Name="CalSet" DisplayMode="Month" SelectionMode="SingleDate" DisplayDate="01/01/2020"
+                      DisplayDateStart="{Binding Mode=OneWay, Source={x:Static System:DateTime.Today}}" Height="357" Width="280" />
         </StackPanel>
 
         <TextBox x:Name="txtDta" Text="{Binding ElementName=CalSet, Path=SelectedDate, StringFormat=dd/MM/yyyy}" 

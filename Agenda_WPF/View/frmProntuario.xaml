@@ -1,11 +1,12 @@
-﻿<Window x:Class="Agenda_WPF.View.frmProntuario"
+﻿<Window x:Class="Agenda_WPF.Views.frmProntuario"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Agenda_WPF.View"
+        WindowStartupLocation="CenterScreen"
+        xmlns:local="clr-namespace:Agenda_WPF.Views"
         mc:Ignorable="d"
-        Title="AGENDA WPF - MÉdico" Height="720" Width="1020" Loaded="Window_Loaded">
+        Title="AGENDA WPF - Prontuário" Height="720" Width="1020" Loaded="Window_Loaded">
     <Grid>
         <Label Name="lblMedLogado" Content="" HorizontalAlignment="Left" Margin="204,13,0,0" VerticalAlignment="Top"/>
         <DockPanel Name="mn_Principal" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="190" Height="704" Background="#FF5AABFA">
@@ -21,7 +22,7 @@
         <Label x:Name="lblPaciente" Content="Paciente: " HorizontalAlignment="Left" Margin="280,192,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtPaciente" HorizontalAlignment="Left" Height="25" Margin="284,216,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="242"/>
         <Label x:Name="lblMedico" Content="Medico: " HorizontalAlignment="Left" Margin="575,192,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cboMedico" Margin="575,213,235,0" VerticalAlignment="Top" SelectionChanged="cboMedico_SelectionChanged" />
+        <ComboBox x:Name="cboMedico" Margin="575,213,235,0" VerticalAlignment="Top" />
         <Label x:Name="lblConsulta" Content="Data da Consulta: " HorizontalAlignment="Left" Margin="861,192,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtConsulta" HorizontalAlignment="Left" Margin="861,216,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" IsEnabled="False"/>
 

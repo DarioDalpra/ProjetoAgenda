@@ -1,10 +1,11 @@
 ﻿using Agenda_WPF.DAL;
 using Agenda_WPF.Model;
+using Agenda_WPF.View;
 using System;
 using System.Windows;
 using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 
-namespace Agenda_WPF.View
+namespace Agenda_WPF.Views
 {
     /// <summary>
     /// Interaction logic for frmListarAgenda.xaml
@@ -133,7 +134,7 @@ namespace Agenda_WPF.View
             txtNomePaciente.Clear();
             txtCpfPaciente.Clear();
             txtPlanoPaciente.Clear();
-            cboMedico.Text = "";
+            cboMedico.SelectedValue = "";
             txtEspecialidadeMedico.Clear();
 
             //    txtNumplano.Clear();
@@ -148,7 +149,9 @@ namespace Agenda_WPF.View
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
             this.AlteraBotoes(1);
-            //  this.LimpaCampos();
+            this.LimpaCampos();
+            frmTelaPrincipalRecepcionista atendente = new frmTelaPrincipalRecepcionista();
+            atendente.ShowDialog();
         }
 
         private void btnInserir_Click(object sender, RoutedEventArgs e)
@@ -175,6 +178,33 @@ namespace Agenda_WPF.View
 
         private void btnAgendar_Click(object sender, RoutedEventArgs e)
         {
+
+            DateTime data = dtpDtaAgendamento.DisplayDate;
+            string hora = cboHorario.Text;
+            string plano = txtPlanoPaciente.Text;
+            int idMed = (int)cboMedico.SelectedValue;
+            int idPac = System.Convert.ToInt32(txtNPac.Text);
+            //int idPlPac = System.Convert.ToInt32(txtPlanoPac.Text);
+            ag.Paciente = PacienteDAO.BuscarPacientePorId(idPac);
+            ag.Cpf = PacienteDAO.BuscarPacientePorId(idPac);
+            ag.Medico = MedicoDAO.BuscarMedicoPorId(idMed);
+            ag.Especialidade = MedicoDAO.BuscarMedicoPorId(idMed);
+            ag.DataAgendada = data;
+            ag.HoraAgendada = hora;
+            ag.Plano = plano;
+
+            string msgCadastrou = AgendaDAO.CadastrarAgenda(ag);
+            if (msgCadastrou == null)
+            {
+                ag = new Agenda();
+                MessageBox.Show("Consulta agendada!");
+                LimpaCampos();
+            }
+            else
+            {
+                MessageBox.Show(msgCadastrou);
+            }
+            int teste = 0;
 
 
         }

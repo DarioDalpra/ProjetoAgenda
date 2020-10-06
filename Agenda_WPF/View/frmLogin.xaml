@@ -1,10 +1,10 @@
-﻿<Window x:Class="Agenda_WPF.View.frmLogin"
+﻿<Window x:Class="Agenda_WPF.Views.frmLogin"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         WindowStartupLocation="CenterScreen"
-        xmlns:local="clr-namespace:Agenda_WPF.View"
+        xmlns:local="clr-namespace:Agenda_WPF.Views"
         mc:Ignorable="d"
         Title="LOGIN" Height="450" Width="800">
     <Grid>
@@ -15,7 +15,7 @@
         <Button Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="391,200,0,0" VerticalAlignment="Top" Width="75" Click="btnCancelar_Click"/>
         <Label Name="lblEmailLogin" Content="E-Mail:" HorizontalAlignment="Left" Margin="263,48,0,0" VerticalAlignment="Top"/>
         <Label Name="lblSenhaLogin" Content="Senha:" HorizontalAlignment="Left" Margin="263,79,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="txtEmailLogin" HorizontalAlignment="Left" Height="23" Margin="346,52,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="190"/>
+        <TextBox Name="txtEmailLogin" HorizontalAlignment="Left" Height="23" Margin="346,52,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="190" TextChanged="txtEmailLogin_TextChanged"/>
         <PasswordBox Name="pwdSenhaLogin" HorizontalAlignment="Left" Margin="346,87,0,0" VerticalAlignment="Top" Width="120" Height="23"/>
 
     </Grid>

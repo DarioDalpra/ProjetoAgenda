@@ -1,21 +1,22 @@
 ﻿using Agenda_WPF.DAL;
 using Agenda_WPF.Model;
 using Agenda_WPF.Utils;
+using Agenda_WPF.View;
 using RestSharp;
 using RestSharp.Serialization.Json;
 using System;
 using System.Windows;
 
-namespace Agenda_WPF.View
+namespace Agenda_WPF.Views
 {
     /// <summary>
     /// Interaction logic for frmCadastrarMedico.xaml
     /// </summary>
     public partial class frmCadastrarMedico : Window
     {
-       // private string operacao;
         Context ctx = SingletonContext.GetInstance();
 
+        private string operacao;
 
         public frmCadastrarMedico()
         {

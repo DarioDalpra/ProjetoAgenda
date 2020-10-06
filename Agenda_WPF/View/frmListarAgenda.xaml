@@ -1,10 +1,10 @@
-<Window x:Class="Agenda_WPF.View.frmListarAgenda"
+<Window x:Class="Agenda_WPF.Views.frmListarAgenda"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         WindowStartupLocation="CenterScreen"
-        xmlns:local="clr-namespace:Agenda_WPF.View"
+        xmlns:local="clr-namespace:Agenda_WPF.Views"
         mc:Ignorable="d"
         Title="Listar Agenda Diária - AGENDA" Height="720" Width="1020">
     <Grid>
@@ -31,24 +31,5 @@
         <TextBox Name="txtTelefone"  HorizontalAlignment="Left" Margin="418,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" Height="26"/>
         <Label Name="lblEmail" Content="E-mail:" HorizontalAlignment="Left" Margin="585,62,0,0" VerticalAlignment="Top" Width="50"/>
         <TextBox Name="txtEmail"  HorizontalAlignment="Left" Margin="640,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="370" Height="26" Grid.ColumnSpan="2"/>
-
-        <DataGrid x:Name="dtaAgenda" Margin="198,130,10,86" AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Nome" Width="2*" Binding="{Binding Nome}"/>
-                <DataGridTextColumn Header="Plano" Width="1*" Binding="{Binding Plano}"/>
-                <DataGridTextColumn Header="Médico" Width="1*" Binding="{Binding Medico}"/>
-                <DataGridTextColumn Header="Data da Consulta" Width="1*" Binding="{Binding DataConsulta}"/>
-                <DataGridTextColumn Header="Horario da Consulta" Width="1*" Binding="{Binding HorasConsulta}"/>
-                <DataGridTextColumn Header="Alterar" Width="1*" Binding="{Binding Alterar}"/>
-                <DataGridTemplateColumn Header="View">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Name="btnProntuario" Content="Prontuario" Click="btnProntuario_Click" />
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-
-            </DataGrid.Columns>
-        </DataGrid>
     </Grid>
 </Window>

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Windows;
 
 
-namespace Agenda_WPF.View
+namespace Agenda_WPF.Views
 {
     /// <summary>
     /// Interaction logic for frmListarMedico.xaml
@@ -12,12 +12,12 @@ namespace Agenda_WPF.View
     public partial class frmListarProntuario : Window
     {
         private string operacao;
-        
+
         private Prontuario prontuario;
         public frmListarProntuario()
         {
             InitializeComponent();
-             
+
             cboMedico.ItemsSource = MedicoDAO.ListarMedicos();
             cboMedico.DisplayMemberPath = "Nome"; // nome = é o mesmo atributo desejado da tabela DAO
             cboMedico.SelectedValuePath = "";
@@ -26,7 +26,7 @@ namespace Agenda_WPF.View
         {
         }
 
-            private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             this.ListarDados();
         }
@@ -40,56 +40,51 @@ namespace Agenda_WPF.View
 
             }
         }
-     
+
         private void btn_CadastrarProntuario_Click(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtNomePaciente.Text))
-            {
-                prontuario = new Prontuario()
-                {
-                    NomePaciente = txtNomePaciente.Text,
-                    NomeMedico = cboMedico.SelectedValuePath(),
+            //if (!string.IsNullOrWhiteSpace(txtNomePaciente.Text))
+            //{
+            //    prontuario = new Prontuario()
+            //    {
+            //        NomePaciente = txtNomePaciente.Text,
+            //        NomeMedico = cboMedico.SelectedValuePath(),
 
-                };
-                if (ProntuarioDAO.CadastrarProntuario(prontuario))
-                {
-                    MessageBox.Show("Prontuário cadastrado com sucesso!!!", "Agenda WPF",
-                        MessageBoxButton.OK, MessageBoxImage.Information);
-                    LimpaCampos();
-                }
-                else
-                {
-                    MessageBox.Show("Esse prontuário já existe!!!", "Agenda WPF",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Preencha o campo nome!!!", "Agenda WPF",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            //    };
+            //    if (ProntuarioDAO.CadastrarProntuario(prontuario))
+            //    {
+            //        MessageBox.Show("Prontuário cadastrado com sucesso!!!", "Agenda WPF",
+            //            MessageBoxButton.OK, MessageBoxImage.Information);
+            //        LimparFormulario();
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Esse prontuário já existe!!!", "Agenda WPF",
+            //            MessageBoxButton.OK, MessageBoxImage.Error);
+            //    }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Preencha o campo nome!!!", "Agenda WPF",
+            //        MessageBoxButton.OK, MessageBoxImage.Error);
+            //}
         }
 
-        private static void LimpaCampos()
+        private void btn_CadastrarPaciente_Click(object sender, RoutedEventArgs e)
         {
-            IdProntuario.IsEnabled = true;
-            NomeMedico.IsEnabled = true;
-            txtCpf.IsEnabled = true;
-            txtTelefone.IsEnabled = true;
-            txtEmail.IsEnabled = true;
 
-            txtNome.Clear();
-            txtCpf.Clear();
-            txtTelefone.Clear();
-            txtEmail.Clear();
+        }
 
-
+        private void btn_Fechar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close()
+;
         }
     }
 
-      
 
 
 
-    
+
+
 }

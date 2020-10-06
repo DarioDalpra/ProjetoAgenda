@@ -1,11 +1,10 @@
-﻿<Window
+﻿<Window x:Class="Agenda_WPF.Views.frmAgenda"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         WindowStartupLocation="CenterScreen"
-        xmlns:local="clr-namespace:Agenda_WPF.View"
-        xmlns:System="clr-namespace:System;assembly=System.Runtime" x:Class="Agenda_WPF.View.frmAgenda"
+        xmlns:local="clr-namespace:Agenda_WPF.Views"
         mc:Ignorable="d"
         Title="AGENDA WPF - Agenda" Height="720" Width="1020" >
     <Grid>
@@ -29,8 +28,8 @@
         <TextBox Name="txtCpfPaciente" HorizontalAlignment="Left" Margin="526,120,0,0" VerticalAlignment="Top" Width="171"  />
         <Label Name="lblPlanoPaciente" Content="Plano:" HorizontalAlignment="Left" Margin="713,98,0,0" VerticalAlignment="Top" Width="79"/>
         <TextBox Name="txtPlanoPaciente" HorizontalAlignment="Left" Margin="712,120,0,0" VerticalAlignment="Top" Width="147"  />
-        <Label Name="lblCalendario" Content="Calendário:" HorizontalAlignment="Left" Margin="210,44,0,0" VerticalAlignment="Top"/>
-        <DatePicker Name="dtpDtaAgendamento" HorizontalAlignment="Left" Margin="216,64,0,0" VerticalAlignment="Top" Width="114" Height="24"/>
+        <Label Name="lblCalendario"  Content="Calendário:" HorizontalAlignment="Left" Margin="210,44,0,0" VerticalAlignment="Top"/>
+        <DatePicker Name="dtpDtaAgendamento" IsEnabled="False" HorizontalAlignment="Left" Margin="216,64,0,0" VerticalAlignment="Top" Width="114" Height="24"/>
         <Label Name="lblHora" Content="Horário:" HorizontalAlignment="Left" Margin="369,40,0,0" VerticalAlignment="Top"/>
         <ComboBox Name="cboHorario" TabIndex="0" HorizontalAlignment="Left" Margin="369,60,0,0" VerticalAlignment="Top" Width="120"/>
         <Label Name="lblNomeMedico" Content="Médico:" HorizontalAlignment="Left" Margin="210,160,0,0" VerticalAlignment="Top"/>

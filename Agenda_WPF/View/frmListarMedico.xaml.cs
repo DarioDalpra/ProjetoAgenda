@@ -1,10 +1,11 @@
 using Agenda_WPF.DAL;
 using Agenda_WPF.Model;
+using Agenda_WPF.View;
 using System.Linq;
 using System.Windows;
 
 
-namespace Agenda_WPF.View
+namespace Agenda_WPF.Views
 {
     /// <summary>
     /// Interaction logic for frmListarMedico.xaml

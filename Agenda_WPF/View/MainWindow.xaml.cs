@@ -1,4 +1,6 @@
 ﻿using Agenda_WPF.View;
+using Agenda_WPF.Views;
+using NewAgenda_WPF.Views;
 using System.Windows;
 
 namespace Agenda_WPF
@@ -12,11 +14,19 @@ namespace Agenda_WPF
         {
             InitializeComponent();
         }
+
         public MainWindow(string UsrLogin)
         {
             InitializeComponent();
             lblUsrLogado.Content = $"Seja bem vindo(a) {UsrLogin}!";
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
@@ -71,9 +81,34 @@ namespace Agenda_WPF
 
         private void btnAgendarConsulta_Click(object sender, RoutedEventArgs e)
         {
-            frmAgenda agenda = new frmAgenda();
-            agenda.ShowDialog();
+            //frmAgenda agenda = new frmAgenda();
+            //agenda.ShowDialog();
+            frmTelaPrincipalRecepcionista agendarConsulta = new frmTelaPrincipalRecepcionista();
+            agendarConsulta.ShowDialog();
         }
 
+        private void btnProntuario_Click(object sender, RoutedEventArgs e)
+        {
+            frmProntuario prontuario = new frmProntuario();
+            prontuario.ShowDialog();
+        }
+
+        private void btnListarProntuario_Click(object sender, RoutedEventArgs e)
+        {
+            frmListarProntuario listarProntuario = new frmListarProntuario();
+            listarProntuario.ShowDialog();
+        }
+
+        private void btnCadastrarPlanoSaude_Click(object sender, RoutedEventArgs e)
+        {
+            frmCadastrarPlanoSaude cadastrarPlanoSaude = new frmCadastrarPlanoSaude();
+            cadastrarPlanoSaude.ShowDialog();
+        }
+
+        private void btnCadastrarProcedimento_Click(object sender, RoutedEventArgs e)
+        {
+            frmCadastrarProcedimento cadastrarProcedimento = new frmCadastrarProcedimento();
+            cadastrarProcedimento.ShowDialog();
+        }
     }
 }
