@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ViewModel\**" />
+    <EmbeddedResource Remove="ViewModel\**" />
+    <None Remove="ViewModel\**" />
+    <Page Remove="ViewModel\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="unnamed.png" />
     <None Remove="View\unnamed.png" />
   </ItemGroup>

@@ -52,8 +52,8 @@ namespace Agenda_WPF.Views
             {
                 MessageBox.Show($"Usuário e ou Senha Inválido(a)!!");
             }
-            frmTelaPrincipalRecepcionista atendente = new frmTelaPrincipalRecepcionista();
-            atendente.ShowDialog();
+            //frmTelaPrincipalRecepcionista atendente = new frmTelaPrincipalRecepcionista();
+            //atendente.ShowDialog();
         }
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)

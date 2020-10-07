@@ -77,14 +77,9 @@ namespace Agenda_WPF.Views
 
         private void btn_Fechar_Click(object sender, RoutedEventArgs e)
         {
-            this.Close()
-;
+            this.Close();
+
         }
     }
-
-
-
-
-
 
 }

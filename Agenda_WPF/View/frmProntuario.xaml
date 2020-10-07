@@ -20,9 +20,8 @@
         <Label x:Name="lblIdProntuario" Content="Id: " HorizontalAlignment="Left" Margin="204,192,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtIdProntuario" HorizontalAlignment="Left" Height="25" Margin="204,216,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="63" IsEnabled="False"/>
         <Label x:Name="lblPaciente" Content="Paciente: " HorizontalAlignment="Left" Margin="280,192,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtPaciente" HorizontalAlignment="Left" Height="25" Margin="284,216,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="242"/>
+        <TextBox x:Name="txtPaciente" IsEnabled="False" HorizontalAlignment="Left" Height="25" Margin="284,216,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="242"/>
         <Label x:Name="lblMedico" Content="Medico: " HorizontalAlignment="Left" Margin="575,192,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cboMedico" Margin="575,213,235,0" VerticalAlignment="Top" />
         <Label x:Name="lblConsulta" Content="Data da Consulta: " HorizontalAlignment="Left" Margin="861,192,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtConsulta" HorizontalAlignment="Left" Margin="861,216,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" IsEnabled="False"/>
 
@@ -36,6 +35,7 @@
         <TextBox x:Name="txtAvaliacao" HorizontalAlignment="Left" Height="322" Margin="626,293,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="384"/>
 
         <Button Name="btnCadastrarProntuario" Content="Cadastrar Prontuário" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top" Click="btnCadastrarProntuario_Click" Margin="838,664,10,10"/>
+        <TextBox x:Name="txtMedico" IsEnabled="False" HorizontalAlignment="Left" Height="25" Margin="573,216,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="242"/>
 
     </Grid>
 </Window>

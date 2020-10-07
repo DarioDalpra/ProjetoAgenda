@@ -13,6 +13,7 @@ namespace Agenda_WPF.Views
     {
         private string operacao;
         Medico m = new Medico();
+        private Medico medico;
         public frmListarMedico()
         {
             InitializeComponent();
@@ -122,19 +123,54 @@ namespace Agenda_WPF.Views
             this.Close();
         }
 
+      
         private void btn_CadastrarPaciente_Click(object sender, RoutedEventArgs e)
         {
             frmCadastrarPaciente cadastrarPaciente = new frmCadastrarPaciente();
             cadastrarPaciente.Show();
         }
 
+        private void btnAlterar_Click(object sender, RoutedEventArgs e)
+        {
+            if (medico != null)
+            {
+                medico.Nome = txtNome.Text;
+                medico.Cpf = txtCpf.Text;
+                medico.Telefone = txtTelefone.Text;
+                
+
+
+                MedicoDAO.AlterarMedico(medico);
+                MessageBox.Show("O médico foi alterado com sucesso!!!", "Agenda_Medica_WPF", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
+            else
+            {
+                MessageBox.Show("O médico não foi alterado!!!", "Agenda_Medica_WPF", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
+            LimpaCampos();
+        }
         private void btn_ListarPaciente_Click(object sender, RoutedEventArgs e)
         {
             frmListarPaciente listarPaciente = new frmListarPaciente();
             listarPaciente.Show();
         }
 
+        private void btnExcluir_Click(object sender, RoutedEventArgs e)
+        {
+            if (medico != null)
+            {
+                MedicoDAO.Remover(medico);
+                MessageBox.Show("O médico foi removido com sucesso!!!", "Agenda Medica WPF", MessageBoxButton.OK, MessageBoxImage.Error);
 
+            }
+            else
+            {
+                MessageBox.Show("O médico não foi removido!!!", "Agenda Medica WPF", MessageBoxButton.OK, MessageBoxImage.Error);
 
+            }
+            LimpaCampos();
+        }
     }
 }

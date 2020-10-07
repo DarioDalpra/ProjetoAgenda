@@ -21,14 +21,22 @@
             <Button x:Name="btn_Fechar" Content="Fechar" HorizontalContentAlignment="Center" Height="30" DockPanel.Dock="Top" Click="btn_Fechar_Click"/>
 
         </DockPanel>
-        <DataGrid x:Name="dtaProntuario" Margin="213,99,30,102">
-            <!--
+        <DataGrid x:Name="dtaProntuario" AutoGenerateColumns="False" Margin="213,99,30,102">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Nome}" Header="Nome do cliente"/>
-                <DataGridTextColumn Binding="{Binding Telefone}" Header="Telefone"/>
-                <DataGridTextColumn Binding="{Binding Email}" Header="E-mail"/>
+                <DataGridTextColumn Header="Data Consulta" Width="1*"
+                                    Binding="{Binding DataConsulta}"/>
+                <DataGridTextColumn Header="Nome Paciente" Width="1*"
+                                    Binding="{Binding Nome}"/>
+                <DataGridTextColumn Header="Sintomas" Width="1*"
+                                    Binding="{Binding Sintomas}"/>
+                <DataGridTextColumn Header="Avaliação" Width="1*"
+                                    Binding="{Binding Avaliacao}"/>
+                <DataGridTextColumn Header="Medicamento" Width="1*"
+                                    Binding="{Binding Medicamento}"/>
+                <DataGridTextColumn Header="Plano Daúde" Width="1*"
+                                    Binding="{Binding PlanoSaude}"/>
+
             </DataGrid.Columns>
-            -->
 
         </DataGrid>
 

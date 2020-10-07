@@ -6,54 +6,55 @@
         xmlns:local="clr-namespace:Agenda_WPF.Views"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-         Title="TelaPrincipalAdm" Height="600" Width="1080" WindowState="Maximized" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Foreground="White">
+         Title="TelaPrincipalAdm" Height="600" Width="1080" WindowState="Normal" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Foreground="White">
 
-    
+    <Window.Resources>
+        <Storyboard x:Key="MenuOpen">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="60"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5 " Value="200"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
 
-    <Grid >
+        <Storyboard x:Key="MenuClose">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="200"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5 " Value="60"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+    </Window.Resources>
+
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpenMenu">
+            <BeginStoryboard Storyboard="{StaticResource MenuOpen}"/>
+        </EventTrigger>
+
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonCloseMenu">
+            <BeginStoryboard Storyboard="{StaticResource MenuClose}"/>
+        </EventTrigger>
+
+
+    </Window.Triggers>
+
+    <Grid Background="LightGray">
         <Grid Height="60" VerticalAlignment="Top" Background="#FF1368BD">
             <TextBlock Text="Agenda Médica" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" />
             <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
-                
+                <materialDesign:PopupBox HorizontalAlignment="Right" Margin="10 " PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
+                    <StackPanel Width="150">
+                        <Button Content="Conta"/>
+                        <Button Content="Configuração"/>
+                        <Button Content="Ajuda"/>
+                        <Separator/>
+                        <Button x:Name="btnPopUpLogout" Content="Conten" Click="btnPopUpLogout_Click"/>
+                    </StackPanel>
+                </materialDesign:PopupBox>
+                <TextBlock Text="TEste" FontSize="180"/>
             </StackPanel>
         </Grid>
 
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="250"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-            <materialDesign:ColorZone Mode="PrimaryMid" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
-                <Grid>
-                    <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" HorizontalAlignment="Right" Margin="10"/>
-                </Grid>
-            </materialDesign:ColorZone>
-            
-            <Grid HorizontalAlignment="Stretch" Grid.Row="1" Background="{StaticResource PrimaryHueMidBrush}">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="70"/>
-                    <RowDefinition Height="326"/>
-                </Grid.RowDefinitions>
-                <Grid Grid.Row="0" Background="GhostWhite">
-                    <Image  Source="/Assets/logo.png"/>
-                </Grid>
-                <ScrollViewer HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Column="1">
-                    <StackPanel x:Name="Menu" Margin="10"/>
-
-                </ScrollViewer>
-            </Grid>
-                
-           
-            
-        </Grid>
-        
-        
-        <!--<Grid x:Name="GridMenu" Width="60" HorizontalAlignment="Left" Background="#FF1368BD">
+        <Grid x:Name="GridMenu" Width="60" HorizontalAlignment="Left" Background="#FF1368BD">
             <StackPanel>
 
                 <Grid Height="150" Background="White">
@@ -147,7 +148,7 @@
                     <Separator/>
                 </ListView>
             </StackPanel>
-        </Grid>-->
+        </Grid>
 
 
 

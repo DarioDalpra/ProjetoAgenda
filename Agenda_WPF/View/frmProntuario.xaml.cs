@@ -20,6 +20,24 @@ namespace Agenda_WPF.Views
     public partial class frmProntuario : Window
     {
         private Prontuario Prontuario;
+
+        public int IdPaciente
+        {
+            get; set;
+        }
+        public string NomePaciente
+        {
+            set { txtPaciente.Text = value; }
+        }
+        public int IdMedico
+        {
+            get; set;
+        }
+        public string NomeMedico
+        {
+            set { txtMedico.Text = value; }
+        }
+
         public frmProntuario()
         {
             InitializeComponent();
@@ -29,15 +47,34 @@ namespace Agenda_WPF.Views
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            cboMedico.ItemsSource = MedicoDAO.ListarMedicos();
-            cboMedico.DisplayMemberPath = "Nome"; // nome = é o mesmo atributo desejado da tabela DAO
-            cboMedico.SelectedValuePath = "idMedico";
-
-
+            txtConsulta.Text = DateTime.Now.ToString("dd/MM/yyyy");
         }
 
         private void btnCadastrarProntuario_Click(object sender, RoutedEventArgs e)
         {
+            Prontuario p = new Prontuario
+            {
+                Avaliacao = txtAvaliacao.Text,
+                Sintomas = txtSintomas.Text,
+                Medicamento = txtMedicamentos.Text
+            };
+            Paciente pac = PacienteDAO.BuscarPacientePorId(IdPaciente);
+            Medico med = MedicoDAO.BuscarMedicoPorId(IdMedico);
+            p.PlanoSaude = pac.NomePlano;
+            p.NomePaciente = pac;
+            p.NomeMedico = med;
+
+            string msgCadastrou = ProntuarioDAO.Cadastrar(p);
+            if (msgCadastrou == null)
+            {
+                // limpar
+                MessageBox.Show("Prontuário cadastrado!");
+            }
+            else
+            {
+                MessageBox.Show(msgCadastrou);
+            }
+
             //if (!string.IsNullOrWhiteSpace(txtPaciente.Text))
             //{
             //    Prontuario = new Prontuario

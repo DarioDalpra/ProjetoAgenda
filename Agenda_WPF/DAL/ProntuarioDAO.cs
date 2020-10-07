@@ -1,34 +1,27 @@
 ﻿using Agenda_WPF.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Agenda_WPF.DAL
 {
-    class ProntuarioDAO
-    {
-        private static Context ctx = SingletonContext.GetInstance();
-
-        public static bool CadastrarProntuario(Prontuario prontuario)
+   
+        class ProntuarioDAO
         {
-            if (BuscarProntuarioPorNome(prontuario.NomePaciente) == null)
+            private static Context ctx = SingletonContext.GetInstance();
+
+            public static string Cadastrar(Prontuario p)
             {
-                ctx.Prontuarios.Add(prontuario);
-                ctx.SaveChanges();
-                return true;
+                try
+                {
+                    ctx.Prontuarios.Add(p);
+                    ctx.SaveChanges();
+                    return null;
+                }
+                catch (Exception err)
+                {
+                    return "Erro ao salvar prontuário";
+                }
             }
-            return false;
         }
-
-        public static Prontuario BuscarProntuarioPorId(int id) => ctx.Prontuarios.Find(id);
-        
-        public static Paciente BuscarProntuarioPorNome(Paciente p) => ctx.Pacientes.FirstOrDefault(x => x.Nome.Equals(p.Nome));
-        public static List<Prontuario> ListarProntuario() => ctx.Prontuarios.ToList();
-
-        public static void AlterarPaciente(Paciente p)
-        {
-            ctx.Pacientes.Update(p);
-            ctx.SaveChanges();
-        }
-
     }
-}

@@ -6,7 +6,7 @@
         WindowStartupLocation="CenterScreen"
         xmlns:local="clr-namespace:Agenda_WPF.Views"
         mc:Ignorable="d"
-         Title="AGENDA WPF - MÉdico" Height="720" Width="1020">
+         Title="AGENDA WPF - Médico" Height="720" Width="1020" WindowState="Maximized" Loaded="Window_Loaded">
     <Grid>
         <Label Name="lblMedLogado" Content="" HorizontalAlignment="Left" Margin="204,13,0,0" VerticalAlignment="Top"/>
         <DockPanel Name="mn_Principal" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="190" Height="704" Background="#FF5AABFA">
@@ -16,7 +16,19 @@
             <Button Name="btnImpressaoReceita" Content="Imprimir Receita" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top"/>
             <Button Name="btnFechar" Content="Fechar" Height="30" DockPanel.Dock="Top" Click="btnFechar_Click"/>
         </DockPanel>
-        <DataGrid Name="dtgAgendaMedico" HorizontalAlignment="Left" Height="390" Width="760" Margin="206,130,0,0" VerticalAlignment="Top" />
-
+        <DataGrid Name="dtgAgendaMedico" MouseDoubleClick="DataGrid_Row_Click"
+                  CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="true" ItemsSource="{Binding}"
+                  AutoGenerateColumns="False" HorizontalAlignment="Left" Height="390" Width="760" Margin="206,130,0,0" VerticalAlignment="Top" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Paciente" Width="1*" 
+                                    Binding="{Binding Paciente}"/>
+                <DataGridTextColumn Header="Data Agendada" Width="1*" 
+                                    Binding="{Binding DataAgendada}"/>
+                <DataGridTextColumn Header="Hora" Width="1*" 
+                                    Binding="{Binding HoraAgendada}"/>
+                <DataGridTextColumn Header="Plano" Width="1*" 
+                                    Binding="{Binding Plano}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

@@ -7,7 +7,7 @@
         WindowStartupLocation="CenterScreen"
         xmlns:local="clr-namespace:Agenda_WPF.Views"
         mc:Ignorable="d"
-         Title="TelaPrincipalRecepcionista" Height="720" Width="1020" WindowState="Maximized">
+         Title="TelaPrincipalRecepcionista" Height="720" Width="1020" WindowState="Maximized" Loaded="Window_Loaded">
     <Grid>
         <Label Name="lblAteLogado" Content="" HorizontalAlignment="Left" Margin="165,10,0,0" VerticalAlignment="Top"/>
         <DockPanel Name="mn_Principal" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="190" Height="704" Background="#FF5AABFA">
@@ -27,7 +27,8 @@
         </StackPanel>
 
         <TextBox x:Name="txtDta" Text="{Binding ElementName=CalSet, Path=SelectedDate, StringFormat=dd/MM/yyyy}" 
-                       HorizontalAlignment="Left" Margin="830,649,0,0" VerticalAlignment="Top" Visibility="Hidden" TextChanged="txtDta_TextChanged"/>
+                   HorizontalAlignment="Left" Margin="734,649,0,0" VerticalAlignment="Top" Visibility="Hidden"
+                   Height="25" Width="150" TextChanged="txtDta_TextChanged"/>
 
 
     </Grid>

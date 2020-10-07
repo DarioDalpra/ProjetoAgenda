@@ -7,7 +7,7 @@
         WindowStartupLocation="CenterScreen"
         xmlns:local="clr-namespace:Agenda_WPF.Views"
         mc:Ignorable="d"
-        Title="AGENDA WPF - Cadastro de Paciente" Height="720" Width="1020" Loaded="Windos_Loaded">
+        Title="AGENDA WPF - Cadastro de Paciente" Height="720" Width="1020" Loaded="Window_Loaded">
     <Grid Margin="-2,0,2,0">
         <DockPanel Name="mn_Principal" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="190" Height="704" Background="#FF5AABFA">
             <Image Source="/unnamed.png" DockPanel.Dock="Top"/>
@@ -90,7 +90,7 @@
         <Button Name="btnCadastrar" Content="Cadastrar" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="270,629,0,0" VerticalAlignment="Top" Width="95" Click="btnCadastrar_Click"/>
         <Button Name="btnAlterar" Content="Alterar" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="375,629,0,0" VerticalAlignment="Top" Width="95" Click="btnAlterar_Click"/>
         <Button Name="btnLocalizar" Content="Localizar" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="480,629,0,0" VerticalAlignment="Top" Width="95"/>
-        <Button Name="btnExcluir" Content="Excluir" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="586,629,0,0" VerticalAlignment="Top" Width="95"/>
+        <Button Name="btnExcluir" Content="Excluir" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="586,629,0,0" VerticalAlignment="Top" Width="95" Click="btnExcluir_Click"/>
         <Button Name="btnCancelar" Content="Cancelar" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="692,629,0,0" VerticalAlignment="Top" Width="95" Click="btnCancelar_Click"/>
 
 

@@ -1,6 +1,3 @@
-using Agenda_WPF.View;
-using Agenda_WPF.ViewModel;
-using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -23,35 +20,29 @@ namespace Agenda_WPF.Views
         public frmTelaPrincipalAdm()
         {
             InitializeComponent();
-
-            var menuAgenda = new List<SubItem>();
-            menuAgenda.Add(new SubItem("Cadastar "));
-            menuAgenda.Add(new SubItem("Listar"));
-            var item0 = new ItemMenu("Agenda", menuAgenda, PackIconKind.Calendar);
-
-            var menuPaciente = new List<SubItem>();
-            menuPaciente.Add(new SubItem("Cadastar "));
-            menuPaciente.Add(new SubItem("Listar"));
-            var item1 = new ItemMenu("Paciente", menuPaciente, PackIconKind.People);
-
-            var menuMedico = new List<SubItem>();
-            menuMedico.Add(new SubItem("Cadastar "));
-            menuMedico.Add(new SubItem("Listar"));
-            var item2 = new ItemMenu("Médico", menuMedico, PackIconKind.MedicalBag);
-
-            var menuUsuario = new List<SubItem>();
-            menuUsuario.Add(new SubItem("Cadastar "));
-            menuUsuario.Add(new SubItem("Listar"));
-            var item3 = new ItemMenu("Usupario", menuUsuario, PackIconKind.User);
-
-
-            Menu.Children.Add(new UserControlMenuItem(item0));
-            Menu.Children.Add(new UserControlMenuItem(item1));
-            Menu.Children.Add(new UserControlMenuItem(item2));
-            Menu.Children.Add(new UserControlMenuItem(item3));
-
         }
 
 
+
+        private void btnPopUpLogout_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void ButtonCloseMenu_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonOpenMenu.Visibility = Visibility.Visible;
+            ButtonCloseMenu.Visibility = Visibility.Collapsed;
+
+
+        }
+
+        private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonOpenMenu.Visibility = Visibility.Collapsed;
+            ButtonCloseMenu.Visibility = Visibility.Visible;
+
+
+        }
     }
 }

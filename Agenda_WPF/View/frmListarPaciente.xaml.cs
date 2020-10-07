@@ -1,4 +1,5 @@
-﻿using Agenda_WPF.DAL;
+﻿
+using Agenda_WPF.DAL;
 using Agenda_WPF.Model;
 using System.Linq;
 using System.Windows;
@@ -11,6 +12,7 @@ namespace Agenda_WPF.Views
     public partial class frmListarPaciente : Window
     {
         private string operacao;
+        private Paciente paciente;
         public frmListarPaciente()
         {
             InitializeComponent();
@@ -122,7 +124,7 @@ namespace Agenda_WPF.Views
             this.Close();
         }
 
-        private void btn_CadastrarPaciente_Click(object sender, RoutedEventArgs e)
+        private void Btn_CadastrarPaciente_Click(object sender, RoutedEventArgs e)
         {
             frmCadastrarPaciente cadastrarPaciente = new frmCadastrarPaciente();
             cadastrarPaciente.Show();
@@ -133,8 +135,86 @@ namespace Agenda_WPF.Views
             frmListarPaciente listarPaciente = new frmListarPaciente();
             listarPaciente.Show();
         }
+        private void btn_Excluir_Click(object sender, RoutedEventArgs e)
+        {
+            if (paciente != null)
+            {
+                PacienteDAO.Remover(paciente);
+                MessageBox.Show("O paciente foi removido com sucesso!!!", "Agenda Medica WPF", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
+            else
+            {
+                MessageBox.Show("O paciente não foi removido!!!", "Agenda Medica WPF", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
+            LimpaCampos();
+        }
+        private void btn_CadastrarPaciente_Click(object sender, RoutedEventArgs e)
+        {
+            frmCadastrarPaciente cadastrarPaciente = new frmCadastrarPaciente();
+            cadastrarPaciente.Show();
+        }
+
+       
+        private void btn_Localizar_Click(object sender, RoutedEventArgs e)
+        {
+             if (!string.IsNullOrWhiteSpace(txtNome.Text))
+                {
+                    paciente = PacienteDAO.BuscarPacientePorNome(txtNome.Text);
+                    if (paciente != null)
+                    {
+
+                        btnCadastrar.IsEnabled = false;
+                        btnAlterar.IsEnabled = true;
+                        btnExcluir.IsEnabled = true;
+
+                    txtIdPaciente.Text = paciente.IdPaciente.ToString();
+                    txtNome.Text = paciente.Nome;
+                    txtCpf.Text = paciente.Cpf;
+                    txtTelefone.Text = paciente.Telefone;
+                    txtEmail.Text = paciente.Email;
 
 
 
+                    }
+                    else
+                    {
+                        MessageBox.Show("Esse paciente não existe!!!", "Vendas WPF",
+                            MessageBoxButton.OK, MessageBoxImage.Error);
+                        LimpaCampos();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Preencha o campo nome!!!", "Vendas WPF",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            
+
+        }
+
+        private void btn_Alterar_Click(object sender, RoutedEventArgs e)
+        {
+            if (paciente != null)
+            {
+                paciente.Nome = txtNome.Text;
+                paciente.Cpf = txtCpf.Text;
+                paciente.Telefone = txtTelefone.Text;
+
+
+
+                PacienteDAO.AlterarPaciente(paciente);
+                MessageBox.Show("O médico foi alterado com sucesso!!!", "Agenda_Medica_WPF", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
+            else
+            {
+                MessageBox.Show("O médico não foi alterado!!!", "Agenda_Medica_WPF", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
+            LimpaCampos();
+
+        }
     }
 }
