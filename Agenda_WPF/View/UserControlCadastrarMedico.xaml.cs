@@ -8,16 +8,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Agenda_WPF.Views
+namespace Agenda_WPF.View
 {
     /// <summary>
-    /// Interaction logic for frmCadastrarProntuario.xaml
+    /// Interaction logic for UserControlCadastrarMedico.xaml
     /// </summary>
-    public partial class frmCadastrarProntuario : Window
+    public partial class UserControlCadastrarMedico : UserControl
     {
-        public frmCadastrarProntuario()
+        public UserControlCadastrarMedico()
         {
             InitializeComponent();
         }

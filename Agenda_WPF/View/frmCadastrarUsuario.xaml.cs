@@ -1,7 +1,6 @@
 ﻿using Agenda_WPF.DAL;
 using Agenda_WPF.Model;
 using Agenda_WPF.Utils;
-using Agenda_WPF.View;
 using RestSharp;
 using RestSharp.Serialization.Json;
 using System.Windows;

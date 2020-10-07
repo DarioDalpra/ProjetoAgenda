@@ -1,5 +1,4 @@
-﻿using Agenda_WPF.View;
-using Agenda_WPF.Views;
+﻿using Agenda_WPF.Views;
 using NewAgenda_WPF.Views;
 using System.Windows;
 

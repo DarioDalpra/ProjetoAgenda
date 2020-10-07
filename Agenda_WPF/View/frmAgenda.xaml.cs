@@ -1,9 +1,8 @@
 ﻿using Agenda_WPF.DAL;
 using Agenda_WPF.Model;
-using Agenda_WPF.View;
 using System;
 using System.Windows;
-using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
+
 
 namespace Agenda_WPF.Views
 {
@@ -111,6 +110,19 @@ namespace Agenda_WPF.Views
             cboHorario.Items.Add("11:30");
             cboHorario.Items.Add("11:45");
             cboHorario.Items.Add("14:00");
+            cboHorario.Items.Add("14:15");
+            cboHorario.Items.Add("14:30");
+            cboHorario.Items.Add("14:45");
+            cboHorario.Items.Add("15:00");
+            cboHorario.Items.Add("15:15");
+            cboHorario.Items.Add("15:30");
+            cboHorario.Items.Add("15:45");
+            cboHorario.Items.Add("16:00");
+            cboHorario.Items.Add("16:15");
+            cboHorario.Items.Add("16:30");
+            cboHorario.Items.Add("16:45");
+
+
         }
         private void LimpaCampos()
         {

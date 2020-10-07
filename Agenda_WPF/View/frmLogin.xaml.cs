@@ -1,6 +1,5 @@
 ﻿using Agenda_WPF.DAL;
 using Agenda_WPF.Model;
-using Agenda_WPF.View;
 using System.Windows;
 
 
@@ -21,38 +20,38 @@ namespace Agenda_WPF.Views
         Usuario u = new Usuario();
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            //u.Email = txtEmailLogin.Text;
+            u.Email = txtEmailLogin.Text;
 
-            //var usr = UsuarioDAO.ValidaLogin(u.Email);
-            //if (usr == null)
-            //{
-            //    MessageBox.Show($"Informe um LOGIN válido!");
-            //}
-            //else if (usr.Email == txtEmailLogin.Text && usr.Senha == pwdSenhaLogin.Password)
-            //{
-            //    if (usr.Administrador == true)
-            //    {
-            //        MainWindow principal = new MainWindow(usr.Nome);
-            //        principal.Show();
-            //        this.Close();
-            //    }
-            //    else if (usr.Medico == true)
-            //    {
-            //        frmTelaPrincipalMedico viewMedico = new frmTelaPrincipalMedico(usr.Nome);
-            //        viewMedico.Show();
-            //        this.Close();
-            //    }
-            //    else
-            //    {
-            //        frmTelaPrincipalRecepcionista viewAtendente = new frmTelaPrincipalRecepcionista(usr.Nome);
-            //        viewAtendente.Show();
-            //        this.Close();
-            //    }
-            //}
-            //else
-            //{
-            //    MessageBox.Show($"Usuário e ou Senha Inválido(a)!!");
-            //}
+            var usr = UsuarioDAO.ValidaLogin(u.Email);
+            if (usr == null)
+            {
+                MessageBox.Show($"Informe um LOGIN válido!");
+            }
+            else if (usr.Email == txtEmailLogin.Text && usr.Senha == pwdSenhaLogin.Password)
+            {
+                if (usr.Administrador == true)
+                {
+                    MainWindow principal = new MainWindow(usr.Nome);
+                    principal.Show();
+                    this.Close();
+                }
+                else if (usr.Medico == true)
+                {
+                    frmTelaPrincipalMedico viewMedico = new frmTelaPrincipalMedico(usr.Nome);
+                    viewMedico.Show();
+                    this.Close();
+                }
+                else
+                {
+                    frmTelaPrincipalRecepcionista viewAtendente = new frmTelaPrincipalRecepcionista(usr.Nome);
+                    viewAtendente.Show();
+                    this.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show($"Usuário e ou Senha Inválido(a)!!");
+            }
             frmTelaPrincipalRecepcionista atendente = new frmTelaPrincipalRecepcionista();
             atendente.ShowDialog();
         }
