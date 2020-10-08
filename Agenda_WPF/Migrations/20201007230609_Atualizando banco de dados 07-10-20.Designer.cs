@@ -4,14 +4,16 @@ using Agenda_WPF.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Agenda_WPF.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20201007230609_Atualizando banco de dados 07-10-20")]
+    partial class Atualizandobancodedados071020
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -73,9 +75,6 @@ namespace Agenda_WPF.Migrations
                     b.Property<string>("Bairro")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Celular")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Cep")
                         .HasColumnType("nvarchar(max)");
 
@@ -109,9 +108,6 @@ namespace Agenda_WPF.Migrations
                     b.Property<string>("Numero")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Peso")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Rg")
                         .HasColumnType("nvarchar(max)");
 
@@ -134,9 +130,6 @@ namespace Agenda_WPF.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Bairro")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Celular")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Cep")
@@ -170,9 +163,6 @@ namespace Agenda_WPF.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Numero")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Peso")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Rg")
@@ -275,9 +265,6 @@ namespace Agenda_WPF.Migrations
                     b.Property<string>("Bairro")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Celular")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Cep")
                         .HasColumnType("nvarchar(max)");
 
@@ -306,9 +293,6 @@ namespace Agenda_WPF.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Numero")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Peso")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Rg")

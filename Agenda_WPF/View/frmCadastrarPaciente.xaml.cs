@@ -71,8 +71,10 @@ namespace Agenda_WPF.Views
             txtNome.Clear();
             mskCpf.Clear();
             txtRg.Clear();
+            txtPeso.Clear();
             mskdtaNascimento.Clear();
             mskTelefone.Clear();
+            mskCelular.Clear();
             txtEmail.Clear();
             cboPlano.SelectedIndex = -1;
             txtNPlano.Clear();
@@ -105,8 +107,10 @@ namespace Agenda_WPF.Views
                         txtNPlano.Text = pac.NumPlano;
                         txtNome.Text = pac.Nome;
                         txtRg.Text = pac.Rg;
+                        txtPeso.Text = pac.Peso;
                         mskdtaNascimento.Text = pac.Nascimento;
                         mskTelefone.Text = pac.Telefone;
+                        mskCelular.Text = pac.Celular;
                         txtEmail.Text = pac.Email;
                         mskCep_Leave.Text = pac.Cep;
                         txtRua.Text = pac.Rua;
@@ -172,8 +176,10 @@ namespace Agenda_WPF.Views
             pac.Nome = txtNome.Text;
             pac.Cpf = mskCpf.Text;
             pac.Rg = txtRg.Text;
+            pac.Peso = txtPeso.Text;
             pac.Nascimento = mskdtaNascimento.Text;
             pac.Telefone = mskTelefone.Text;
+            pac.Celular = mskCelular.Text;
             pac.Email = txtEmail.Text;
             pac.Rua = txtRua.Text;
             pac.Numero = txtNumero.Text;
@@ -227,8 +233,10 @@ namespace Agenda_WPF.Views
                 pa.NumPlano = txtNPlano.Text;
                 pa.Nome = txtNome.Text;
                 pa.Rg = txtRg.Text;
+                pa.Peso = txtPeso.Text;
                 pa.Nascimento = mskdtaNascimento.Text;
                 pa.Telefone = mskTelefone.Text;
+                pa.Celular = mskCelular.Text;
                 pa.Email = txtEmail.Text;
                 pa.Cep = mskCep_Leave.Text;
                 pa.Rua = txtRua.Text;
