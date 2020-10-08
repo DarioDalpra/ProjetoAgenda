@@ -1,6 +1,8 @@
 ﻿
 using Agenda_WPF.DAL;
 using Agenda_WPF.Model;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 
@@ -13,6 +15,8 @@ namespace Agenda_WPF.Views
     {
         private string operacao;
         private Paciente paciente;
+        private List<dynamic> itens = new List<dynamic>();
+        private double imc = 0;
         public frmListarPaciente()
         {
             InitializeComponent();
@@ -25,28 +29,30 @@ namespace Agenda_WPF.Views
             p.Cpf = txtCpf.Text;
             p.Telefone = txtTelefone.Text;
             p.Email = txtEmail.Text;
-            using (Context ctx = new Context())
+            p.Altura = paciente.Altura;
+            p.Peso = paciente.Peso;
+            p.Celular = paciente.Celular;
+
+
+            using Context ctx = new Context();
+            if (operacao == "inserir")
             {
-                if (operacao == "inserir")
                 {
-                    {
-                        ctx.Pacientes.Add(p);
-                        ctx.SaveChanges();
-                    }
+                    ctx.Pacientes.Add(p);
+                    ctx.SaveChanges();
                 }
-                if (operacao == "alterar")
-                {
-                    {
-                        ctx.Pacientes.Add(p);
-                        ctx.SaveChanges();
-                    }
-                }
-
-                this.ListarDados();
-                this.AlteraBotoes(1);
-                this.LimpaCampos();
-
             }
+            if (operacao == "alterar")
+            {
+                {
+                    ctx.Pacientes.Add(p);
+                    ctx.SaveChanges();
+                }
+            }
+
+            this.ListarDados();
+            this.AlteraBotoes(1);
+            this.LimpaCampos();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -66,6 +72,28 @@ namespace Agenda_WPF.Views
 
             }
         }
+
+        private void PopularDataGrid(Paciente paciente)
+        {
+            itens.Add(new
+            {
+                Nome = paciente.Nome,
+                Peso = Convert.ToDouble(paciente.Peso),
+                Altura = Convert.ToDouble(paciente.Altura),
+                Imc = (Convert.ToDouble(paciente.Peso)* Convert.ToDouble(paciente.Peso))/ Convert.ToDouble(paciente.Altura),
+                Telefone = paciente.Telefone,
+                Celular = paciente.Celular,
+                Email = paciente.Email,
+                NomePlano = paciente.NomePlano,
+
+
+
+
+
+               
+            });
+        }
+
         private void AlteraBotoes(int op)
         {
             btnAlterar.IsEnabled = false;
@@ -98,6 +126,9 @@ namespace Agenda_WPF.Views
             txtCpf.IsEnabled = true;
             txtTelefone.IsEnabled = true;
             txtEmail.IsEnabled = true;
+            txtEmail.IsEnabled = true;
+            txtEmail.IsEnabled = true;
+
 
             txtNome.Clear();
             txtCpf.Clear();
@@ -201,6 +232,7 @@ namespace Agenda_WPF.Views
                 paciente.Nome = txtNome.Text;
                 paciente.Cpf = txtCpf.Text;
                 paciente.Telefone = txtTelefone.Text;
+              
 
 
 

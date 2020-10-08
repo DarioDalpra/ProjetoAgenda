@@ -4,14 +4,16 @@ using Agenda_WPF.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Agenda_WPF.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20201008011254_Adicionado campo Altura")]
+    partial class AdicionadocampoAltura
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -127,8 +129,8 @@ namespace Agenda_WPF.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<double>("Altura")
-                        .HasColumnType("float");
+                    b.Property<string>("Altura")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Bairro")
                         .HasColumnType("nvarchar(max)");
@@ -154,9 +156,6 @@ namespace Agenda_WPF.Migrations
                     b.Property<string>("Estado")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Imc")
-                        .HasColumnType("float");
-
                     b.Property<string>("Nascimento")
                         .HasColumnType("nvarchar(max)");
 
@@ -172,8 +171,8 @@ namespace Agenda_WPF.Migrations
                     b.Property<string>("Numero")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Peso")
-                        .HasColumnType("float");
+                    b.Property<string>("Peso")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Rg")
                         .HasColumnType("nvarchar(max)");

@@ -72,6 +72,8 @@ namespace Agenda_WPF.Views
             mskCpf.Clear();
             txtRg.Clear();
             txtPeso.Clear();
+            txtAltura.Clear();
+            txtImc.Clear();
             mskdtaNascimento.Clear();
             mskTelefone.Clear();
             mskCelular.Clear();
@@ -84,6 +86,8 @@ namespace Agenda_WPF.Views
             txtCidade.Clear();
             txtEstado.Clear();
             mskCep_Leave.Clear();
+
+
         }
         private void btnBuscarCpf_Click(object sender, RoutedEventArgs e)
         {
@@ -107,7 +111,11 @@ namespace Agenda_WPF.Views
                         txtNPlano.Text = pac.NumPlano;
                         txtNome.Text = pac.Nome;
                         txtRg.Text = pac.Rg;
-                        txtPeso.Text = pac.Peso;
+                        txtPeso.Text = Convert.ToString(pac.Peso);
+                        txtAltura.Text = Convert.ToString(pac.Altura);
+
+                        var resultado = (Convert.ToDouble(pac.Peso) * Convert.ToDouble(pac.Peso)) / Convert.ToDouble(pac.Altura);
+                       // txtImc = Convert.ToString(resultado);
                         mskdtaNascimento.Text = pac.Nascimento;
                         mskTelefone.Text = pac.Telefone;
                         mskCelular.Text = pac.Celular;
@@ -176,7 +184,9 @@ namespace Agenda_WPF.Views
             pac.Nome = txtNome.Text;
             pac.Cpf = mskCpf.Text;
             pac.Rg = txtRg.Text;
-            pac.Peso = txtPeso.Text;
+            pac.Peso = Convert.ToDouble(txtPeso.Text);
+            pac.Altura = Convert.ToDouble(txtAltura.Text);
+            pac.Altura = (Convert.ToDouble(txtPeso.Text) * Convert.ToDouble(txtPeso.Text)) / Convert.ToDouble(txtAltura.Text);
             pac.Nascimento = mskdtaNascimento.Text;
             pac.Telefone = mskTelefone.Text;
             pac.Celular = mskCelular.Text;
@@ -233,7 +243,9 @@ namespace Agenda_WPF.Views
                 pa.NumPlano = txtNPlano.Text;
                 pa.Nome = txtNome.Text;
                 pa.Rg = txtRg.Text;
-                pa.Peso = txtPeso.Text;
+                pa.Peso = Convert.ToDouble(txtPeso.Text);
+                pa.Altura = Convert.ToDouble(txtAltura.Text);
+                pa.Altura = (Convert.ToDouble(txtPeso.Text)* Convert.ToDouble(txtPeso.Text))/ Convert.ToDouble(txtAltura.Text);
                 pa.Nascimento = mskdtaNascimento.Text;
                 pa.Telefone = mskTelefone.Text;
                 pa.Celular = mskCelular.Text;

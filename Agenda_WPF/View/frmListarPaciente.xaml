@@ -25,8 +25,16 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Nome Paciente" Width="1*"
                                     Binding="{Binding Nome}"/>
+                <DataGridTextColumn Header="Peso" Width="1*"
+                                    Binding="{Binding Peso}"/>
+                <DataGridTextColumn Header="Altura" Width="1*"
+                                    Binding="{Binding Altura}"/>
+                <DataGridTextColumn Header="IMC" Width="1*"
+                                    Binding="{Binding Imc}"/>
                 <DataGridTextColumn Header="Telefone" Width="1*"
                                     Binding="{Binding Telefone}"/>
+                <DataGridTextColumn Header="Celular" Width="1*"
+                                    Binding="{Binding Celular}"/>
                 <DataGridTextColumn Header="E-mail" Width="1*"
                                     Binding="{Binding Email}"/>
                 <DataGridTextColumn Header="Plano" Width="1*"
