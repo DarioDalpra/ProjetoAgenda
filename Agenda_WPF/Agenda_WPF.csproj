@@ -8,15 +8,35 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="ViewModel\**" />
-    <EmbeddedResource Remove="ViewModel\**" />
-    <None Remove="ViewModel\**" />
-    <Page Remove="ViewModel\**" />
+    <Compile Remove="View\NewFolder\**" />
+    <EmbeddedResource Remove="View\NewFolder\**" />
+    <None Remove="View\NewFolder\**" />
+    <Page Remove="View\NewFolder\**" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="unnamed.png" />
     <None Remove="View\unnamed.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="View\NewFolder\frmAgenda.xaml.cs" />
+    <Compile Include="View\NewFolder\frmCadastrarMedico.xaml.cs" />
+    <Compile Include="View\NewFolder\frmCadastrarPaciente.xaml.cs" />
+    <Compile Include="View\NewFolder\frmCadastrarPlanoSaude.xaml.cs" />
+    <Compile Include="View\NewFolder\frmCadastrarProcedimento.xaml.cs" />
+    <Compile Include="View\NewFolder\frmCadastrarProntuario.xaml.cs" />
+    <Compile Include="View\NewFolder\frmCadastrarUsuario.xaml.cs" />
+    <Compile Include="View\NewFolder\frmListarAgenda.xaml.cs" />
+    <Compile Include="View\NewFolder\frmListarMedico.xaml.cs" />
+    <Compile Include="View\NewFolder\frmListarPaciente.xaml.cs" />
+    <Compile Include="View\NewFolder\frmListarProntuario.xaml.cs" />
+    <Compile Include="View\NewFolder\frmListarUsuario.xaml.cs" />
+    <Compile Include="View\NewFolder\frmLogin.xaml.cs" />
+    <Compile Include="View\NewFolder\frmProntuario.xaml.cs" />
+    <Compile Include="View\NewFolder\frmTelaPrincipalAdm.xaml.cs" />
+    <Compile Include="View\NewFolder\frmTelaPrincipalMedico.xaml.cs" />
+    <Compile Include="View\NewFolder\frmTelaPrincipalRecepcionista.xaml.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,13 +55,27 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Page Update="View\MainWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
+    <Folder Include="Assets\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Assets\" />
+    <Page Include="View\NewFolder\frmAgenda.xaml" />
+    <Page Include="View\NewFolder\frmCadastrarMedico.xaml" />
+    <Page Include="View\NewFolder\frmCadastrarPaciente.xaml" />
+    <Page Include="View\NewFolder\frmCadastrarPlanoSaude.xaml" />
+    <Page Include="View\NewFolder\frmCadastrarProcedimento.xaml" />
+    <Page Include="View\NewFolder\frmCadastrarProntuario.xaml" />
+    <Page Include="View\NewFolder\frmCadastrarUsuario.xaml" />
+    <Page Include="View\NewFolder\frmListarAgenda.xaml" />
+    <Page Include="View\NewFolder\frmListarMedico.xaml" />
+    <Page Include="View\NewFolder\frmListarPaciente.xaml" />
+    <Page Include="View\NewFolder\frmListarProntuario.xaml" />
+    <Page Include="View\NewFolder\frmListarUsuario.xaml" />
+    <Page Include="View\NewFolder\frmLogin.xaml" />
+    <Page Include="View\NewFolder\frmProntuario.xaml" />
+    <Page Include="View\NewFolder\frmTelaPrincipalAdm.xaml" />
+    <Page Include="View\NewFolder\frmTelaPrincipalMedico.xaml" />
+    <Page Include="View\NewFolder\frmTelaPrincipalRecepcionista.xaml" />
   </ItemGroup>
 
 </Project>

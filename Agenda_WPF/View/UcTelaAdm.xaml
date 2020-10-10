@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="Agenda_WPF.View.UcTelaAdm"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Agenda_WPF.View"
+                 xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+
+             mc:Ignorable="d" 
+             d:DesignHeight="720" d:DesignWidth="1020">
+    <Grid>
+        <Label x:Name="lblUsrLogado" Content="" HorizontalAlignment="Left" Margin="190,10,0,0" VerticalAlignment="Top" Height="23"/>
+        <DockPanel x:Name="mn_Principal" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="190" Height="704" Background="#FF5AABFA">
+            <Image x:Name="imgAngio" Source="/unnamed.png"  DockPanel.Dock="Top"/>
+
+            <Button x:Name="btnCadastrarUsuario" Content="Cadastrar Usuário" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top" Click="btnCadastrarUsuario_Click"/>
+            <Button x:Name="btnListarUsuario" Content="Listar Usuário" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top" Click="btnListarUsuario_Click"/>
+            <Button x:Name="btnCadastrarMedico" Content="Cadastrar Médico" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top" Click="btnCadastrarMedico_Click"/>
+            <Button x:Name="btnListarMedico" Content="Listar Médico" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top" Click="btnListarMedico_Click"/>
+            <Button x:Name="btnCadastrarPaciente" Content="Cadastrar Paciente" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top" Click="btnCadastrarPaciente_Click"/>
+            <Button x:Name="btnListarPaciente" Content="Listar Paciente" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top" Click="btnListarPaciente_Click"/>
+            <Button x:Name="btnCadastrarPlanoSaude" Content="Cadstrar Plano de Saúde" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top" Click="btnCadastrarPlanoSaude_Click" />
+            <Button x:Name="btnListarPlanoSaude" Content="Listar Plano de Saúde" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top" />
+            <Button x:Name="btnCadastrarProcedimento" Content="Cadastrar Procedimento" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top" Click="btnCadastrarProcedimento_Click" />
+            <Button x:Name="btnAgendarConsulta" Content="Agendar Consulta" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top" Click="btnAgendarConsulta_Click"/>
+            <Button x:Name="btnListarConsulta" Content="Listar Consulta" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top"/>
+            <Button x:Name="btnProntuario" Content="Prontuário" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top" Click="btnProntuario_Click"/>
+            <Button x:Name="btnListarProntuario" Content="Listar Prontuário" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top" Click="btnListarProntuario_Click" />
+            <Button x:Name="btnAlterarPaciente" Content="Atualizar Dados Paciente" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top"/>
+            <Button x:Name="btnAlterarAgendamento" Content="Alterar Agendamento" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top"/>
+            <Button x:Name="btnImpressaoDeclaracao" Content="Imprimir Declaração" HorizontalContentAlignment="Left" Height="30" DockPanel.Dock="Top"/>
+            <Button x:Name="btnEncerrarSistema" Content="Encerrar Sistema" Height="30" DockPanel.Dock="Top" Click="btnEncerrarSistema_Click"/>
+
+        </DockPanel>
+
+    </Grid>
+</UserControl>

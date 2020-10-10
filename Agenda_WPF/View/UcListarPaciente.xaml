@@ -1,0 +1,61 @@
+﻿<UserControl x:Class="Agenda_WPF.View.UcListarPaciente"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Agenda_WPF.View"
+                 xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+
+             mc:Ignorable="d" 
+             d:DesignHeight="720" d:DesignWidth="1020">
+    <Grid>
+        <DataGrid Name="dtgPacientes" AutoGenerateColumns="False" Margin="30,99,30,102">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nome Paciente" Width="1*"
+                                    Binding="{Binding Nome}"/>
+                <DataGridTextColumn Header="Peso" Width="1*"
+                                    Binding="{Binding Peso}"/>
+                <DataGridTextColumn Header="Altura" Width="1*"
+                                    Binding="{Binding Altura}"/>
+                <DataGridTextColumn Header="IMC" Width="1*"
+                                    Binding="{Binding Imc}"/>
+                <DataGridTextColumn Header="Telefone" Width="1*"
+                                    Binding="{Binding Telefone}"/>
+                <DataGridTextColumn Header="Celular" Width="1*"
+                                    Binding="{Binding Celular}"/>
+                <DataGridTextColumn Header="E-mail" Width="1*"
+                                    Binding="{Binding Email}"/>
+                <DataGridTextColumn Header="Plano" Width="1*"
+                                    Binding="{Binding NomePlano}"/>
+            </DataGrid.Columns>
+
+
+        </DataGrid>
+
+        <Label Name="lblNome" Content="Nome:" HorizontalAlignment="Left" Margin="225,16,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtNome" HorizontalAlignment="Left" Margin="273,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="533" Height="26"/>
+        <Label Name="lblIdPaciente" Content="Id: " HorizontalAlignment="Left" Margin="37,16,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtIdPaciente" HorizontalAlignment="Left" Margin="68,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Height="26"/>
+        <Label Name="lblCpf" Content="CPF:" HorizontalAlignment="Left" Margin="35,47,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtCpf"  HorizontalAlignment="Left" Margin="83,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="127" Height="26"/>
+        <Label Name="lblTelefone" Content="Telefone:" HorizontalAlignment="Left" Margin="233,47,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtTelefone"  HorizontalAlignment="Left" Margin="289,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" Height="26"/>
+        <Label Name="lblEmail" Content="E-mail:" HorizontalAlignment="Left" Margin="455,47,0,0" VerticalAlignment="Top" Width="50"/>
+        <TextBox Name="txtEmail"  HorizontalAlignment="Left" Margin="510,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" Height="26"/>
+
+
+        <Button Name="btnCadastrar" Content="Cadastrar" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="270,629,0,0" VerticalAlignment="Top" Width="95" Click="btnInserir_Click"/>
+        <Button Name="btnAlterar" Content="Alterar" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="375,629,0,0" VerticalAlignment="Top" Width="95" Click="btn_Alterar_Click"/>
+        <Button Name="btnLocalizar" Content="Localizar" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="480,629,0,0" VerticalAlignment="Top" Width="95" Click="btn_Localizar_Click"/>
+        <Button Name="btnExcluir" Content="Excluir" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="586,629,0,0" VerticalAlignment="Top" Width="95" Click="btn_Excluir_Click"/>
+        <Button Name="btnCancelar" Content="Cancelar" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="692,629,0,0" VerticalAlignment="Top" Width="95" Click="btnCancelar_Click"/>
+
+    </Grid>
+</UserControl>
