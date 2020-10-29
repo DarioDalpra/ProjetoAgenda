@@ -18,10 +18,10 @@ namespace Agenda_WPF.DAL
                     ctx.SaveChanges();
                     return null;
                 }
-                catch (Exception err)
-                {
+                catch (Exception)
+            {
                     return "Erro ao salvar prontuário";
                 }
             }
         }
-    }
+}
