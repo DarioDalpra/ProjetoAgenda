@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Agenda_WEB.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -81,11 +82,12 @@ namespace Agenda_WEB.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Alterar(Guid id, Medico medico)
         {
-            if (id != medico.Id) return NotFound();
+            var Medico = _mapper.Map<Medico>(medico);
+            if (id != Medico.Id) return NotFound();
 
             if (!ModelState.IsValid) return View(medico);
 
-            var medico = _mapper.Map<Medico>(medico);
+           
             await _medicoService.Atualizar(medico);
             if (!OperacaoValida()) return View(medico);
 

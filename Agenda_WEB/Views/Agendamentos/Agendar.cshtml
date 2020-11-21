@@ -10,6 +10,8 @@
 
             <vc:Summary></vc:Summary>
 
+          
+
             <div class="form-group">
                 <label asp-for="MedicoId" class="control-label"></label>
                 <select asp-for="MedicoId" class="form-control" asp-items="@(new SelectList(Model.Medicos, "Id", "Nome"))">
