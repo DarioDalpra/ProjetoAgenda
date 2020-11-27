@@ -8,11 +8,10 @@ namespace Agenda_WEB.Models
 {
     public class BaseModel
     {
-       
-            public BaseModel() => CriadoEm = DateTime.Now;
+        public BaseModel() => CriadoEm = DateTime.Now;
 
-            [Key]
-            public int Id { get; set; }
-            public DateTime CriadoEm { get; set; }
-        }
+        [Key]
+        public int Id { get; set; }
+        public DateTime CriadoEm { get; set; }
     }
+}

@@ -23,17 +23,6 @@ namespace Agenda_WEB
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddScoped<AgendamentoDbContext>();
-            services.AddScoped<IPacienteRepository, PacienteRepository>();
-            services.AddScoped<IMedicoRepository, MedicoRepository>();
-            services.AddScoped<IAgendamentosRepository, AgendamentoRepository>();
-
-            services.AddScoped<INotificador, Notificador>();
-            services.AddScoped<IPacienteService, PacienteService>();
-            services.AddScoped<IMedicoService, MedicoService>();
-            services.AddScoped<IAgendamentoService, AgendamentoService>();
-            services.AddScoped<IAgendamentoValidacao, AgendamentoValidacao>();
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
