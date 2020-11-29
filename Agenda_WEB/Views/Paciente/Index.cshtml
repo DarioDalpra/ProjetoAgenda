@@ -1,0 +1,50 @@
+﻿@model List<Paciente>
+
+<h3 class="espacamento-baixo">Gerencimento de Pacientes</h3>
+
+<a asp-action="Cadastrar" asp-controller="Paciente"
+   class="btn btn-primary espacamento-baixo">Cadastrar Paciente</a>
+
+<table class="table table-hover table-striped espacamento-baixo">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Fone</th>
+            <th>Plano</th>
+            <th>Criado em</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Paciente pacienteCadastrado in Model)
+        {
+            <tr>
+                <td>@pacienteCadastrado.Id</td>
+                <td>@pacienteCadastrado.Nome</td>
+                <td>@pacienteCadastrado.CPF</td>
+                <td>@pacienteCadastrado.Fone</td>
+                <td>@pacienteCadastrado.PlanoSaude.Plano - @pacienteCadastrado.PlanoSaude.Codigo</td>
+                <td>@pacienteCadastrado.CriadoEm</td>
+
+                <td>
+                    <a asp-action="Remover"
+                       asp-controller="Paciente"
+                       asp-route-id="@pacienteCadastrado.Id"
+                       class="btn btn-danger">Remover</a>
+                </td>
+                <td>
+                    <a asp-action="Alterar"
+                       asp-controller="Paciente"
+                       asp-route-id="@pacienteCadastrado.Id"
+                       class="btn btn-warning">Alterar</a>
+                </td>
+            </tr>
+}
+    </tbody>
+</table>
+
+<p><b>Quantidade de pacientes: </b> @Model.Count </p>
+<p><b>Dados atualizados: </b> @DateTime.Now </p>

@@ -1,49 +1,42 @@
 ﻿using Agenda_WPF.Model;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
 
 namespace Agenda_WPF.DAL
 {
-    class PacienteDAO
+    public class PacienteDAO
     {
-        private static Context ctx = SingletonContext.GetInstance();
-        public static bool CadastrarPaciente(Paciente p)
+        private readonly Context _context;
+        public PacienteDAO(Context context) => _context = context;
+        public List<Paciente> Listar() =>
+            _context.Pacientes.Include(x => x.PlanoSaude).ToList();
+
+        public Paciente BuscarPorId(int id) => _context.Pacientes.Find(id);
+
+        public Paciente BuscarPorNome(string nome) =>
+            _context.Pacientes.FirstOrDefault(x => x.Nome == nome);
+
+        public bool Cadastrar(Paciente paciente)
         {
-            if (BuscarPacientePorNome(p) == null)
+            if (BuscarPorNome(paciente.Nome) == null)
             {
-                ctx.Pacientes.Add(p);
-                ctx.SaveChanges();
+                _context.Pacientes.Add(paciente);
+                _context.SaveChanges();
                 return true;
             }
             return false;
         }
-
-        public static Paciente BuscarPacientePorId(int id) => ctx.Pacientes.Find(id);
-        public static Paciente BuscarPacientePorCpf(Paciente p) => ctx.Pacientes.FirstOrDefault(x => x.Cpf.Equals(p.Cpf));
-        public static Paciente BuscarPacientePorNome(Paciente p) => ctx.Pacientes.FirstOrDefault(x => x.Nome.Equals(p.Nome));
-        public static List<Paciente> ListarPacientes() => ctx.Pacientes.ToList();
-
-        public static void AlterarPaciente(Paciente p)
+        public void Remover(int id)
         {
-            ctx.Pacientes.Update(p);
-            ctx.SaveChanges();
+            _context.Pacientes.Remove(BuscarPorId(id));
+            _context.SaveChanges();
         }
-
-        public static void Remover(Paciente p)
+        public void Alterar(Paciente paciente)
         {
-            ctx.Agendas.RemoveRange(ctx.Agendas.Where(x => x.Paciente.IdPaciente.Equals(p.IdPaciente)));
-            ctx.Prontuarios.RemoveRange(ctx.Prontuarios.Where(x => x.NomePaciente.IdPaciente.Equals(p.IdPaciente)));
-            ctx.Entry(p).State = EntityState.Deleted;
-            ctx.SaveChanges();
-
-        }
-
-        internal static Paciente BuscarPacientePorNome(string text)
-        {
-            throw new NotImplementedException();
+            _context.Pacientes.Update(paciente);
+            _context.SaveChanges();
         }
     }
 }

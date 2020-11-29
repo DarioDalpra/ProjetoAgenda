@@ -1,8 +1,7 @@
 ﻿using Agenda_WEB.Models;
-using System;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Agenda_WEB.DAL
 {
@@ -11,8 +10,10 @@ namespace Agenda_WEB.DAL
         private readonly Context _context;
         public PacienteDAO(Context context) => _context = context;
         public List<Paciente> Listar() =>
-            _context.Pacientes.ToList();
+            _context.Pacientes.Include(x => x.PlanoSaude).ToList();
+
         public Paciente BuscarPorId(int id) => _context.Pacientes.Find(id);
+
         public Paciente BuscarPorNome(string nome) =>
             _context.Pacientes.FirstOrDefault(x => x.Nome == nome);
 

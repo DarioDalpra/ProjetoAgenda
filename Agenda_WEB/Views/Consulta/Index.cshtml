@@ -1,0 +1,23 @@
+﻿@*Tecnologia da página - Razor*@
+@model Consulta
+
+<form asp-controller="Consulta" asp-action="Selecionar" method="post"
+      enctype="multipart/form-data">
+    <fieldset>
+        <legend>Selecionar Data</legend>
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group">
+            <label asp-for="DataConsulta">Data:</label>
+            <input class="form-control" asp-for="DataConsulta" type="date" />
+        </div>
+        <div class="form-group">
+            <label asp-for="HoraConsulta">Hora:</label>
+            <input class="form-control" asp-for="HoraConsulta" type="time" />
+        </div>
+
+
+        <input class="btn btn-info" type="submit" value="Selecionar" />
+    </fieldset>
+</form>

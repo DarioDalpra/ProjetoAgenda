@@ -1,0 +1,29 @@
+﻿@model Paciente
+@*Tecnologia da página - Razor*@
+
+    <form asp-action="Alterar" asp-controller="Paciente" method="post">
+        <fieldset>
+            <legend>Alterar Paciente</legend>
+
+            <label asp-for="Id">Id:</label>
+            <input asp-for="Id" readonly type="text" placeholder="Id do Produto" /><br />
+            <input asp-for="Id" name="HdnId" type="hidden" />
+
+            <label asp-for="Nome">Nome:</label>
+            <input asp-for="Nome" type="text" placeholder="Nome do Paciente" /><br />
+
+            <label asp-for="CPF">CPF:</label>
+            <input asp-for="CPF" type="text" placeholder="CPF do Paciente" /><br />
+
+            <label asp-for="Fone">Fone:</label>
+            <input asp-for="Fone" type="text" placeholder="Fone do Paciente" /><br />
+
+            <label asp-for="PlanoSaudeId">Plano de Saúde:</label>
+            <select class="form-control" asp-items="@ViewBag.PlanosSaude"
+                    asp-for="PlanoSaudeId">
+                <option> -- SELECIONE -- </option>
+            </select>
+
+            <input type="submit" value="Salvar" />
+        </fieldset>
+    </form>

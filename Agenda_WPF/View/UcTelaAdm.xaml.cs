@@ -1,6 +1,4 @@
-﻿using Agenda_WPF.Views;
-using MaterialDesignThemes.Wpf;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 
 namespace Agenda_WPF.View

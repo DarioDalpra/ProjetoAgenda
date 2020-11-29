@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Agenda_WEB.Models
 {
@@ -22,6 +19,7 @@ namespace Agenda_WEB.Models
         public Medico Medico { get; set; }
         public int MedicoId { get; set; }
 
+        public DateTime DataConsulta { get; set; }
         public DateTime HoraConsulta { get; set; }
 
     }

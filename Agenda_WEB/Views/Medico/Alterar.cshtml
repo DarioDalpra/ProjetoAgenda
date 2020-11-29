@@ -1,0 +1,20 @@
+﻿@model Medico
+@*Tecnologia da página - Razor*@
+
+    <form asp-action="Alterar" asp-controller="Medico" method="post">
+        <fieldset>
+            <legend>Alterar Medico</legend>
+
+            <label asp-for="Id">Id:</label>
+            <input asp-for="Id" readonly type="text" placeholder="Id do Médico" /><br />
+            <input asp-for="Id" name="HdnId" type="hidden" />
+
+            <label asp-for="Nome">Nome:</label>
+            <input asp-for="Nome" type="text" placeholder="Nome do Médico" /><br />
+
+            <label asp-for="CRM">CRM:</label>
+            <input asp-for="CRM" type="text" placeholder="CRM do Médico" /><br />
+
+            <input type="submit" value="Salvar" />
+        </fieldset>
+    </form>
