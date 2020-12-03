@@ -1,23 +1,79 @@
 ﻿@*Tecnologia da página - Razor*@
 @model Consulta
 
-<form asp-controller="Consulta" asp-action="Selecionar" method="post"
-      enctype="multipart/form-data">
+<form asp-controller="Consulta" asp-action="Index" method="post" enctype="multipart/form-data">
     <fieldset>
         <legend>Selecionar Data</legend>
-
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-3">
+                    <div class="form-group">
+                        <label asp-for="DataConsulta">Data:</label>
+                        <input class="form-control" asp-for="DataConsulta" type="date" />
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label asp-for="HoraConsulta">Hora:</label>
+                        <select class="form-control" asp-for="HoraConsulta">
+                            <option>  SELECIONE </option>
+                            <option>  09:00  </option>
+                            <option>  09:20  </option>
+                            <option>  09:40  </option>
+                            <option>  10:00  </option>
+                            <option>  10:20  </option>
+                            <option>  10:40  </option>
+                            <option>  11:00  </option>
+                            <option>  11:20  </option>
+                            <option>  11:40  </option>
+                            <option>  13:00  </option>
+                            <option>  13:20  </option>
+                            <option>  13:40  </option>
+                        </select>
+                    </div>
 
-        <div class="form-group">
-            <label asp-for="DataConsulta">Data:</label>
-            <input class="form-control" asp-for="DataConsulta" type="date" />
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-3">
+                    <div class="form-group text-left">
+                        <label>Paciente</label>
+                        <input class="form-control" asp-for="PacienteId" value="@ViewBag.PacienteId" hidden />
+                        <input class="form-control" value="@ViewBag.PacienteNome" disabled />
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <div class="form-group text-left">
+                        <label asp-for="MedicoId">Médico:</label>
+                        <select class="form-control" asp-for="MedicoId" asp-items="@ViewBag.Medicos">
+                            <option>  SELECIONE  </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-2">
+                    <button class="btn btn-info" type="submit">Agendar</button>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-2">
+                    @if (ViewBag.msgSucesso.Length > 0)
+                    {
+                        <div class="alert alert-success" role="alert">
+                            @ViewBag.msgSucesso
+                        </div>
+                    }
+
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            <label asp-for="HoraConsulta">Hora:</label>
-            <input class="form-control" asp-for="HoraConsulta" type="time" />
-        </div>
 
 
-        <input class="btn btn-info" type="submit" value="Selecionar" />
+
     </fieldset>
 </form>

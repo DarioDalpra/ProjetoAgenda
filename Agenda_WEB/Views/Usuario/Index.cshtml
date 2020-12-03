@@ -1,0 +1,52 @@
+﻿@model List<UsuarioView>
+
+<h3 class="espacamento-baixo">Cadastro de Usuários</h3>
+
+<a asp-action="Cadastrar" asp-controller="Usuario"
+   class="btn btn-primary espacamento-baixo">Cadastrar</a>
+
+<table class="table table-hover table-striped espacamento-baixo">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>RG</th>
+            <th>Nascimento</th>
+            <th>Telefone</th>
+            <th>Email</th>
+            <th>Criado em</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (UsuarioView usuarioCadastrado in Model)
+        {
+            <tr>
+                <td>@usuarioCadastrado.Id</td>
+                <td>@usuarioCadastrado.Nome</td>
+                <td>@usuarioCadastrado.Cpf</td>
+                <td>@usuarioCadastrado.Rg</td>
+                <td>@usuarioCadastrado.Nascimento</td>
+                <td>@usuarioCadastrado.Telefone</td>
+                <td>@usuarioCadastrado.Email</td>
+                <td>@usuarioCadastrado.CriadoEm.ToString("dd/MM/yyyy")</td>
+                <td>
+                    <a asp-controller="Usuario"
+                       asp-action="Remover"
+                       asp-route-id="@usuarioCadastrado.Id"
+                       class="btn btn-danger">Remover</a>
+                </td>
+                <td>
+                    <a asp-controller="Usuario"
+                       asp-action="Edit"
+                       asp-route-id="@usuarioCadastrado.Id"
+                       class="btn btn-warning">Alterar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p><b>Quantidade de pacientes: </b> @Model.Count </p>
+<p><b>Dados atualizados: </b> @DateTime.Now </p>

@@ -8,26 +8,30 @@ namespace Agenda_WEB.DAL
     public class ConsultaDAO
     {
         private readonly Context _context;
+
         public ConsultaDAO(Context context) => _context = context;
-        public List<Consulta> Listar() =>
-            _context.Consultas.ToList();
+
+        public List<Consulta> Listar() => _context.Consultas.ToList();
+
         public Consulta BuscarPorId(int id) => _context.Consultas.Find(id);
-        public Consulta BuscarPorPacienteMedicoHora(int PacienteId, int MedicoId, DateTime Hora) =>
+
+        public Consulta BuscarPorPacienteMedicoHora(int PacienteId, int MedicoId, string Hora) =>
             _context.Consultas.FirstOrDefault(x => x.PacienteId == PacienteId &&
                                               x.MedicoId == MedicoId && x.HoraConsulta == Hora);
 
         public List<Consulta> ListarPorMedico(int id) =>
             _context.Consultas.Where(x => x.MedicoId == id).ToList();
 
-        public bool Cadastrar(Consulta consulta)
+        public string Cadastrar(Consulta consulta)
         {
-            if (BuscarPorPacienteMedicoHora(consulta.PacienteId, consulta.MedicoId, consulta.HoraConsulta) == null)
+            if (BuscarPorPacienteMedicoHora(consulta.PacienteId, consulta.MedicoId,
+                                            consulta.HoraConsulta) == null)
             {
                 _context.Consultas.Add(consulta);
                 _context.SaveChanges();
-                return true;
+                return "";
             }
-            return false;
+            return "Horário indisponível";
         }
         public void Remover(int id)
         {

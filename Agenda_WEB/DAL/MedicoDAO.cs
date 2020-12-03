@@ -8,6 +8,7 @@ namespace Agenda_WEB.DAL
     {
         private readonly Context _context;
         public MedicoDAO(Context context) => _context = context;
+
         public List<Medico> Listar() => _context.Medicos.ToList();
 
         public Medico BuscarPorId(int id) => _context.Medicos.Find(id);
@@ -15,11 +16,11 @@ namespace Agenda_WEB.DAL
         public Medico BuscarPorNome(string nome) =>
             _context.Medicos.FirstOrDefault(x => x.Nome == nome);
 
-        public bool Cadastrar(Paciente paciente)
+        public bool Cadastrar(Medico medico)
         {
-            if (BuscarPorNome(paciente.Nome) == null)
+            if (BuscarPorNome(medico.Nome) == null)
             {
-                _context.Pacientes.Add(paciente);
+                _context.Medicos.Add(medico);
                 _context.SaveChanges();
                 return true;
             }

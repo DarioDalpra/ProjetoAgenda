@@ -1,20 +1,20 @@
 ﻿@model PlanoSaude
-@*Tecnologia da página - Razor*@
 
-    <form asp-action="Alterar" asp-controller="PlanoSaude" method="post">
-        <fieldset>
-            <legend>Alterar Plano de Saúde</legend>
+<form asp-controller="PlanoSaude" asp-action="Alterar" method="post">
+    <fieldset>
+        <legend>Alterar Plano de Saúde</legend>
 
-            <label asp-for="Id">Id:</label>
-            <input asp-for="Id" readonly type="text" placeholder="Id do Plano de Saúde" /><br />
-            <input asp-for="Id" name="HdnId" type="hidden" />
+        <label asp-for="Id">Id:</label>
+        <input asp-for="Id" readonly type="text" placeholder="Id do Plano" /><br />
+        <input asp-for="Id" name="HdnId" type="hidden" />
 
-            <label asp-for="Plano">Plano:</label>
-            <input asp-for="Plano" type="text" placeholder="Plano de Saúde" /><br />
+        <label asp-for="Plano">Plano:</label>
+        <input asp-for="Plano" type="text" placeholder="Nome do Plano" /><br />
 
-            <label asp-for="Codigo">Codigo:</label>
-            <input asp-for="Codigo" type="text" placeholder="Código do Plano de Saúde" /><br />
+        <label asp-for="Codigo">Código:</label>
+        <input asp-for="Codigo" type="text" placeholder="Código do Plano" /><br />
 
-            <input type="submit" value="Salvar" />
-        </fieldset>
-    </form>
+
+        <input type="submit" value="Alterar" />
+    </fieldset>
+</form>

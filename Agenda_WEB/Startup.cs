@@ -2,6 +2,7 @@ using Agenda_WEB.DAL;
 using Agenda_WEB.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,11 +22,25 @@ namespace Agenda_WEB
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<UsuarioDAO>();
+            services.AddScoped<MedicoDAO>();
             services.AddScoped<PacienteDAO>();
             services.AddScoped<PlanoSaudeDAO>();
-            services.AddScoped<MedicoDAO>();
+            services.AddScoped<ConsultaDAO>();
+
+
             services.AddDbContext<Context>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("connection")));
+
+            services.AddIdentity<Usuario, IdentityRole>()
+                .AddEntityFrameworkStores<Context>()
+                .AddDefaultTokenProviders();
+
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = "/Usuario/Login";
+                options.AccessDeniedPath = "/Usuario/AcessoNegado";
+            });
 
             services.AddControllersWithViews();
         }
@@ -44,6 +59,8 @@ namespace Agenda_WEB
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

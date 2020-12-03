@@ -1,40 +1,38 @@
 ﻿@model List<PlanoSaude>
 
-<h3 class="espacamento-baixo">Gerencimento de Plano de Saúde</h3>
+<h3 class="espacamento-baixo">Cadastro de Planos</h3>
 
 <a asp-action="Cadastrar" asp-controller="PlanoSaude"
-   class="btn btn-primary espacamento-baixo">Plano de Saúde</a>
+   class="btn btn-primary espacamento-baixo">Cadastrar</a>
 
 <table class="table table-hover table-striped espacamento-baixo">
     <thead>
         <tr>
             <th>#</th>
             <th>Plano</th>
-            <th>Código</th>
+            <th>Codigo</th>
             <th>Criado em</th>
-            <th></th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (PlanoSaude planoCadastrado in Model)
+        @foreach (PlanoSaude planosaudeCadastrado in Model)
         {
             <tr>
-                <td>@planoCadastrado.Id</td>
-                <td>@planoCadastrado.Plano</td>
-                <td>@planoCadastrado.Codigo</td>
-               <td>@planoCadastrado.CriadoEm</td>
+                <td>@planosaudeCadastrado.Id</td>
+                <td>@planosaudeCadastrado.Plano</td>
+                <td>@planosaudeCadastrado.Codigo</td>
+                <td>@planosaudeCadastrado.CriadoEm.ToString("dd/MM/yyyy")</td>
 
                 <td>
-                    <a asp-action="Remover"
-                       asp-controller="Paciente"
-                       asp-route-id="@planoCadastrado.Id"
+                    <a asp-controller="PlanoSaude"
+                       asp-action="Remover"
+                       asp-route-id="@planosaudeCadastrado.Id"
                        class="btn btn-danger">Remover</a>
                 </td>
                 <td>
-                    <a asp-action="Alterar"
-                       asp-controller="Paciente"
-                       asp-route-id="@planoCadastrado.Id"
+                    <a asp-controller="PlanoSaude"
+                       asp-action="Alterar"
+                       asp-route-id="@planosaudeCadastrado.Id"
                        class="btn btn-warning">Alterar</a>
                 </td>
             </tr>
@@ -42,5 +40,5 @@
     </tbody>
 </table>
 
-<p><b>Quantidade de Plano(s): </b> @Model.Count </p>
+<p><b>Quantidade de Planos de Saúde: </b> @Model.Count </p>
 <p><b>Dados atualizados: </b> @DateTime.Now </p>

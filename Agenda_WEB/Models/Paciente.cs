@@ -2,15 +2,11 @@
 
 namespace Agenda_WEB.Models
 {
-    public class Paciente : BaseModel
+    [Table("Pacientes")]
+    public class Paciente : Pessoa
     {
-        public string Nome { get; set; }
-        public string CPF { get; set; }
-        public string Fone { get; set; }
-
         [ForeignKey("PlanoSaudeId")]
         public PlanoSaude PlanoSaude { get; set; }
         public int PlanoSaudeId { get; set; }
-
     }
 }

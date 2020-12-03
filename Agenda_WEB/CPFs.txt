@@ -1,0 +1,37 @@
+﻿CPF
+Aluno1 		- 787.634.460-73 - 29.903.386-7 - aluno1@escola.com.br
+Aluno2 		- 844.338.730-04 - 20.914.031-8 - aluno2@escola.com.br
+Aluno3 		- 355.162.730-48 - 27.706.513-6 - aluno3@escola.com.br
+
+Professor1 	- 462.146.630-57 - 28.265.105-6 - admin1@escola.com.br
+Professor2 	- 751.738.340-05 - 26.800.238-1 - admin1@escola.com.br
+Professor3 	- 639.911.100-59 - 24.057.993-8 - admin1@escola.com.br
+
+Cliente1 	- 258.851.570-30 - 18.119.611-6 - cliente1@gmail.com.br
+Cliente2 	- 166.500.300-66 - 50.672.698-8 - cliente2@gmail.com.br
+Cliente3 	- 401.492.470-01 - 17.404.079-9 - cliente2@gmail.com.br
+
+Funcionario1 	- 137.376.690-58 - 13.863.255-8 - funcionario1@empresa.com.br
+Funcionario2 	- 971.439.910-66 - 41.071.501-3 - funcionario2@empresa.com.br
+Funcionario3 	- 732.428.690-95 - 25.324.174-1 - funcionario3@empresa.com.br
+====
+Administrador1 	- 093.217.400-07 - 50.567.488-9 - admin1@agenda.com.br
+Administrador2 	- 113.788.690-01 - 18.251.737-8 - admin2@agenda.com.br
+
+Medico1 	- 903.589.190-29 - 50.226.641-7 - medico1@agenda.com.br
+Medico2 	- 115.783.300-41 - 42.138.065-2 - medico2@agenda.com.br
+Medico3 	- 641.182.730-39 - 10.846.515-9 - medico3@agenda.com.br
+Medico4		- 144.887.780-62 - 35.627.807-4 - medico4@agenda.com.br
+
+Atendente1 	- 933.696.540-91 - 37.704.224-9 - atendente1@agenda.com.br
+Atendente2 	- 652.260.740-93 - 47.526.025-9 - atendente2@agenda.com.br
+Atendente3 	- 946.786.050-37 - 19.082.479-7 - atendente3@agenda.com.br
+
+Paciente1 	- 088.795.200-32 - 21.701.448-3 - paciente1@agenda.com.br
+Paciente2 	- 321.849.830-98 - 49.588.063-2 - paciente2@agenda.com.br
+Paciente3 	- 252.019.310-73 - 28.788.848-4 - paciente3@agenda.com.br
+
+CNPJ
+Fornecedor1 - 81.308.299/0001-48
+Fornecedor2 - 06.239.252/0001-54
+Fornecedor3 - 96.047.643/0001-60

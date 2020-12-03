@@ -1,9 +1,9 @@
 ﻿@model List<Paciente>
 
-<h3 class="espacamento-baixo">Gerencimento de Pacientes</h3>
+<h3 class="espacamento-baixo">Cadastro de Pacientes</h3>
 
 <a asp-action="Cadastrar" asp-controller="Paciente"
-   class="btn btn-primary espacamento-baixo">Cadastrar Paciente</a>
+   class="btn btn-primary espacamento-baixo">Cadastrar</a>
 
 <table class="table table-hover table-striped espacamento-baixo">
     <thead>
@@ -11,11 +11,13 @@
             <th>#</th>
             <th>Nome</th>
             <th>CPF</th>
-            <th>Fone</th>
+            <th>RG</th>
+            <th>Nascimento</th>
+            <th>Telefone</th>
+            <th>Email</th>
             <th>Plano</th>
             <th>Criado em</th>
-            <th></th>
-            <th></th>
+
         </tr>
     </thead>
     <tbody>
@@ -24,22 +26,30 @@
             <tr>
                 <td>@pacienteCadastrado.Id</td>
                 <td>@pacienteCadastrado.Nome</td>
-                <td>@pacienteCadastrado.CPF</td>
-                <td>@pacienteCadastrado.Fone</td>
+                <td>@pacienteCadastrado.Cpf</td>
+                <td>@pacienteCadastrado.Rg</td>
+                <td>@pacienteCadastrado.Nascimento</td>
+                <td>@pacienteCadastrado.Telefone</td>
+                <td>@pacienteCadastrado.Email</td>
                 <td>@pacienteCadastrado.PlanoSaude.Plano - @pacienteCadastrado.PlanoSaude.Codigo</td>
-                <td>@pacienteCadastrado.CriadoEm</td>
-
+                <td>@pacienteCadastrado.CriadoEm.ToString("dd/MM/yyyy")</td>
                 <td>
-                    <a asp-action="Remover"
-                       asp-controller="Paciente"
+                    <a asp-controller="Paciente"
+                       asp-action="Remover"
                        asp-route-id="@pacienteCadastrado.Id"
                        class="btn btn-danger">Remover</a>
                 </td>
                 <td>
-                    <a asp-action="Alterar"
-                       asp-controller="Paciente"
+                    <a asp-controller="Paciente"
+                       asp-action="Alterar"
                        asp-route-id="@pacienteCadastrado.Id"
                        class="btn btn-warning">Alterar</a>
+                </td>
+                <td>
+                    <a asp-controller="Paciente"
+                       asp-action="Agendar"
+                       asp-route-id="@pacienteCadastrado.Id"
+                       class="btn btn-primary">Agendar</a>
                 </td>
             </tr>
 }

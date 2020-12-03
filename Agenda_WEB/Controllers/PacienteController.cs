@@ -9,16 +9,18 @@ namespace Agenda_WEB.Controllers
 {
     public class PacienteController : Controller
     {
+        private readonly Context _context;
         private readonly PacienteDAO _pacienteDAO;
         private readonly PlanoSaudeDAO _planosaudeDAO;
         private readonly IWebHostEnvironment _hosting;
-        public PacienteController(PacienteDAO pacienteDAO,
-            IWebHostEnvironment hosting,
-            PlanoSaudeDAO planosaudeDAO)
+
+        public PacienteController(IWebHostEnvironment hosting,
+                                  PacienteDAO pacienteDAO, PlanoSaudeDAO planosaudeDAO)
         {
             _pacienteDAO = pacienteDAO;
             _planosaudeDAO = planosaudeDAO;
             _hosting = hosting;
+
         }
         public IActionResult Index()
         {
@@ -36,17 +38,6 @@ namespace Agenda_WEB.Controllers
         {
             if (ModelState.IsValid)
             {
-                //if (file != null)
-                //{
-                //    string arquivo = $"{Guid.NewGuid()}{Path.GetExtension(file.FileName)}";
-                //    string caminho = Path.Combine(_hosting.WebRootPath, "images", arquivo);
-                //    file.CopyTo(new FileStream(caminho, FileMode.CreateNew));
-                //    paciente.Imagem = arquivo;
-                //}
-                //else
-                //{
-                //    paciente.Imagem = "semimagem.gif";
-                //}
                 paciente.PlanoSaude = _planosaudeDAO.BuscarPorId(paciente.PlanoSaudeId);
                 if (_pacienteDAO.Cadastrar(paciente))
                 {
@@ -57,6 +48,14 @@ namespace Agenda_WEB.Controllers
             ViewBag.PlanosSaude = new SelectList(_planosaudeDAO.Listar(), "Id", "Plano", "Codigo");
             return View(paciente);
         }
+
+
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+
         public IActionResult Remover(int id)
         {
             _pacienteDAO.Remover(id);
@@ -72,6 +71,22 @@ namespace Agenda_WEB.Controllers
         {
             _pacienteDAO.Alterar(paciente);
             return RedirectToAction("Index", "Paciente");
+        }
+
+        public IActionResult AgendarPaciente(int id)
+        {
+            Paciente paciente = _pacienteDAO.BuscarPorId(id);
+
+            return RedirectToAction("Agendar", new { paciente });
+        }
+
+        [HttpGet]
+        public IActionResult Agendar(Paciente paciente)
+        {
+            ViewBag.Title = "Agendar";
+            //string carrinhoId = _sessao.BuscarCarrinhoId();
+            //ViewBag.Total = _itemvendaDAO.SomarTotalCarrinho(carrinhoId);
+            return RedirectToAction("Index", "Consulta", new { p = paciente.Id });
         }
     }
 }

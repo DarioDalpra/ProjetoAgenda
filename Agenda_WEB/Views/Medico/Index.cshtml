@@ -1,9 +1,9 @@
 ﻿@model List<Medico>
 
-<h3 class="espacamento-baixo">Gerencimento de Médicos</h3>
+<h3 class="espacamento-baixo">Cadastro de Médicos</h3>
 
 <a asp-action="Cadastrar" asp-controller="Medico"
-   class="btn btn-primary espacamento-baixo">Cadastrar Médicos</a>
+   class="btn btn-primary espacamento-baixo">Cadastrar</a>
 
 <table class="table table-hover table-striped espacamento-baixo">
     <thead>
@@ -12,8 +12,6 @@
             <th>Nome</th>
             <th>CRM</th>
             <th>Criado em</th>
-            <th></th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -23,17 +21,16 @@
                 <td>@medicoCadastrado.Id</td>
                 <td>@medicoCadastrado.Nome</td>
                 <td>@medicoCadastrado.CRM</td>
-               <td>@medicoCadastrado.CriadoEm</td>
-
+                <td>@medicoCadastrado.CriadoEm.ToString("dd/MM/yyyy")</td>
                 <td>
                     <a asp-action="Remover"
-                       asp-controller="Paciente"
+                       asp-controller="Medico"
                        asp-route-id="@medicoCadastrado.Id"
                        class="btn btn-danger">Remover</a>
                 </td>
                 <td>
                     <a asp-action="Alterar"
-                       asp-controller="Paciente"
+                       asp-controller="Medico"
                        asp-route-id="@medicoCadastrado.Id"
                        class="btn btn-warning">Alterar</a>
                 </td>
@@ -42,5 +39,5 @@
     </tbody>
 </table>
 
-<p><b>Quantidade de Médicos: </b> @Model.Count </p>
+<p><b>Quantidade de médicos: </b> @Model.Count </p>
 <p><b>Dados atualizados: </b> @DateTime.Now </p>

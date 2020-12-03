@@ -1,32 +1,29 @@
-﻿﻿.conteudo {
+﻿.conteudo {
     text-align: center;
     padding: 32px;
 }
-
+.conteudo-cadastrar {
+    text-align: left;
+}
 .espacamento-baixo {
     margin-bottom: 24px;
 }
-
 .rodape {
-    padding: 5px;
+    padding:5px;
     text-align: left;
 }
-
 .div-conteudo {
     text-align: center;
     margin-bottom: 32px;
 }
-
 .nav-link-home {
     text-align: center;
     font-size: 30px;
 }
-
 .nav-link {
     text-align: center;
     font-size: 15px;
 }
-
 .nav-link-usr {
     align-self: end;
     text-align: right;

@@ -1,20 +1,29 @@
-﻿@model Medico
-@*Tecnologia da página - Razor*@
+﻿@*Tecnologia da página - Razor*@
 
-    <form asp-action="Alterar" asp-controller="Medico" method="post">
-        <fieldset>
-            <legend>Alterar Medico</legend>
+@model Medico
 
-            <label asp-for="Id">Id:</label>
-            <input asp-for="Id" readonly type="text" placeholder="Id do Médico" /><br />
-            <input asp-for="Id" name="HdnId" type="hidden" />
+<form asp-action="Alterar" asp-controller="Medico" method="post">
+    <fieldset>
+        <legend>Alterar Médico</legend>
 
-            <label asp-for="Nome">Nome:</label>
-            <input asp-for="Nome" type="text" placeholder="Nome do Médico" /><br />
+        <label asp-for="Id">Id:</label>
+        <input asp-for="Id" readonly type="text" placeholder="Id do Médico" /><br />
+        <input asp-for="Id" name="HdnId" type="hidden" />
 
-            <label asp-for="CRM">CRM:</label>
-            <input asp-for="CRM" type="text" placeholder="CRM do Médico" /><br />
+        <label asp-for="Nome">Nome:</label>
+        <input asp-for="Nome" type="text" placeholder="Nome do Médico" /><br />
 
-            <input type="submit" value="Salvar" />
-        </fieldset>
-    </form>
+        <label asp-for="CRM">CRM:</label>
+        <input asp-for="CRM" type="text" placeholder="CRM do Médico" /><br />
+
+        @*<label asp-for="Fone">Fone:</label>
+            <input asp-for="Fone" type="text" placeholder="Fone do Médico" /><br />
+            <label asp-for="PlanoSaudeId">Plano de Saúde:</label>
+            <select class="form-control" asp-items="@ViewBag.PlanosSaude"
+                    asp-for="PlanoSaudeId">
+                <option> -- SELECIONE -- </option>
+            </select>*@
+
+        <input type="submit" value="Salvar" />
+    </fieldset>
+</form>

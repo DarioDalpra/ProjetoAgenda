@@ -1,29 +1,60 @@
-﻿@model Paciente
-@*Tecnologia da página - Razor*@
+﻿@*Tecnologia da página - Razor*@
 
-    <form asp-action="Alterar" asp-controller="Paciente" method="post">
-        <fieldset>
-            <legend>Alterar Paciente</legend>
+@model Paciente
 
-            <label asp-for="Id">Id:</label>
-            <input asp-for="Id" readonly type="text" placeholder="Id do Produto" /><br />
-            <input asp-for="Id" name="HdnId" type="hidden" />
 
-            <label asp-for="Nome">Nome:</label>
-            <input asp-for="Nome" type="text" placeholder="Nome do Paciente" /><br />
+<form asp-controller="Paciente" asp-action="Alterar" method="post">
+    <fieldset>
+        <legend>Alterar Paciente</legend>
 
-            <label asp-for="CPF">CPF:</label>
-            <input asp-for="CPF" type="text" placeholder="CPF do Paciente" /><br />
+        <label asp-for="Id">Id:</label>
+        <input asp-for="Id" readonly type="text" placeholder="Id" /><br />
+        <input asp-for="Id" name="HdnId" type="hidden" />
 
-            <label asp-for="Fone">Fone:</label>
-            <input asp-for="Fone" type="text" placeholder="Fone do Paciente" /><br />
+        <label asp-for="Nome">Nome:</label>
+        <input asp-for="Nome" type="text" placeholder="Nome" /><br />
 
-            <label asp-for="PlanoSaudeId">Plano de Saúde:</label>
-            <select class="form-control" asp-items="@ViewBag.PlanosSaude"
-                    asp-for="PlanoSaudeId">
-                <option> -- SELECIONE -- </option>
-            </select>
+        <label asp-for="Cpf">CPF:</label>
+        <input asp-for="Cpf" type="text" placeholder="CPF" /><br />
 
-            <input type="submit" value="Salvar" />
-        </fieldset>
-    </form>
+        <label asp-for="Rg">RG:</label>
+        <input asp-for="Rg" type="text" placeholder="RG" /><br />
+
+        <label asp-for="Nascimento">Nascimento:</label>
+        <input asp-for="Nascimento" type="text" placeholder="Data de Nascimento" /><br />
+
+        <label asp-for="Telefone">Telefone:</label>
+        <input asp-for="Telefone" type="text" placeholder="Fone" /><br />
+
+        <label asp-for="Email">E-Mail:</label>
+        <input asp-for="Email" type="text" placeholder="E-mail" /><br />
+
+        <label asp-for="PlanoSaudeId">Plano de Saúde:</label>
+        <select class="form-control" asp-items="@ViewBag.PlanosSaude"
+                asp-for="PlanoSaudeId">
+            <option>  SELECIONE  </option>
+        </select>
+
+        <label asp-for="Cep">CEP:</label>
+        <input asp-for="Cep" type="text" placeholder="CEP do Paciente" /><br />
+
+        <button type="button" onclick="BuscarCep()" class="btn btn-primary">Buscar Endereço</button>
+
+        <label asp-for="Logradouro">Rua:</label>
+        <input asp-for="Logradouro" type="text" placeholder="Rua" /><br />
+
+        <label asp-for="Numero">Número:</label>
+        <input asp-for="Numero" type="text" placeholder="Núm" /><br />
+
+        <label asp-for="Bairro">Bairro:</label>
+        <input asp-for="Bairro" type="text" placeholder="Bairro do Paciente" /><br />
+
+        <label asp-for="Localidade">Cidade:</label>
+        <input asp-for="Localidade" type="text" placeholder="Cidade" /><br />
+
+        <label asp-for="Uf">Estado:</label>
+        <input asp-for="Uf" type="text" placeholder="Estado" /><br />
+
+        <input type="submit" value="Salvar" />
+    </fieldset>
+</form>

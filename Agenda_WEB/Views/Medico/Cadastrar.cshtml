@@ -1,8 +1,7 @@
 ﻿@*Tecnologia da página - Razor*@
 @model Medico
 
-<form asp-action="Cadastrar" asp-controller="Medico" method="post"
-      enctype="multipart/form-data">
+<form asp-action="Cadastrar" asp-controller="Medico" method="post" enctype="multipart/form-data">
     <fieldset>
         <legend>Cadastrar Médico</legend>
 
@@ -20,8 +19,13 @@
             <span class="text-danger" asp-validation-for="CRM"></span>
         </div>
 
-       
-       
+        @*<div class="form-group">
+                <label asp-for="Fone">Fone:</label>
+                <input class="form-control" asp-for="Fone" type="text" placeholder="Fone do Paciente" />
+                <span class="text-danger" asp-validation-for="Fone"></span>
+            </div>*@
+
+
         <input class="btn btn-info" type="submit" value="Cadastrar" />
     </fieldset>
 </form>

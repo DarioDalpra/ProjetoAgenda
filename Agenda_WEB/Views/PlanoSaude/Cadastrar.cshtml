@@ -1,8 +1,7 @@
 ﻿@*Tecnologia da página - Razor*@
 @model PlanoSaude
 
-<form asp-action="Cadastrar" asp-controller="PlanoSaude" method="post"
-      enctype="multipart/form-data">
+<form asp-controller="PlanoSaude" asp-action="Cadastrar" method="post" enctype="multipart/form-data">
     <fieldset>
         <legend>Cadastrar Plano de Saúde</legend>
 
@@ -10,18 +9,17 @@
 
         <div class="form-group">
             <label asp-for="Plano">Plano:</label>
-            <input class="form-control" asp-for="Plano" type="text" placeholder="Nome do Plano de Saúde" />
+            <input class="form-control" asp-for="Plano" type="text" placeholder="Nome do Plano" />
             <span class="text-danger" asp-validation-for="Plano"></span>
         </div>
 
         <div class="form-group">
-            <label asp-for="Codigo">Codigo:</label>
-            <input class="form-control" asp-for="Codigo" type="text" placeholder="Plano de Saúde" />
+            <label asp-for="Codigo">Código:</label>
+            <input class="form-control" asp-for="Codigo" type="text" placeholder="Código do Plano" />
             <span class="text-danger" asp-validation-for="Codigo"></span>
         </div>
 
-       
-       
+
         <input class="btn btn-info" type="submit" value="Cadastrar" />
     </fieldset>
 </form>

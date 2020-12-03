@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Agenda_WEB.Models
 {
+    [Table("Consultas")]
     public class Consulta : BaseModel
     {
         public Consulta()
@@ -20,7 +21,7 @@ namespace Agenda_WEB.Models
         public int MedicoId { get; set; }
 
         public DateTime DataConsulta { get; set; }
-        public DateTime HoraConsulta { get; set; }
+        public string HoraConsulta { get; set; }
 
     }
 }

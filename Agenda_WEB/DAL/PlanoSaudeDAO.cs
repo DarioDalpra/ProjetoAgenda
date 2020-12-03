@@ -11,14 +11,14 @@ namespace Agenda_WEB.DAL
         public List<PlanoSaude> Listar() => _context.PlanosSaude.ToList();
         public PlanoSaude BuscarPorId(int id) => _context.PlanosSaude.Find(id);
 
-        public PlanoSaude BuscarPorNome(string nome) =>
-           _context.PlanosSaude.FirstOrDefault(x => x.Plano == nome);
+        public PlanoSaude BuscarPorNome(string planosaude) =>
+            _context.PlanosSaude.FirstOrDefault(x => x.Plano == planosaude);
 
-        public bool Cadastrar(PlanoSaude planoSaude)
+        public bool Cadastrar(PlanoSaude planosaude)
         {
-            if (BuscarPorNome(planoSaude.Plano) == null)
+            if (BuscarPorNome(planosaude.Plano) == null)
             {
-                _context.PlanosSaude.Add(planoSaude);
+                _context.PlanosSaude.Add(planosaude);
                 _context.SaveChanges();
                 return true;
             }
@@ -29,9 +29,9 @@ namespace Agenda_WEB.DAL
             _context.PlanosSaude.Remove(BuscarPorId(id));
             _context.SaveChanges();
         }
-        public void Alterar(PlanoSaude planoSaude)
+        public void Alterar(PlanoSaude planosaude)
         {
-            _context.PlanosSaude.Update(planoSaude);
+            _context.PlanosSaude.Update(planosaude);
             _context.SaveChanges();
         }
     }

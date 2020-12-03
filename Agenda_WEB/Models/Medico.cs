@@ -2,12 +2,11 @@
 
 namespace Agenda_WEB.Models
 {
-    [Table("Medico")]
-    public class Medico : BaseModel
+    [Table("Medicos")]
+    public class Medico : Pessoa
     {
-        public string Nome { get; set; }
         public string CRM { get; set; }
-
+        public string Especialidade { get; set; }
 
     }
 }
