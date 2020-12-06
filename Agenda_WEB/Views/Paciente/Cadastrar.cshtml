@@ -3,7 +3,7 @@
 
 <form asp-controller="Paciente" asp-action="Cadastrar" method="post" enctype="multipart/form-data">
     <fieldset>
-        <legend>Dados Pessoais</legend>
+        <legend>Dados Pessoais - CADASTRAR</legend>
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
         <div class="container">
@@ -11,51 +11,57 @@
                 <div class="col-2">
                     <div class="form-group">
                         <label asp-for="Cpf">CPF:</label>
-                        <input asp-for="Cpf" class="form-control" id="cpf" type="text" placeholder="CPF" />
+                        <input asp-for="Cpf" class="form-control" id="cpf" type="text" autofocus />
                         <span class="text-danger" asp-validation-for="Cpf"></span>
                     </div>
                 </div>
-            </div>
-            <div class="row justify-content-left">
-                <div class="col-2">
-                    <div class="form-group">
-                        <button type="button" onclick="BuscarCep()" class="btn btn-primary">Buscar CPF</button>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-left">
                 <div class="col-3">
                     <div class="form-group">
                         <label asp-for="Nome">Nome:</label>
-                        <input asp-for="Nome" class="form-control" id="nome" type="text" placeholder="Nome" />
+                        <input asp-for="Nome" class="form-control" id="nome" type="text" />
                         <span class="text-danger" asp-validation-for="Nome"></span>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label asp-for="Email">Email:</label>
+                        <input asp-for="Email" class="form-control" id="email" type="text" />
+                        <span class="text-danger" asp-validation-for="Email"></span>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label asp-for="Nascimento">Nascimento:</label>
+                        <input asp-for="Nascimento" class="form-control" id="nascimento" type="date" />
+                        <span class="text-danger" asp-validation-for="Nascimento"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-left">
+                <div class="col-2">
+                    <div class="form-group">
+                        <button type="button" onclick="BuscarCpf()" class="btn btn-primary">Buscar</button>
                     </div>
                 </div>
                 <div class="col-2">
                     <div class="form-group">
                         <label asp-for="Rg">RG:</label>
-                        <input asp-for="Rg" class="form-control" id="rg" type="text" placeholder="RG" />
+                        <input asp-for="Rg" class="form-control" id="rg" type="text" />
                         <span class="text-danger" asp-validation-for="Rg"></span>
                     </div>
                 </div>
                 <div class="col-2">
                     <div class="form-group">
                         <label asp-for="Telefone">Fone:</label>
-                        <input asp-for="Telefone" class="form-control" id="telefone" type="text" placeholder="Fone" />
+                        <input asp-for="Telefone" class="form-control" id="telefone" type="text" />
                         <span class="text-danger" asp-validation-for="Telefone"></span>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="form-group">
-                        <label asp-for="Email">Email:</label>
-                        <input asp-for="Email" class="form-control" id="email" type="text" placeholder="Email" />
-                        <span class="text-danger" asp-validation-for="Email"></span>
                     </div>
                 </div>
                 <div class="col-2">
                     <div class="form-group">
                         <label asp-for="PlanoSaudeId">Plano de Saúde:</label>
-                        <select class="form-control" asp-items="@ViewBag.PlanosSaude"
+                        <select class="form-control" asp-items="@ViewBag.PlanosSaude" id="planosaude"
                                 asp-for="PlanoSaudeId">
                             <option>  SELECIONE  </option>
                         </select>
@@ -63,6 +69,7 @@
                 </div>
             </div>
         </div>
+
     </fieldset>
 
     <fieldset>
@@ -72,7 +79,7 @@
                 <div class="col-2">
                     <div class="form-group">
                         <label asp-for="Cep">CEP:</label>
-                        <input asp-for="Cep" class="form-control" id="cep" type="text" placeholder="CEP" />
+                        <input asp-for="Cep" class="form-control" id="cep" type="text" />
                         <span class="text-danger" asp-validation-for="Cep"></span>
                     </div>
                 </div>
@@ -80,38 +87,38 @@
             <div class="row justify-content-left">
                 <div class="col-2">
                     <div class="form-group">
-                        <button type="button" onclick="BuscarCep()" class="btn btn-primary">Buscar Endereço</button>
+                        <button type="button" onclick="BuscarCep()" class="btn btn-primary">Buscar</button>
                     </div>
                 </div>
             </div>
             <div class="row justify-content-left">
                 <div class="col-3">
                     <div class="form-group">
-                        <label asp-for="Logradouro" class="control-label"></label>
+                        <label asp-for="Logradouro" class="control-label">Rua:</label>
                         <input asp-for="Logradouro" class="form-control" id="logradouro" readonly />
                     </div>
                 </div>
                 <div class="col-2">
                     <div class="form-group">
-                        <label asp-for="Numero" class="control-label"></label>
-                        <input asp-for="Numero" class="form-control" id="Numero" />
+                        <label asp-for="Numero" class="control-label">Nº:</label>
+                        <input asp-for="Numero" class="form-control" id="numero" />
                     </div>
                 </div>
                 <div class="col-3">
                     <div class="form-group">
-                        <label asp-for="Bairro" class="control-label"></label>
+                        <label asp-for="Bairro" class="control-label">Bairro:</label>
                         <input asp-for="Bairro" class="form-control" id="bairro" readonly />
                     </div>
                 </div>
                 <div class="col-3">
                     <div class="form-group">
-                        <label asp-for="Localidade" class="control-label"></label>
+                        <label asp-for="Localidade" class="control-label">Cidade:</label>
                         <input asp-for="Localidade" class="form-control" id="localidade" readonly />
                     </div>
                 </div>
                 <div class="col-1">
                     <div class="form-group">
-                        <label asp-for="Uf" class="control-label"></label>
+                        <label asp-for="Uf" class="control-label">Estado:</label>
                         <input asp-for="Uf" class="form-control" id="uf" readonly />
                     </div>
                 </div>
@@ -144,5 +151,40 @@
                 txtUf.value = json.uf;
             })
             .catch(error => console.log(error));
+    }
+    function BuscarCpf() {
+        var txtCpf = document.getElementById("cpf");
+        var txtNome = document.getElementById("nome");
+        var txtEmail = document.getElementById("email");
+        var txtDtaNascimento = document.getElementById("nascimento");
+        var txtRg = document.getElementById("rg");
+        var txtTelefone = document.getElementById("telefone");
+        var txtPlanoSaude = document.getElementById("planosaude");
+        var txtCep = document.getElementById("cep");
+        var txtLogradouro = document.getElementById("logradouro");
+        var txtNumero = document.getElementById("numero");
+        var txtBairro = document.getElementById("bairro");
+        var txtLocalidade = document.getElementById("localidade");
+        var txtUf = document.getElementById("uf");
+        var url = `http://localhost:52610/api/Consulta/Buscar/${txtCpf.value}`;
+        fetch(url, { method: "GET" })
+            .then(response => response.json())
+            .then(json => {
+                console.log("jsonPaciente", json);
+                txtNome.value = json.nome;
+                txtEmail.value = json.email;
+                txtDtaNascimento.value = json.nascimento;
+                txtRg.value = json.rg;
+                txtTelefone.value = json.telefone;
+                txtPlanoSaude.value = json.planoSaudeId;
+                txtCep.value = json.cep;
+                txtLogradouro.value = json.logradouro;
+                txtNumero.value = json.numero;
+                txtBairro.value = json.bairro;
+                txtLocalidade.value = json.localidade;
+                txtUf.value = json.uf;
+            })
+            .catch(error => console.log(error));
+
     }
 </script>

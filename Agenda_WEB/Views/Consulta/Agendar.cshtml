@@ -1,0 +1,90 @@
+﻿@*Tecnologia da página - Razor*@
+@model Consulta
+
+<form asp-controller="Consulta" asp-action="Agendar" method="post" enctype="multipart/form-data">
+    <fieldset>
+        <legend>Selecionar Data - AGENDAR</legend>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-3">
+                    <div class="form-group">
+                        <label asp-for="DataConsulta">Data:</label>
+                        <input class="form-control" asp-for="DataConsulta" type="date"
+                               disabled="@ViewBag.msgSucesso" />
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label asp-for="HoraConsulta">Hora:</label>
+                        <select class="form-control" asp-for="HoraConsulta" disabled="@ViewBag.msgSucesso">
+                            <option>  SELECIONE </option>
+                            <option>  09:00  </option>
+                            <option>  09:20  </option>
+                            <option>  09:40  </option>
+                            <option>  10:00  </option>
+                            <option>  10:20  </option>
+                            <option>  10:40  </option>
+                            <option>  11:00  </option>
+                            <option>  11:20  </option>
+                            <option>  11:40  </option>
+                            <option>  13:00  </option>
+                            <option>  13:20  </option>
+                            <option>  13:40  </option>
+                            <option>  14:00  </option>
+                            <option>  14:20  </option>
+                            <option>  14:40  </option>
+                            <option>  15:00  </option>
+                            <option>  15:20  </option>
+                            <option>  15:40  </option>
+                            <option>  16:00  </option>
+                            <option>  16:20  </option>
+                            <option>  16:40  </option>
+                            <option>  17:00  </option>
+                            <option>  17:20  </option>
+                            <option>  17:40  </option>
+                        </select>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-3">
+                    <div class="form-group text-left">
+                        <label>Paciente</label>
+                        <input class="form-control" asp-for="PacienteId" value="@ViewBag.PacienteId" hidden />
+                        <input class="form-control" value="@ViewBag.PacienteNome" disabled />
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <div class="form-group text-left">
+                        <label asp-for="MedicoId">Médico:</label>
+                        <select class="form-control" asp-for="MedicoId" asp-items="@ViewBag.Medicos"
+                                disabled="@ViewBag.msgSucesso">
+                            <option>  SELECIONE  </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-2">
+                    <button class="btn btn-info" type="submit">Agendar</button>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-2">
+                    @if (ViewBag.msgSucesso != null)
+                    {
+                        <div class="alert alert-success" role="alert">
+                            @ViewBag.msgSucesso
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</form>

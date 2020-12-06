@@ -1,0 +1,89 @@
+﻿@*Tecnologia da página - Razor*@
+@model Prontuario
+
+<form asp-controller="Prontuario" asp-action="Cadastrar" method="post" enctype="multipart/form-data">
+    <fieldset>
+        <legend>Prontuário - CADASTRAR</legend>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-3">
+                    <div class="form-group">
+                        <label asp-for="DataConsulta">Data:</label>
+                        <input class="form-control" asp-for="DataConsulta" type="text"
+                               value="@ViewBag.DtaConsulta" disabled />
+                        <input class="form-control" asp-for="ConsultaId" type="text"
+                               value="@ViewBag.ConsultaId" hidden />
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label>Horário:</label>
+                        <input class="form-control" type="text" value="@ViewBag.HraConsulta" disabled />
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-3">
+                    <div class="form-group text-left">
+                        <label>Paciente</label>
+                        <input class="form-control" asp-for="PacienteId" value="@ViewBag.PacienteId" hidden />
+                        <input class="form-control" value="@ViewBag.PacienteNome" disabled />
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <div class="form-group text-left">
+                        <label asp-for="MedicoId">Médico:</label>
+                        <input class="form-control" asp-for="MedicoId" value="@ViewBag.MedicoId" hidden />
+                        <input class="form-control" value="@ViewBag.MedicoNome" disabled />
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-3">
+                    <label asp-for="Sintomas">Sintomas:</label>
+                    <input asp-for="Sintomas" class="form-control" type="text" placeholder="Sintomas" />
+                </div>
+                <div class="col-3">
+                    <label asp-for="Medicamento">Medicamento:</label>
+                    <input asp-for="Medicamento" class="form-control" type="text" placeholder="Medicamento" />
+                </div>
+                <div class="col-3">
+                    <label asp-for="Avaliacao">Avaliação:</label>
+                    <input asp-for="Avaliacao" class="form-control" type="text" placeholder="Avaliação" />
+                </div>
+
+
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-2">
+                    @if (ViewBag.msgSucesso != null)
+                    {
+                        <a class="btn btn-info" href="@Url.Action("Receituario", "Prontuario", new { id = ViewBag.ProntuarioId })" target="_blank">Receituário</a>
+                    }
+                    else
+                    {
+                        <button class="btn btn-info" type="submit">Cadastrar</button>
+                    }
+
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-2">
+                    @if (ViewBag.msgSucesso != null)
+                    {
+                        <div class="alert alert-success" role="alert">
+                            @ViewBag.msgSucesso
+                        </div>
+                    }
+
+                </div>
+            </div>
+
+        </div>
+    </fieldset>
+</form>

@@ -10,77 +10,82 @@ using System.Threading.Tasks;
 
 namespace Agenda_WEB.Controllers
 {
-    public class ConsultaController : Controller
+
+    public class ProntuarioController : Controller
     {
         private readonly PacienteDAO _pacienteDAO;
         private readonly MedicoDAO _medicoDAO;
         private readonly ConsultaDAO _consultaDAO;
+        private readonly ProntuarioDAO _prontuarioDAO;
         private readonly IWebHostEnvironment _hosting;
 
         private readonly IEmailSender _emailSender;
 
-        public ConsultaController(IWebHostEnvironment hosting, PacienteDAO pacienteDAO,
-                                    MedicoDAO medicoDAO, ConsultaDAO consultaDAO, IEmailSender emailSender)
+        public ProntuarioController(IWebHostEnvironment hosting, PacienteDAO pacienteDAO,
+                                    MedicoDAO medicoDAO, ConsultaDAO consultaDAO, ProntuarioDAO prontuarioDAO, IEmailSender emailSender)
         {
             _hosting = hosting;
             _pacienteDAO = pacienteDAO;
             _medicoDAO = medicoDAO;
             _consultaDAO = consultaDAO;
+            _prontuarioDAO = prontuarioDAO;
             _emailSender = emailSender;
         }
 
         public IActionResult Index()
         {
-            return View(_consultaDAO.Listar());
+            return View();
         }
 
-        public IActionResult Agendar(int p)
+        public IActionResult Cadastrar(int p)
         {
             if (p != 0)
             {
-                var paciente = _pacienteDAO.BuscarPorId(p);
+                var consulta = _consultaDAO.BuscarPorId(p);
+                var paciente = _pacienteDAO.BuscarPorId(consulta.PacienteId);
+                var medico = _medicoDAO.BuscarPorId(consulta.MedicoId);
+                ViewBag.DtaConsulta = consulta.DataConsulta.ToString("dd/MM/yyyy");
+                ViewBag.HraConsulta = consulta.HoraConsulta;
                 ViewBag.PacienteId = paciente.Id;
                 ViewBag.PacienteNome = paciente.Nome;
-                ViewBag.Medicos = new SelectList(_medicoDAO.Listar(), "Id", "Nome");
+                ViewBag.MedicoId = medico.Id;
+                ViewBag.MedicoNome = medico.Nome;
+                ViewBag.ConsultaId = p;
+
                 return View();
             }
             else
             {
-                return RedirectToAction("Index", "Paciente");
+                return RedirectToAction("Index", "Consulta");
             }
         }
 
         [HttpPost]
-        public async Task<IActionResult> Agendar(Consulta consulta)
+        public async Task<IActionResult> Cadastrar(Prontuario prontuario)
         {
             if (ModelState.IsValid)
             {
-                var paciente = _pacienteDAO.BuscarPorId(consulta.PacienteId);
-                consulta.Paciente = paciente;
-                var medico = _medicoDAO.BuscarPorId(consulta.MedicoId);
-                consulta.Medico = medico;
+                Consulta consulta = _consultaDAO.BuscarPorId(prontuario.ConsultaId);
+                var paciente = _pacienteDAO.BuscarPorId(prontuario.PacienteId);
+                prontuario.Paciente = paciente;
+                var medico = _medicoDAO.BuscarPorId(prontuario.MedicoId);
+                prontuario.Medico = medico;
+                prontuario.DataConsulta = consulta.DataConsulta;
 
-                string resposta = _consultaDAO.Cadastrar(consulta);
+                int resposta = _prontuarioDAO.Cadastrar(prontuario);
 
-                if (resposta.Length > 0)
+                if (resposta == 0)
                 {
-                    ModelState.AddModelError("", resposta);
+                    ModelState.AddModelError("", "Ocorreu um erro!!");
                 }
                 else
                 {
-                    var data = consulta.DataConsulta.ToString("dd/MM/yyyy");
-                    var emails = new List<string>();
-                    string message = "Olá sr(a). " + paciente.Nome + ", sua consulta para dia " + data + " ás " + consulta.HoraConsulta + " foi confirmada!";
-                    string assunto = "Confirmação de Consulta !";
-                    EmailModel novoEmail = new EmailModel() { Email = paciente.Email, Message = message, Subject = assunto };
-                    emails.Add(novoEmail.Email);
-                    await _emailSender.SendEmailAsync(emails, novoEmail.Subject, novoEmail.Message);
+                    ViewBag.msgSucesso = "Prontuario concluído!";
+                    ViewBag.ProntuarioId = resposta;
 
-                    ViewBag.msgSucesso = "Agendadamento concluído!";
                 }
 
             }
-            //ViewBag.PlanosSaude = new SelectList(_planosaudeDAO.Listar(), "Id", "Plano", "Codigo");
             return View();
         }
 
@@ -89,7 +94,7 @@ namespace Agenda_WEB.Controllers
             if (id != 0)
             {
                 var consulta = _consultaDAO.BuscarPorId(id);
-                ViewBag.DataConsulta = consulta.DataConsulta;
+                ViewBag.DataConsulta = consulta.DataConsulta.ToString("dd/MM/yyyy");
                 ViewBag.HoraConsulta = consulta.HoraConsulta;
                 ViewBag.PacienteNome = consulta.Paciente.Nome;
                 ViewBag.PacienteId = consulta.PacienteId;
@@ -141,21 +146,20 @@ namespace Agenda_WEB.Controllers
 
             }
             return RedirectToAction("Index", "Consulta");
-            //return View();
         }
 
-        public IActionResult CriarProntuario(int id)
+        public IActionResult CriarReceituario(int id)
         {
-            Consulta consulta = _consultaDAO.BuscarPorId(id);
+            Prontuario prontuario = _prontuarioDAO.BuscarPorId(id);
 
-            return RedirectToAction("Prontuario", new { consulta });
+            return RedirectToAction("Receituario", new { prontuario });
         }
 
         [HttpGet]
-        public IActionResult Prontuario(Consulta consulta)
+        public IActionResult Receituario(Prontuario prontuario)
         {
-            ViewBag.Title = "Prontuário";
-            return RedirectToAction("Cadastrar", "Prontuario", new { p = consulta.Id });
+            ViewBag.Title = "Receituário";
+            return RedirectToAction("Index", "Receituario", new { p = prontuario.Id });
         }
 
     }

@@ -1,79 +1,46 @@
-﻿@*Tecnologia da página - Razor*@
-@model Consulta
+﻿@model List<Consulta>
 
-<form asp-controller="Consulta" asp-action="Index" method="post" enctype="multipart/form-data">
-    <fieldset>
-        <legend>Selecionar Data</legend>
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-3">
-                    <div class="form-group">
-                        <label asp-for="DataConsulta">Data:</label>
-                        <input class="form-control" asp-for="DataConsulta" type="date" />
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="form-group">
-                        <label asp-for="HoraConsulta">Hora:</label>
-                        <select class="form-control" asp-for="HoraConsulta">
-                            <option>  SELECIONE </option>
-                            <option>  09:00  </option>
-                            <option>  09:20  </option>
-                            <option>  09:40  </option>
-                            <option>  10:00  </option>
-                            <option>  10:20  </option>
-                            <option>  10:40  </option>
-                            <option>  11:00  </option>
-                            <option>  11:20  </option>
-                            <option>  11:40  </option>
-                            <option>  13:00  </option>
-                            <option>  13:20  </option>
-                            <option>  13:40  </option>
-                        </select>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="row justify-content-center">
-                <div class="col-3">
-                    <div class="form-group text-left">
-                        <label>Paciente</label>
-                        <input class="form-control" asp-for="PacienteId" value="@ViewBag.PacienteId" hidden />
-                        <input class="form-control" value="@ViewBag.PacienteNome" disabled />
-                    </div>
-                </div>
-
-                <div class="col-3">
-                    <div class="form-group text-left">
-                        <label asp-for="MedicoId">Médico:</label>
-                        <select class="form-control" asp-for="MedicoId" asp-items="@ViewBag.Medicos">
-                            <option>  SELECIONE  </option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row justify-content-center">
-                <div class="col-2">
-                    <button class="btn btn-info" type="submit">Agendar</button>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-2">
-                    @if (ViewBag.msgSucesso.Length > 0)
-                    {
-                        <div class="alert alert-success" role="alert">
-                            @ViewBag.msgSucesso
-                        </div>
-                    }
-
-                </div>
-            </div>
-        </div>
+<h3 class="espacamento-baixo">Lista de Consulta</h3>
 
 
+<table class="table table-hover table-striped espacamento-baixo">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>DataConsulta</th>
+            <th>HoraConsulta</th>
+            <th>PacienteId</th>
+            <th>MedicoId</th>
+            @*<th>Criado em</th>*@
 
-    </fieldset>
-</form>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Consulta consultaCadastrado in Model)
+        {
+            <tr>
+                <td>@consultaCadastrado.Id</td>
+                <td>@consultaCadastrado.DataConsulta.ToString("dd/MM/yyyy")</td>
+                <td>@consultaCadastrado.HoraConsulta</td>
+                <td>@consultaCadastrado.PacienteId</td>
+                <td>@consultaCadastrado.MedicoId</td>
+                @*<td>@consultaCadastrado.CriadoEm.ToString("dd/MM/yyyy")</td>*@
+                <td>
+                    <a asp-controller="Consulta"
+                       asp-action="Alterar"
+                       asp-route-id="@consultaCadastrado.Id"
+                       class="btn btn-warning">Alterar</a>
+                </td>
+                <td>
+                    <a asp-controller="Consulta"
+                       asp-action="Prontuario"
+                       asp-route-id="@consultaCadastrado.Id"
+                       class="btn btn-primary">Prontuário</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p><b>Quantidade de pacientes: </b> @Model.Count </p>
+<p><b>Dados atualizados: </b> @DateTime.Now </p>

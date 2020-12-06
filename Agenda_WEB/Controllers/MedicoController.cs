@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Agenda_WEB.Controllers
 {
-    [Authorize]
+
     public class MedicoController : Controller
     {
         private readonly MedicoDAO _medicoDAO;
@@ -25,6 +25,8 @@ namespace Agenda_WEB.Controllers
             ViewBag.Title = "Gerenciamento de Médicos";
             return View(_medicoDAO.Listar());
         }
+
+        [Authorize]
         public IActionResult Cadastrar()
         {
             ViewBag.Medicos = new SelectList(_medicoDAO.Listar(), "Id", "Nome", "CRM");
@@ -45,11 +47,15 @@ namespace Agenda_WEB.Controllers
             ViewBag.medicos = new SelectList(_medicoDAO.Listar(), "Id", "Nome", "CRM");
             return View(medico);
         }
+
+        [Authorize]
         public IActionResult Remover(int id)
         {
             _medicoDAO.Remover(id);
             return RedirectToAction("Index", "Medico");
         }
+
+        [Authorize]
         public IActionResult Alterar(int id)
         {
             ViewBag.Medicos = new SelectList(_medicoDAO.Listar(), "Id", "Nome", "CRM");

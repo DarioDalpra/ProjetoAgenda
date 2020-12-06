@@ -1,5 +1,6 @@
 using Agenda_WEB.DAL;
 using Agenda_WEB.Models;
+using Agenda_WEB.Utils;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -27,7 +28,9 @@ namespace Agenda_WEB
             services.AddScoped<PacienteDAO>();
             services.AddScoped<PlanoSaudeDAO>();
             services.AddScoped<ConsultaDAO>();
+            services.AddScoped<ProntuarioDAO>();
 
+            services.AddTransient<IEmailSender, EmailSender>();
 
             services.AddDbContext<Context>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("connection")));

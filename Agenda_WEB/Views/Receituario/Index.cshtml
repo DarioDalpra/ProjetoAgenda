@@ -1,0 +1,44 @@
+﻿@*Tecnologia da página - Razor*@
+@model Prontuario
+
+<form asp-controller="Prontuario" asp-action="Index">
+    <fieldset>
+        @*<legend>Receituário - Pressione as teclas CTRL + P</legend>*@
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-3">
+                    <div class="form-group text-left">
+                        <label>Paciente: @ViewBag.PacienteNome</label>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-3">
+                    <div class="form-group text-left">
+                        <label>Data da consulta: @ViewBag.DataConsulta</label>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-3">
+                    <div class="form-group text-left">
+                        <label>Medicamento: @ViewBag.Medicamentos</label>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-3">
+                    <div class="form-group text-left">
+                        <button onclick="window.print()">Imprimir</button>
+                    </div>
+                </div>
+
+            </div>
+
+</fieldset>
+</form>

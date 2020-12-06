@@ -1,4 +1,5 @@
 ﻿using Agenda_WEB.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace Agenda_WEB.DAL
 
         public List<Consulta> Listar() => _context.Consultas.ToList();
 
-        public Consulta BuscarPorId(int id) => _context.Consultas.Find(id);
+        public Consulta BuscarPorId(int id) => _context.Consultas.Include(x => x.Paciente).FirstOrDefault(x => x.Id == id);
 
         public Consulta BuscarPorPacienteMedicoHora(int PacienteId, int MedicoId, string Hora) =>
             _context.Consultas.FirstOrDefault(x => x.PacienteId == PacienteId &&
@@ -38,10 +39,16 @@ namespace Agenda_WEB.DAL
             _context.Consultas.Remove(BuscarPorId(id));
             _context.SaveChanges();
         }
-        public void Alterar(Consulta consulta)
+        public string Alterar(Consulta consulta)
         {
-            _context.Consultas.Update(consulta);
-            _context.SaveChanges();
+            if (BuscarPorPacienteMedicoHora(consulta.PacienteId, consulta.MedicoId,
+                                               consulta.HoraConsulta) == null)
+            {
+                _context.Consultas.Update(consulta);
+                _context.SaveChanges();
+                return "";
+            }
+            return "Horário indisponível";
         }
     }
 }

@@ -124,6 +124,10 @@ namespace Agenda_WEB.Controllers
             string name = _signInManager.Context.User.Identity.Name;
             if (result.Succeeded)
             {
+                if (ViewBag.ReturnUrl != null)
+                {
+                    return RedirectToAction("Cadastrar", "Medico");
+                }
                 return RedirectToAction("Index", "Home");
             }
             ModelState.AddModelError("", "Login ou Senha inválido!");

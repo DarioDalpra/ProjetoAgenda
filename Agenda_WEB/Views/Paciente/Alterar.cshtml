@@ -5,56 +5,153 @@
 
 <form asp-controller="Paciente" asp-action="Alterar" method="post">
     <fieldset>
-        <legend>Alterar Paciente</legend>
+        <legend>Dados Pessoais - EDITAR</legend>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-        <label asp-for="Id">Id:</label>
-        <input asp-for="Id" readonly type="text" placeholder="Id" /><br />
-        <input asp-for="Id" name="HdnId" type="hidden" />
+        <div class="container">
+            <div class="row justify-content-left">
+                <div class="col-2">
+                    <div class="form-group">
+                        <label asp-for="Cpf">CPF:</label>
+                        <input asp-for="Cpf" class="form-control" id="cpf" type="text" />
+                        <span class="text-danger" asp-validation-for="Cpf"></span>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label asp-for="Nome">Nome:</label>
+                        <input asp-for="Nome" class="form-control" id="nome" type="text" />
+                        <span class="text-danger" asp-validation-for="Nome"></span>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label asp-for="Email">Email:</label>
+                        <input asp-for="Email" class="form-control" id="email" type="text" />
+                        <span class="text-danger" asp-validation-for="Email"></span>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label asp-for="Nascimento">Nascimento:</label>
+                        <input asp-for="Nascimento" class="form-control" id="nascimento" type="date" />
+                        <span class="text-danger" asp-validation-for="Nascimento"></span>
+                    </div>
+                </div>
+            </div>
 
-        <label asp-for="Nome">Nome:</label>
-        <input asp-for="Nome" type="text" placeholder="Nome" /><br />
+            <div class="row justify-content-left">
+                <div class="col-2">
+                    <div class="form-group">
+                        <button type="button" onclick="BuscarCep()" class="btn btn-primary">Buscar</button>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="form-group">
+                        <label asp-for="Rg">RG:</label>
+                        <input asp-for="Rg" class="form-control" id="rg" type="text" />
+                        <span class="text-danger" asp-validation-for="Rg"></span>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="form-group">
+                        <label asp-for="Telefone">Fone:</label>
+                        <input asp-for="Telefone" class="form-control" id="telefone" type="text" />
+                        <span class="text-danger" asp-validation-for="Telefone"></span>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="form-group">
+                        <label asp-for="PlanoSaudeId">Plano de Saúde:</label>
+                        <select class="form-control" asp-items="@ViewBag.PlanosSaude"
+                                asp-for="PlanoSaudeId">
+                            <option>  SELECIONE  </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <label asp-for="Cpf">CPF:</label>
-        <input asp-for="Cpf" type="text" placeholder="CPF" /><br />
+    </fieldset>
 
-        <label asp-for="Rg">RG:</label>
-        <input asp-for="Rg" type="text" placeholder="RG" /><br />
-
-        <label asp-for="Nascimento">Nascimento:</label>
-        <input asp-for="Nascimento" type="text" placeholder="Data de Nascimento" /><br />
-
-        <label asp-for="Telefone">Telefone:</label>
-        <input asp-for="Telefone" type="text" placeholder="Fone" /><br />
-
-        <label asp-for="Email">E-Mail:</label>
-        <input asp-for="Email" type="text" placeholder="E-mail" /><br />
-
-        <label asp-for="PlanoSaudeId">Plano de Saúde:</label>
-        <select class="form-control" asp-items="@ViewBag.PlanosSaude"
-                asp-for="PlanoSaudeId">
-            <option>  SELECIONE  </option>
-        </select>
-
-        <label asp-for="Cep">CEP:</label>
-        <input asp-for="Cep" type="text" placeholder="CEP do Paciente" /><br />
-
-        <button type="button" onclick="BuscarCep()" class="btn btn-primary">Buscar Endereço</button>
-
-        <label asp-for="Logradouro">Rua:</label>
-        <input asp-for="Logradouro" type="text" placeholder="Rua" /><br />
-
-        <label asp-for="Numero">Número:</label>
-        <input asp-for="Numero" type="text" placeholder="Núm" /><br />
-
-        <label asp-for="Bairro">Bairro:</label>
-        <input asp-for="Bairro" type="text" placeholder="Bairro do Paciente" /><br />
-
-        <label asp-for="Localidade">Cidade:</label>
-        <input asp-for="Localidade" type="text" placeholder="Cidade" /><br />
-
-        <label asp-for="Uf">Estado:</label>
-        <input asp-for="Uf" type="text" placeholder="Estado" /><br />
-
-        <input type="submit" value="Salvar" />
+    <fieldset>
+        <legend>Dados de Endereço</legend>
+        <div class="container">
+            <div class="row justify-content-left">
+                <div class="col-2">
+                    <div class="form-group">
+                        <label asp-for="Cep">CEP:</label>
+                        <input asp-for="Cep" class="form-control" id="cep" type="text" />
+                        <span class="text-danger" asp-validation-for="Cep"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-left">
+                <div class="col-2">
+                    <div class="form-group">
+                        <button type="button" onclick="BuscarCep()" class="btn btn-primary">Buscar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-left">
+                <div class="col-3">
+                    <div class="form-group">
+                        <label asp-for="Logradouro" class="control-label">Rua:</label>
+                        <input asp-for="Logradouro" class="form-control" id="logradouro" readonly />
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="form-group">
+                        <label asp-for="Numero" class="control-label">Nº:</label>
+                        <input asp-for="Numero" class="form-control" id="Numero" />
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label asp-for="Bairro" class="control-label">Bairro:</label>
+                        <input asp-for="Bairro" class="form-control" id="bairro" readonly />
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label asp-for="Localidade" class="control-label">Cidade:</label>
+                        <input asp-for="Localidade" class="form-control" id="localidade" readonly />
+                    </div>
+                </div>
+                <div class="col-1">
+                    <div class="form-group">
+                        <label asp-for="Uf" class="control-label">Estado:</label>
+                        <input asp-for="Uf" class="form-control" id="uf" readonly />
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-2">
+                    <div class="form-group">
+                        <input class="btn btn-info" type="submit" value="Editar" />
+                    </div>
+                </div>
+            </div>
+        </div>
     </fieldset>
 </form>
+
+<script>
+    var txtCep = document.getElementById("cep");
+    var txtLogradouro = document.getElementById("logradouro");
+    var txtBairro = document.getElementById("bairro");
+    var txtLocalidade = document.getElementById("localidade");
+    var txtUf = document.getElementById("uf");
+    function BuscarCep() {
+        var url = `https://viacep.com.br/ws/${txtCep.value}/json/`;
+        fetch(url, { method: "GET" })
+            .then(response => response.json())
+            .then(json => {
+                txtLogradouro.value = json.logradouro;
+                txtBairro.value = json.bairro;
+                txtLocalidade.value = json.localidade;
+                txtUf.value = json.uf;
+            })
+            .catch(error => console.log(error));
+    }
+</script>

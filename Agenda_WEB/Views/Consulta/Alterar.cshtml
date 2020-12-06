@@ -1,0 +1,72 @@
+﻿@*Tecnologia da página - Razor*@
+@model Consulta
+
+@using (Html.BeginForm())
+{
+    <form asp-controller="Consulta" asp-action="Editar" method="post" enctype="multipart/form-data">
+        <fieldset>
+            <legend>Selecionar Data - REAGENDAR</legend>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label asp-for="DataConsulta">Data:</label>
+                            <input class="form-control" asp-for="DataConsulta" type="date"
+                                   value="@ViewBag.DataConsulta" disabled="@ViewBag.msgSucesso" />
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+
+                            <label asp-for="HoraConsulta">Hora:</label>
+                            @Html.DropDownListFor(m => m.HoraConsulta, (SelectList)ViewBag.Horas, "SELECIONE", new { @class = "form-control" })
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-3">
+                        <div class="form-group text-left">
+                            <label>Paciente</label>
+                            <input class="form-control" asp-for="PacienteId" value="@ViewBag.PacienteId" hidden />
+                            <input class="form-control" asp-for="Paciente.Nome" value="@ViewBag.PacienteNome" disabled />
+                        </div>
+                    </div>
+
+                    <div class="col-3">
+                        <div class="form-group text-left">
+
+                            <label asp-for="MedicoId">Médico:</label>
+                            <select class="form-control" asp-for="MedicoId" asp-items="@ViewBag.Medicos"
+                                    disabled="@ViewBag.msgSucesso">
+                                <option>  SELECIONE  </option>
+                            </select>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-2">
+                        <button class="btn btn-info" type="submit">Reagendar</button>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-2">
+                        @if (ViewBag.msgSucesso != null)
+                        {
+                            <div class="alert alert-success" role="alert">
+                                @ViewBag.msgSucesso
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+
+}
