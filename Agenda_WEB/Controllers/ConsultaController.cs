@@ -31,7 +31,27 @@ namespace Agenda_WEB.Controllers
 
         public IActionResult Index()
         {
-            return View(_consultaDAO.Listar());
+            //List<Consulta> consultas = _consultaDAO.Listar();
+            ViewBag.Medicos = new SelectList(_medicoDAO.Listar(), "Id", "Nome");
+            ViewBag.Consultas = new List<Consulta>();
+            ViewBag.Count = 0;
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Index(Medico medico)
+        {
+            if (ModelState.IsValid)
+            {
+                if (medico.Id != 0)
+                {
+                    List<Consulta> consultas = _consultaDAO.ListarPorMedico(medico.Id);
+                    ViewBag.Consultas = consultas;
+                    ViewBag.Count = consultas.Count;
+                    ViewBag.Medicos = new SelectList(_medicoDAO.Listar(), "Id", "Nome");
+                }
+            }
+            return View();
         }
 
         public IActionResult Agendar(int p)
@@ -94,14 +114,12 @@ namespace Agenda_WEB.Controllers
                 ViewBag.PacienteNome = consulta.Paciente.Nome;
                 ViewBag.PacienteId = consulta.PacienteId;
                 ViewBag.Horas = new SelectList(new List<string>(new string[]
-                {"09:00", "09:20", "09:40", "10:00", "10:20"}
+                {"09:00","09:20","09:40","10:00","10:20","10:40","11:00","11:20","11:40",
+                 "12:00","12:20","12:40","13:00","13:20","13:40","14:00","14:20","14:40",
+                 "15:00","15:20","15:40","16:00","16:20","16:40","17:00","17:20","17:40"}
                 ), consulta.HoraConsulta.Trim());
-                //ViewBag.DtaConsulta = consulta.DataConsulta;
-                //ViewBag.HraConsulta = consulta.HoraConsulta;
-                //ViewBag.PacienteId = consulta.PacienteId;
-                //ViewBag.PacienteNome = consulta.Paciente.Nome;
                 ViewBag.Medicos = new SelectList(_medicoDAO.Listar(), "Id", "Nome");
-                //ViewBag.MedicoId = consulta.MedicoId;
+
 
                 return View(consulta);
             }
@@ -157,6 +175,22 @@ namespace Agenda_WEB.Controllers
             ViewBag.Title = "Prontuário";
             return RedirectToAction("Cadastrar", "Prontuario", new { p = consulta.Id });
         }
+
+
+        //public IActionResult CriarAgendaMedica(int id)
+        //{
+        //    Consulta consulta = _consultaDAO.BuscarPorId(id);
+
+        //    return RedirectToAction("AgendaMedica", new { consulta });
+        //}
+
+        //[HttpGet]
+        //public IActionResult AgendaMedica(Consulta consulta)
+        //{
+        //    ViewBag.Title = "Agenda Médica";
+        //    return RedirectToAction("Listar", "Agenda", new { p = consulta.Id });
+        //}
+
 
     }
 }

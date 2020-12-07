@@ -12,13 +12,15 @@ namespace Agenda_WEB.Models
             Medico = new Medico();
         }
 
+
         [ForeignKey("PacienteId")]
-        public Paciente Paciente { get; set; }
+        public virtual Paciente Paciente { get; set; }
         public int PacienteId { get; set; }
 
         [ForeignKey("MedicoId")]
-        public Medico Medico { get; set; }
+        public virtual Medico Medico { get; set; }
         public int MedicoId { get; set; }
+
 
         public DateTime DataConsulta { get; set; }
 

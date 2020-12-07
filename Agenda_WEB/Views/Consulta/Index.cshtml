@@ -1,7 +1,25 @@
-﻿@model List<Consulta>
+﻿@model Medico
 
-<h3 class="espacamento-baixo">Lista de Consulta</h3>
+<h3 class="espacamento-baixo">Agenda Médica</h3>
 
+<form asp-action="Index" asp-controller="Consulta" method="post" enctype="multipart/form-data">
+    <div class="row justify-content-center">
+        <div class="col-3">
+            <div class="form-group text-left">
+                <label>Médico:</label>
+                <select class="form-control" id="medicoIdSelect" asp-for="Id" asp-items="@ViewBag.Medicos">
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-2">
+            <div class="form-group">
+                <input class="btn btn-info" type="submit" value="Filtrar" />
+            </div>
+        </div>
+    </div>
+</form>
 
 <table class="table table-hover table-striped espacamento-baixo">
     <thead>
@@ -9,14 +27,12 @@
             <th>#</th>
             <th>DataConsulta</th>
             <th>HoraConsulta</th>
-            <th>PacienteId</th>
-            <th>MedicoId</th>
-            @*<th>Criado em</th>*@
-
+            <th>Paciente</th>
+            <th>Medico</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (Consulta consultaCadastrado in Model)
+        @foreach (Consulta consultaCadastrado in ViewBag.Consultas)
         {
             <tr>
                 <td>@consultaCadastrado.Id</td>
@@ -24,7 +40,6 @@
                 <td>@consultaCadastrado.HoraConsulta</td>
                 <td>@consultaCadastrado.PacienteId</td>
                 <td>@consultaCadastrado.MedicoId</td>
-                @*<td>@consultaCadastrado.CriadoEm.ToString("dd/MM/yyyy")</td>*@
                 <td>
                     <a asp-controller="Consulta"
                        asp-action="Alterar"
@@ -42,5 +57,5 @@
     </tbody>
 </table>
 
-<p><b>Quantidade de pacientes: </b> @Model.Count </p>
+<p><b>Quantidade de pacientes: </b> @ViewBag.Count </p>
 <p><b>Dados atualizados: </b> @DateTime.Now </p>

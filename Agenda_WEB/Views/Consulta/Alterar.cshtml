@@ -18,12 +18,9 @@
                     </div>
                     <div class="col-3">
                         <div class="form-group">
-
                             <label asp-for="HoraConsulta">Hora:</label>
                             @Html.DropDownListFor(m => m.HoraConsulta, (SelectList)ViewBag.Horas, "SELECIONE", new { @class = "form-control" })
-
                         </div>
-
                     </div>
                 </div>
 
@@ -38,13 +35,11 @@
 
                     <div class="col-3">
                         <div class="form-group text-left">
-
                             <label asp-for="MedicoId">Médico:</label>
                             <select class="form-control" asp-for="MedicoId" asp-items="@ViewBag.Medicos"
                                     disabled="@ViewBag.msgSucesso">
                                 <option>  SELECIONE  </option>
                             </select>
-
                         </div>
                     </div>
                 </div>

@@ -32,28 +32,20 @@ namespace Agenda_WEB.Controllers
             return BadRequest(new { msg = "A lista de consultas está vazia!" });
         }
 
-        ////GET: /api/Consulta/Alterar/1
-        //[HttpPost]
-        //[Route("Alterar/{id}")]
-        //public IActionResult Alterar(int id)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        Consulta consulta = _consultaDAO.BuscarPorId(id);
+        //GET: /api/Consulta/AgendaMedica
+        [HttpGet]
+        [Route("AgendaMedica/{id}")]
+        public IActionResult AgendaMedica(int id)
+        {
+            List<Consulta> consultas = _consultaDAO.ListarPorMedico(id);
+            if (consultas.Count > 0)
+            {
+                return Ok(consultas);
+            }
+            return BadRequest(new { msg = "A lista de consultas está vazia!" });
+        }
 
-        //        if (consulta != null)
-        //        {
-        //            if (_consultaDAO.Alterar(consulta))
-        //            {
-        //                return Created("", consulta);
-        //            }
-        //            return Conflict(new { msg = "Essa consulta já existe!" });
-        //        }
-        //        return BadRequest(ModelState);
-        //        //return Ok(consulta);
-        //    }
-        //    return NotFound(new { msg = "Consulta não encontrada!" });
-        //    }
+
     }
 
 }

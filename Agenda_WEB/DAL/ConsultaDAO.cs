@@ -12,7 +12,7 @@ namespace Agenda_WEB.DAL
 
         public ConsultaDAO(Context context) => _context = context;
 
-        public List<Consulta> Listar() => _context.Consultas.ToList();
+        public List<Consulta> Listar() => _context.Consultas.Include(p => p.Paciente).Include(m => m.Medico).ToList();
 
         public Consulta BuscarPorId(int id) => _context.Consultas.Include(x => x.Paciente).FirstOrDefault(x => x.Id == id);
 

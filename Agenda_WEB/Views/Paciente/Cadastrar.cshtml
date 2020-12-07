@@ -58,7 +58,7 @@
                         <span class="text-danger" asp-validation-for="Telefone"></span>
                     </div>
                 </div>
-                <div class="col-2">
+                <div class="col-3">
                     <div class="form-group">
                         <label asp-for="PlanoSaudeId">Plano de Saúde:</label>
                         <select class="form-control" asp-items="@ViewBag.PlanosSaude" id="planosaude"
@@ -166,7 +166,7 @@
         var txtBairro = document.getElementById("bairro");
         var txtLocalidade = document.getElementById("localidade");
         var txtUf = document.getElementById("uf");
-        var url = `http://localhost:52610/api/Consulta/Buscar/${txtCpf.value}`;
+        var url = `http://localhost:54131/api/Consulta/Buscar/${txtCpf.value}`;
         fetch(url, { method: "GET" })
             .then(response => response.json())
             .then(json => {
