@@ -27,9 +27,9 @@ Atendente1 	- 933.696.540-91 - 37.704.224-9 - atendente1@agenda.com.br
 Atendente2 	- 652.260.740-93 - 47.526.025-9 - atendente2@agenda.com.br
 Atendente3 	- 946.786.050-37 - 19.082.479-7 - atendente3@agenda.com.br
 
-Paciente1 	- 088.795.200-32 - 21.701.448-3 - paciente1@agenda.com.br
-Paciente2 	- 321.849.830-98 - 49.588.063-2 - paciente2@agenda.com.br
-Paciente3 	- 252.019.310-73 - 28.788.848-4 - paciente3@agenda.com.br
+Paciente1 	- 088.795.200-32 - 21.701.448-3 - paciente1@agenda.com.br  - 81925-370
+Paciente2 	- 321.849.830-98 - 49.588.063-2 - paciente2@agenda.com.br  - 82990-530
+Paciente3 	- 252.019.310-73 - 28.788.848-4 - paciente3@agenda.com.br  - 82030-110
 
 CNPJ
 Fornecedor1 - 81.308.299/0001-48
